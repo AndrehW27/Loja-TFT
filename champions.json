@@ -1,0 +1,104 @@
+{
+    "champsList": [
+        {
+            "champsLevel1": [
+                {
+                    "nome": "Ziggs",
+                    "classe": "Enfeitiçador",
+                    "origem": "Endiabrado"
+                },
+                {
+                    "nome": "Leona",
+                    "classe": "Redimido",
+                    "origem": "Cavaleiro"
+                },
+                {
+                    "nome": "Kha'Zix",
+                    "classe": "Assassino",
+                    "origem": "Emissário da Luz"
+                }
+            ]
+        },
+
+        {
+            "champsLevel2": [
+                {
+                    "nome": "Syndra",
+                    "classe": "Redimido",
+                    "origem": "Emanador"
+                },
+                {
+                    "nome": "Brand",
+                    "classe": "Enfeitiçador",
+                    "origem": "Abominação"
+                },
+                {
+                    "nome": "Twisted Fate",
+                    "classe": "Enfeitiçador",
+                    "origem": "Esquecido"
+                }
+            ]
+        },
+
+        {
+            "champsLevel3": [
+                {
+                    "nome": "Morgana",
+                    "classe": "Místico",
+                    "origem": "Emissário da Escuridão"
+                },
+                {
+                    "nome": "Yassuo",
+                    "classe": "Legionário",
+                    "origem": "Emissário da Escuridão"
+                },
+                {
+                    "nome": "Lux",
+                    "classe": "Místico",
+                    "origem": "Redimido"
+                }
+            ]
+        },
+
+        {
+            "champsLevel4": [
+                {
+                    "nome": "Velkoz",
+                    "classe": "Enfeitiçador",
+                    "origem": "Redimido"
+                },
+                {
+                    "nome": "Rell",
+                    "classe": "Encouraçado",
+                    "origem": "Redimido"
+                },
+                {
+                    "nome": "Draven",
+                    "classe": "Legionário",
+                    "origem": "Esquecido"
+                }
+            ]
+        },
+
+        {
+            "champsLevel5": [
+                {
+                    "nome": "Garen",
+                    "classe": "Cavaleiro",
+                    "origem": "Emisssário da Luz"
+                },
+                {
+                    "nome": "Darius",
+                    "classe": "Cavaleiro",
+                    "origem": "Emissário da Escuridão"
+                },
+                {
+                    "nome": "Volibear",
+                    "classe": "Lutador",
+                    "origem": "Regresasdo"
+                }
+            ]
+        }      
+
+    ]
+}
