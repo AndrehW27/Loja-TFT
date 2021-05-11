@@ -5,14 +5,7 @@
   
     height: 50px;
     width: 1200px;
-/* 
-    border-top: 2px solid rgba(175, 153, 24, 0.836);
-    border-right: 2px solid rgba(175, 153, 24, 0.836);
-    border-left: 2px solid rgba(175, 153, 24, 0.836); */
 
-    /* border-radius: 1rem; */
-
-    /* background-color: rgba(0, 0, 0, 0.85); */
     background-color: transparent;
 
     color: white;
@@ -59,13 +52,13 @@
 }
 
 .level p:first-child{
-    font-size: 1.15rem;
+    font-size: 1.2rem;
     font-weight: bold;
     padding: 0.2rem 0.75rem;
 }
 
 .level p:last-child{  
-    font-size: 0.75rem;
+    font-size: 1rem;
     padding: 0.2rem 0.75rem;
 }
 
@@ -74,7 +67,7 @@
     align-items: center;
     justify-content: space-evenly;
 
-    font-size: 0.75rem;
+    font-size: 0.85rem;
 
     position: relative;
     background-color: rgb(7, 42, 44, 0.9);
@@ -86,19 +79,29 @@
 }
 
 .oneStar{
-    color: grey;
+    text-align: center;
+    min-width: 40px;
+    color: rgb(161, 161, 161);    
 }
 .twoStar{
-    color: rgb(55, 165, 55);
+    text-align: center;
+    min-width: 40px;
+    color: rgb(80, 221, 80);
 }
 .threeStar{
+    text-align: center;
+    min-width: 40px;
     color: rgb(91, 162, 228);
 }
 .fourStar{
-    color: rgb(168, 8, 155);
+    text-align: center;
+    min-width: 40px;
+    color: rgb(223, 67, 210);
 }
 .fiveStar{
-    color: rgb(214, 165, 30);
+    text-align: center;
+    min-width: 40px;
+    color: rgb(241, 196, 69);
 }
 
 .gold{
@@ -120,7 +123,92 @@
     width: 130px;    
 }
 
-.goldIcon{
+.buttonsGold{
+    display: flex;     
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly; 
+
+    position: relative;
+    left: 45px;
+
+    background-color: rgb(7, 42, 44, 0.9);
+    border-top: 2px solid rgba(175, 153, 24, 0.836);
+    border-right: 2px solid rgba(175, 153, 24, 0.836);
+
+    height: 100%;
+    width: 40px;  
+}
+
+.upGoldOut{
+    display: flex;     
+    align-items: center;
+    justify-content: center;
+    height: 50%;
+    width: 100%;
+    border-bottom: 2px solid rgba(175, 153, 24, 0.836); 
+    background-color: rgb(7, 42, 44, 0.9);
+    color: white;
+
+}
+
+.upGold{
+    background: url('../assets/up-arrow-gold.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    width: 8px;
+    height: 8px;   
+}
+
+.mais5{
+    font-size: 0.7rem;
+    padding: 0 0.25rem;
+}
+
+.downGold{
+    background: url('../assets/down-arrow-gold.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    width: 8px;
+    height: 8px;   
+}
+
+.downGoldOut{
+    display: flex;     
+    align-items: center;
+    justify-content: center;
+    height: 50%;
+    width: 100%;
+    background-color: rgb(7, 42, 44, 0.9);
+    color: white;
+
+}
+
+.resetGold{
+    background: url('../assets/reset-golden.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    width: 15px;
+    height: 15px;   
+}
+
+.resetGoldOut{
+    display: flex;     
+    align-items: center;
+    justify-content: center;
+    
+    width: 100%;
+
+}
+
+.goldIcon{ 
+
     background: url('../assets/coin.png');
     background-position: center;
     background-repeat: no-repeat;
@@ -131,6 +219,7 @@
 }
 
 .goldValue{
+    font-size: 1.25rem;
     margin: 6px;
 }
 
@@ -142,7 +231,7 @@
     font-size: 0.75rem;
 
     position: relative;
-    left: 500px;
+    left: 420px;
     
     background-color: rgb(7, 42, 44, 0.9);
     border-top: 2px solid rgba(175, 153, 24, 0.836);
@@ -152,6 +241,7 @@
     height: 75%;
     width: 65px;
     cursor: pointer;
+    transition: 200ms;
 }
 
 .lock:hover{
@@ -225,20 +315,126 @@ h1{
     height: 100%;
     flex: 1;
     cursor: pointer;
+    transition: 200ms;
 }
 
 .levelUp:hover, .levelDown:hover, .resetLevel:hover{
-    opacity: 0.85;
+    opacity: 0.75;
+}
+
+.upXPOut, .downXPOut, .resetOut{
+    cursor: pointer;
+    display: flex;     
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    border-bottom: 2px solid rgba(175, 153, 24, 0.836); 
+    background-color: rgb(7, 42, 44, 0.9);
+    color: white;
+}
+
+.upXP{
+    background: url('../assets/up-arrow-gold.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    width: 15px;
+    height: 15px;   
+}
+
+.downXP{
+    background: url('../assets/down-arrow-gold.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    width: 15px;
+    height: 15px;   
+}
+
+.resetXP{
+    background: url('../assets/reset-golden.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    width: 25px;
+    height: 25px;   
+}
+
+.mais1{
+    font-size: 1.2rem;
+    padding: 0 0.35rem;
 }
 
 .buy{
-    border: 2px solid rgba(85, 167, 173, 0.836);  
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 2px solid rgb(21, 110, 151, 0.836);  
     background-color: rgba(21, 54, 54, 0.836);  
+    font-size: 0.9rem;
+}
+
+.buyXp, .refreshBox{
+    margin: 0 1rem;
+}
+
+.valueAndIconContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.buyValue{
+    font-size: 0.8rem;
+    margin: 0 0.5rem;
+}
+
+.buyGold{
+    background: url('../assets/coin.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    width: 10px;
+    height: 10px;   
+}
+
+
+/* COR: #156E97 */
+.buyXpIcon{
+    background: url('../assets/up-chevron.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    width: 30px;
+    height: 30px;   
+    margin: 0 1rem;
 }
 
 .refresh{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     border: 2px solid rgba(175, 153, 24, 0.836);  
     background-color: rgba(58, 50, 2, 0.836);  
+    font-size: 0.9rem;
+}
+
+.refreshIcon{
+
+    background: url('../assets/reload.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    width: 30px;
+    height: 30px;   
+    margin: 0 1rem;
 }
 
 .myButtonLvl{
@@ -254,19 +450,19 @@ h1{
     cursor: pointer;
     display: flex;
     align-items: center;
-    justify-content: center;
+    /* justify-content: center; */
 
-    font-size: 1.15rem;
     font-weight: bold;
     color: white;
 
     transform: scale(0.9);
     width: 100%;
     height: 50px; 
+    transition: 200ms;
 }
 
 .myButton:hover{
-    opacity: 0.85;
+    opacity: 0.75;
 }
 
 .championBox{
