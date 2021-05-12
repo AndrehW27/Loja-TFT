@@ -1,3 +1,7 @@
+#iconInicial1, #iconInicial2, #iconInicial3, #iconInicial4, #iconInicial5{
+    display: none;
+}
+
 .levelBar{
     display: flex;
     align-items: flex-end;
@@ -471,44 +475,15 @@ h1{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
-    border: 2px solid rgba(82, 82, 82, 0.85);
-    /* border-radius: 1rem; */
+    border: 3px solid rgba(58, 58, 87, 0.836);  
 
     height: 100%;
     width: 195px;
-
     transform: scale(0.9);
 }
 
-#box1{    
-    border: 3px solid rgb(38, 38, 58);    
-}
-#box2{    
-    border: 3px solid rgb(38, 38, 58);    
-}
-#box3{    
-    border: 3px solid rgb(38, 38, 58);    
-}
-#box4{    
-    border: 3px solid rgb(38, 38, 58);    
-}
-#box5{    
-    border: 3px solid rgb(38, 38, 58);    
-}
 
 
-/* .champImg1{
-    position: absolute;
-    top: 0;
-   
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-
-    height: 75%;    
-    width: 100%; 
-} */
 .champImg{
     position: absolute;
     top: 0;
@@ -526,7 +501,7 @@ h1{
     align-items: center;
     justify-content: space-between;
     padding: 0 1rem;
-    background-color: rgb(38, 38, 58);  
+    /* background-color: rgb(38, 38, 58);   */
     height: 25%;    
     width: 100%;
     position: absolute;
