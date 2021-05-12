@@ -138,6 +138,7 @@
 
     height: 100%;
     width: 40px;  
+    cursor: pointer;
 }
 
 .upGoldOut{
@@ -149,7 +150,7 @@
     border-bottom: 2px solid rgba(175, 153, 24, 0.836); 
     background-color: rgb(7, 42, 44, 0.9);
     color: white;
-
+    cursor: pointer;
 }
 
 .upGold{
@@ -185,7 +186,7 @@
     width: 100%;
     background-color: rgb(7, 42, 44, 0.9);
     color: white;
-
+    cursor: pointer;
 }
 
 .resetGold{
@@ -393,7 +394,7 @@ h1{
     margin: 0 0.5rem;
 }
 
-.buyGold{
+.buyGoldIcon{
     background: url('../assets/coin.png');
     background-position: center;
     background-repeat: no-repeat;
@@ -467,6 +468,7 @@ h1{
 
 .championBox{
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 
@@ -478,3 +480,102 @@ h1{
 
     transform: scale(0.9);
 }
+
+#box1{    
+    border: 3px solid rgb(38, 38, 58);    
+}
+#box2{    
+    border: 3px solid rgb(38, 38, 58);    
+}
+#box3{    
+    border: 3px solid rgb(38, 38, 58);    
+}
+#box4{    
+    border: 3px solid rgb(38, 38, 58);    
+}
+#box5{    
+    border: 3px solid rgb(38, 38, 58);    
+}
+
+
+/* .champImg1{
+    position: absolute;
+    top: 0;
+   
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    height: 75%;    
+    width: 100%; 
+} */
+.champImg{
+    position: absolute;
+    top: 0;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    height: 75%;    
+    width: 100%; 
+}
+
+.champNome1{
+    display: flex;   
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem;
+    background-color: rgb(38, 38, 58);  
+    height: 25%;    
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+.champNome2{
+    display: flex;   
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem;
+    background-color: rgb(38, 38, 58);  
+    height: 25%;    
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+.champNome3{
+    display: flex;   
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem;
+    background-color: rgb(38, 38, 58);  
+    height: 25%;    
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+.champNome4{
+    display: flex;   
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem;
+    background-color: rgb(38, 38, 58);  
+    height: 25%;    
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+.champNome5{
+    display: flex;   
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem;
+    background-color: rgb(38, 38, 58);  
+    height: 25%;    
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+
+
+

@@ -1,11 +1,15 @@
 import { useState, useEffect } from 'react';
 import '../styles/store.css';
+
+import imgInicial from '../assets/tft-battle-field.jpg';
+import ziggsImg from '../assets/champs/ziggs.jpg';
+
 import paperSound from '../assets/paper.mp3';
 import paperSound2 from '../assets/paper2.mp3';
 import moneySound from '../assets/money.mp3';
 import padlockSound from '../assets/padlock.mp3';
 import clickSound from '../assets/click-sound.mp3';
-import championsArr from '../champions.json';
+// import championsArr from '../champions.json';
 
 
 export default function Bottom() {
@@ -26,7 +30,7 @@ export default function Bottom() {
         new Audio(paperSound2).play();
     }
 
-    const [champions, setChampions] = useState([]);
+    // const [champions, setChampions] = useState([]);
     const [gold, setGold] = useState(50);
     const [level, setLevel] = useState(1);
     const [currentExp, setCurrentExp] = useState(0);
@@ -39,12 +43,21 @@ export default function Bottom() {
     const [oddsFiveStar, setOddsFiveStar] = useState(0);
 
 
-    const [championBox1, setChampionBox1] = useState(1);
-    const [championBox2, setChampionBox2] = useState(1);
-    const [championBox3, setChampionBox3] = useState(1);
-    const [championBox4, setChampionBox4] = useState(1);
-    const [championBox5, setChampionBox5] = useState(1);
+    const [championBox1, setChampionBox1] = useState("");
+    const [champImg1, setChampImg1] = useState(imgInicial);
 
+    const [championBox2, setChampionBox2] = useState("");
+    const [champImg2, setChampImg2] = useState(imgInicial);
+
+    const [championBox3, setChampionBox3] = useState("");
+    const [champImg3, setChampImg3] = useState(imgInicial);
+
+    const [championBox4, setChampionBox4] = useState("");
+    const [champImg4, setChampImg4] = useState(imgInicial);
+
+    const [championBox5, setChampionBox5] = useState("");
+    const [champImg5, setChampImg5] = useState(imgInicial);
+    
     // let championsvar = JSON.stringify(championsArr[0]);
     // setChampions(championsvar);
 
@@ -93,26 +106,76 @@ export default function Bottom() {
         }
     }
 
+
+
+
+    let champs1 = [{ nome: "Ziggs", imagem: "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Ziggs_7.jpg" },
+    { nome: "Kha'Zix", imagem: "https://arenaesports.com.br/wp-content/uploads/2018/09/Kha-Zix-campeonato.jpg" },
+    { nome: "Leona", imagem: "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Leona_10.jpg" }]
+
     // ATUALIZAR LOJA
     const refreshStore = () => {
-        let randomBox1 = Math.floor(Math.random() * 10)
-        setChampionBox1(randomBox1);
 
-        let randomBox2 = Math.floor(Math.random() * 10)
-        setChampionBox2(randomBox2);
+        // LEVEL 1
+        if (level === 1 && gold > 1) {
+            let randomBox1 = Math.floor(Math.random() * 3);
+            let novoChampBox1 = champs1[randomBox1].nome;
+            let novoImg1 = champs1[randomBox1].imagem;
+            setChampImg1(novoImg1);
+            setChampionBox1(novoChampBox1);
 
-        let randomBox3 = Math.floor(Math.random() * 10)
-        setChampionBox3(randomBox3);
+            let randomBox2 = Math.floor(Math.random() * 3);
+            let novoChampBox2 = champs1[randomBox2].nome;
+            let novoImg2 = champs1[randomBox2].imagem;
+            setChampImg2(novoImg2);
+            setChampionBox2(novoChampBox2);
 
-        let randomBox4 = Math.floor(Math.random() * 10)
-        setChampionBox4(randomBox4);
+            let randomBox3 = Math.floor(Math.random() * 3);
+            let novoChampBox3 = champs1[randomBox3].nome;
+            let novoImg3 = champs1[randomBox3].imagem;
+            setChampImg3(novoImg3);
+            setChampionBox3(novoChampBox3);
 
-        let randomBox5 = Math.floor(Math.random() * 10)
-        setChampionBox5(randomBox5);
+            let randomBox4 = Math.floor(Math.random() * 3);
+            let novoChampBox4 = champs1[randomBox4].nome;
+            let novoImg4 = champs1[randomBox4].imagem;
+            setChampImg4(novoImg4);
+            setChampionBox4(novoChampBox4);
 
-        if (gold > 1) {
-            setGold(gold - 2)
+            let randomBox5 = Math.floor(Math.random() * 3);
+            let novoChampBox5 = champs1[randomBox5].nome;
+            let novoImg5 = champs1[randomBox5].imagem;
+            setChampImg5(novoImg5);
+            setChampionBox5(novoChampBox5);
+
+            if (gold > 1) {
+                setGold(gold - 2)
+            }
         }
+
+        // LEVEL 2
+        else if (level === 2) {
+            let randomBox1 = Math.floor(Math.random() * (6 - 3)) + 3;
+            setChampionBox1(randomBox1);
+
+            let randomBox2 = Math.floor(Math.random() * (6 - 3)) + 3;
+            setChampionBox2(randomBox2);
+
+            let randomBox3 = Math.floor(Math.random() * (6 - 3)) + 3;
+            setChampionBox3(randomBox3);
+
+            let randomBox4 = Math.floor(Math.random() * (6 - 3)) + 3;
+            setChampionBox4(randomBox4);
+
+            let randomBox5 = Math.floor(Math.random() * (6 - 3)) + 3;
+            setChampionBox5(randomBox5);
+
+            if (gold > 1) {
+                setGold(gold - 2)
+            }
+        }
+
+
     }
 
     // ALTERARANDO ODDS DE ACORDO COM O LEVEL
@@ -255,7 +318,7 @@ export default function Bottom() {
                             Buy XP
                             <div className="valueAndIconContainer">
                                 <p className="buyValue">4</p>
-                                <div className="buyGold"></div>
+                                <div className="buyGoldIcon"></div>
                             </div>
                         </p>
                         <div className="buyXpIcon"></div>
@@ -265,18 +328,64 @@ export default function Bottom() {
                             Refresh
                         <div className="valueAndIconContainer">
                                 <p className="buyValue">2</p>
-                                <div className="buyGold"></div>
+                                <div className="buyGoldIcon"></div>
                             </div>
                         </p>
                         <div className="refreshIcon"></div>
                     </button>
                 </div>
 
-                <div className="championBox" id="1">{championBox1}</div>
-                <div className="championBox" id="2">{championBox2}</div>
-                <div className="championBox" id="3">{championBox3}</div>
-                <div className="championBox" id="4">{championBox4}</div>
-                <div className="championBox" id="5">{championBox5}</div>
+                <div className="championBox" id="box1">
+                    <img src={champImg1} className="champImg"></img>
+                    <div className="champNome1">
+                        {championBox1}
+                        <div className="valueAndIconContainer">
+                            <div className="buyGoldIcon"></div>
+                            <p className="buyValue">1</p>
+                        </div>
+                    </div>
+                </div>
+                <div className="championBox" id="box2">
+                    <img src={champImg2} className="champImg"></img>
+                    <div className="champNome2">
+                        {championBox2}
+                        <div className="valueAndIconContainer">
+                            <div className="buyGoldIcon"></div>
+                            <p className="buyValue">1</p>
+                        </div>
+                    </div>
+                </div>
+                <div className="championBox" id="box3">
+                    <img src={champImg3} className="champImg"></img>
+                    <div className="champNome3">
+                        {championBox3}
+                        <div className="valueAndIconContainer">
+                            <div className="buyGoldIcon"></div>
+                            <p className="buyValue">1</p>
+                        </div>
+                    </div>
+                </div>
+                <div className="championBox" id="box4">
+                    <img src={champImg4} className="champImg"></img>
+                    <div className="champNome4">
+                        {championBox4}
+                        <div className="valueAndIconContainer">
+                            <div className="buyGoldIcon"></div>
+                            <p className="buyValue">1</p>
+                        </div>
+                    </div>
+                </div>
+                <div className="championBox" id="box5">
+                    <img src={champImg5} className="champImg"></img>
+                    <div className="champNome5">
+                        {championBox5}
+                        <div className="valueAndIconContainer">
+                            <div className="buyGoldIcon"></div>
+                            <p className="buyValue">1</p>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     );
