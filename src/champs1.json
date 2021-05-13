@@ -1,0 +1,21 @@
+[
+    {
+        "nome": "Ziggs",
+        "star": 1,
+        "cor": "rgba(58, 58, 87, 0.836)",
+        "imagem": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Ziggs_7.jpg"
+    },
+    {
+        "nome": "Kha'Zix",
+        "star": 2,
+        "cor": "rgba(17, 83, 52, 0.836)",
+        "imagem": "https://arenaesports.com.br/wp-content/uploads/2018/09/Kha-Zix-campeonato.jpg"
+    },
+    {
+        "nome": "Leona",
+        "star": 3,
+        "cor": "rgba(30, 72, 121, 0.836)",
+        "imagem": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Leona_10.jpg"
+    }
+]
+
