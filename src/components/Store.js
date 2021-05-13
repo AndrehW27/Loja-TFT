@@ -136,6 +136,7 @@ export default function Bottom() {
         setLevel(1);
         setCurrentExp(0);
         setMaxExp(2);
+        document.getElementById("maisUmXpId").classList.remove("botaoDestivado");
     }
 
     // COMPRANDO XP
@@ -143,6 +144,20 @@ export default function Bottom() {
         if (gold > 3) {
             setGold(gold - 4)
             setCurrentExp(currentExp + 4);
+
+            // if (level === 3) {
+            //     setMaxExp(6)
+            // } else if (level === 4) {
+            //     setMaxExp(10)
+            // } else if (level === 5) {
+            //     setMaxExp(20)
+            // } else if (level === 6) {
+            //     setMaxExp(36)
+            // } else if (level === 7) {
+            //     setMaxExp(56)
+            // } else if (level === 8) {
+            //     setMaxExp(80)
+            // }
         }
     }
 
@@ -150,7 +165,11 @@ export default function Bottom() {
     useEffect(() => {
         if (currentExp >= maxExp) {
             setLevel(level + 1)
-            setCurrentExp(0);
+            if (level >= 3) {
+                setCurrentExp(currentExp - maxExp);
+            }else{
+                setCurrentExp(0)
+            }
         }
     }, [currentExp])
 
@@ -181,38 +200,43 @@ export default function Bottom() {
             setOddsThreeStar(0);
             setOddsFourStar(0);
             setOddsFiveStar(0);
+            setMaxExp(6)
         } else if (level === 4) {
             setOddsOneStar(55);
             setOddsTwoStar(30);
             setOddsThreeStar(15);
             setOddsFourStar(0);
             setOddsFiveStar(0);
+            setMaxExp(10)
         } else if (level === 5) {
             setOddsOneStar(45);
             setOddsTwoStar(33);
             setOddsThreeStar(20);
             setOddsFourStar(2);
             setOddsFiveStar(0);
+            setMaxExp(20)
         } else if (level === 6) {
             setOddsOneStar(35);
             setOddsTwoStar(35);
             setOddsThreeStar(25);
             setOddsFourStar(5);
             setOddsFiveStar(0);
+            setMaxExp(36)
         } else if (level === 7) {
             setOddsOneStar(19);
             setOddsTwoStar(35);
             setOddsThreeStar(30);
             setOddsFourStar(15);
             setOddsFiveStar(1);
+            setMaxExp(56)
         } else if (level === 8) {
             setOddsOneStar(15);
             setOddsTwoStar(20);
             setOddsThreeStar(35);
             setOddsFourStar(25);
             setOddsFiveStar(5);
+            setMaxExp(80)
             document.getElementById("maisUmXpId").classList.remove("botaoDestivado");
-
         } else if (level >= 9) {
             setOddsOneStar(10);
             setOddsTwoStar(15);
