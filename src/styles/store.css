@@ -2,16 +2,46 @@
     display: none;
 }
 
+.containerStore{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    height: 100vh;
+    /* border: 5px solid red; */
+}
+
+.startBox{   
+    display: flex; 
+    align-items: flex-start;
+    justify-content: center;
+    height: 200px;
+    width: 100%;
+    /* border: 5px solid green; */
+}
+
+.buttonStart{
+    font-size: 1.5rem;
+    margin: 0 4rem;
+    padding: 1rem 3rem;
+    color: white;    
+    background-color: rgb(7, 42, 44, 0.9);
+    border: 2px solid rgba(175, 153, 24, 0.836);
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+.wholeStore{
+    /* border: 5px solid blue; */
+}
+
 .levelBar{
     display: flex;
     align-items: flex-end;
-    /* justify-content: center; */
-  
-    height: 50px;
+    /* justify-content: center; */  
+    height:75px;
     width: 1200px;
-
     background-color: transparent;
-
     color: white;
     box-sizing: border-box;
 }
@@ -21,18 +51,14 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
     position: relative;
     left: 0;
-
     background-color: rgb(7, 42, 44, 0.9);
     border-top: 2px solid rgba(175, 153, 24, 0.836);
     border-right: 2px solid rgba(175, 153, 24, 0.836);
-    border-left: 2px solid rgba(175, 153, 24, 0.836); 
-    
+    border-left: 2px solid rgba(175, 153, 24, 0.836);     
     height: 100%;
-    width: 230px;
-
+    width: 220px;
     z-index: 2;
 }
 
@@ -41,6 +67,7 @@
     width: 100%; 
     align-items: center;
     justify-content: space-between;
+    height: 45%;
 }
 
 .levelUpgrade{
@@ -78,7 +105,7 @@
     border-top: 2px solid rgba(175, 153, 24, 0.836);
     border-right: 2px solid rgba(175, 153, 24, 0.836);
    
-    height: 75%;
+    height: 50%;
     width: 275px;
 }
 
@@ -112,18 +139,14 @@
     display: flex;     
     align-items: center;
     justify-content: center;
-
     position: relative;
-    left: 45px;
-
+    left: 65px;
     background-color: transparent;
-
     background-color: rgb(7, 42, 44, 0.9);
     border-top: 2px solid rgba(175, 153, 24, 0.836);
     border-right: 2px solid rgba(175, 153, 24, 0.836);
     border-left: 2px solid rgba(175, 153, 24, 0.836); 
-
-    height: 100%;
+    height: 75%;
     width: 130px;    
 }
 
@@ -132,16 +155,13 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly; 
-
     position: relative;
-    left: 45px;
-
+    left: 65px;
     background-color: rgb(7, 42, 44, 0.9);
     border-top: 2px solid rgba(175, 153, 24, 0.836);
     border-right: 2px solid rgba(175, 153, 24, 0.836);
-
-    height: 100%;
-    width: 40px;  
+    height: 75%;
+    width: 50px;  
     cursor: pointer;
 }
 
@@ -234,16 +254,13 @@
     align-items: center;
     justify-content: space-evenly;
     font-size: 0.75rem;
-
     position: relative;
-    left: 420px;
-    
+    left: 435px;    
     background-color: rgb(7, 42, 44, 0.9);
     border-top: 2px solid rgba(175, 153, 24, 0.836);
     border-right: 2px solid rgba(175, 153, 24, 0.836);
     border-left: 2px solid rgba(175, 153, 24, 0.836); 
-
-    height: 75%;
+    height: 50%;
     width: 65px;
     cursor: pointer;
     transition: 200ms;
@@ -280,14 +297,10 @@
 .store{
     display: flex;
     align-items: center;
-    justify-content: center;
-  
+    justify-content: center;  
     height: 150px;
-    width: 1200px;
-
-    border: 2px solid rgba(175, 153, 24, 0.836);
-    /* border-radius: 1rem; */
-
+    width: 1225px;
+    border: 2px solid rgba(175, 153, 24, 0.836);    
     background-color: rgba(0, 0, 0, 0.85);
     color: white;
 }
@@ -301,11 +314,10 @@ h1{
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
-
     height: 100%;
     flex: 1;
-
-    transform: scale(0.9);
+    /* padding: 0.5rem 0; */
+    /* transform: scale(0.9); */
 }
 
 .levelUp, .levelDown, .resetLevel{
@@ -314,8 +326,6 @@ h1{
     font-size: 1.15rem;
     font-weight: bold;
     color: white;
-
-
     transform: scale(0.9);
     height: 100%;
     flex: 1;
@@ -344,9 +354,8 @@ h1{
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-
-    width: 15px;
-    height: 15px;   
+    width: 10px;
+    height: 10px;   
 }
 
 .downXP{
@@ -354,9 +363,8 @@ h1{
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-
-    width: 15px;
-    height: 15px;   
+    width: 10px;
+    height: 10px; 
 }
 
 .resetXP{
@@ -364,26 +372,56 @@ h1{
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-
-    width: 25px;
-    height: 25px;   
+    width: 15px;
+    height: 15px;   
 }
 
 .mais1{
-    font-size: 1.2rem;
+    font-size: 1rem;
     padding: 0 0.35rem;
+}
+
+.botaoExternoBuyXP{
+    cursor: pointer;
+    display: flex;     
+    align-items: center;
+    justify-content: center;
+    height: 40%;
+    width: 90%;
+    /* border: 2px solid rgb(21, 110, 151, 0.836);  */
+    background-color: rgb(7, 42, 44, 0.9);
+    color: white;
+}
+
+.botaoExternoRefresh{
+    cursor: pointer;
+    display: flex;     
+    align-items: center;
+    justify-content: center;
+    height: 40%;
+    width: 90%;
+    /* border-bottom: 2px solid rgba(175, 153, 24, 0.836);  */
+    background-color: rgb(7, 42, 44, 0.9);
+    color: white;
 }
 
 .buy{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border: 2px solid rgb(21, 110, 151, 0.836);  
+    border: 2px solid rgba(23, 75, 99, 0.836);  
     background-color: rgba(21, 54, 54, 0.836);  
-    font-size: 0.9rem;
+    font-size: 1.2rem;
+    height: 100%;
+    width: 100%;
+    color: white;
 }
 
 .buyXp, .refreshBox{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
     margin: 0 1rem;  
 }
 
@@ -403,7 +441,6 @@ h1{
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-
     width: 10px;
     height: 10px;   
 }
@@ -415,7 +452,6 @@ h1{
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-
     width: 30px;
     height: 30px;   
     margin: 0 1rem;
@@ -427,16 +463,17 @@ h1{
     justify-content: space-between;
     border: 2px solid rgba(175, 153, 24, 0.836);  
     background-color: rgba(58, 50, 2, 0.836);  
-    font-size: 0.9rem;
+    font-size: 1.2rem;
+    height: 100%;
+    width: 100%;
+    color: white;
 }
 
 .refreshIcon{
-
     background: url('../assets/reload.png');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-
     width: 30px;
     height: 30px;   
     margin: 0 1rem;
@@ -448,27 +485,30 @@ h1{
     justify-content: center;
     transform: scale(0.9);
     width: 100%;
-    height: 50px; 
+    height: 100%; 
 }
 
-.myButton{
+/* .myButton{
     cursor: pointer;
     display: flex;
     align-items: center;
-    /* justify-content: center; */
-
     font-weight: bold;
     color: white;
-
     transform: scale(0.9);
     width: 100%;
-    height: 50px; 
-    transition: 200ms;
-   
-}
+    height: 50%; 
+    transition: 200ms;   
+} */
 
 .botaoDestivado{
-    opacity: 0.4;
+    opacity: 0.25;
+}
+.botaoDestivadoStart{
+    opacity: 0.5;
+}
+
+.none{
+    visibility: hidden;
 }
 
 /* .myButton:hover{
@@ -481,22 +521,19 @@ h1{
     align-items: center;
     justify-content: center;
     border: 3px solid rgba(58, 58, 87, 0.836);  
-
     height: 100%;
-    width: 195px;
+    width: 200px;
     transform: scale(0.9);
+    cursor: pointer;
+    color: white;
 }
-
-
 
 .champImg{
     position: absolute;
     top: 0;
-
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-
     height: 75%;    
     width: 100%; 
 }
@@ -506,7 +543,7 @@ h1{
     align-items: center;
     justify-content: space-between;
     padding: 0 1rem;
-    /* background-color: rgb(38, 38, 58);   */
+    background-image: linear-gradient(90deg, rgb(23, 25, 32) 0%, rgba(7, 42, 44, 1) 50%, rgb(12, 62, 65) 100%);
     height: 25%;    
     width: 100%;
     position: absolute;
@@ -517,7 +554,7 @@ h1{
     align-items: center;
     justify-content: space-between;
     padding: 0 1rem;
-    background-color: rgb(38, 38, 58);  
+    background-image: linear-gradient(90deg, rgb(23, 25, 32) 0%, rgba(7, 42, 44, 1) 50%, rgb(12, 62, 65) 100%);
     height: 25%;    
     width: 100%;
     position: absolute;
@@ -528,7 +565,7 @@ h1{
     align-items: center;
     justify-content: space-between;
     padding: 0 1rem;
-    background-color: rgb(38, 38, 58);  
+    background-image: linear-gradient(90deg, rgb(23, 25, 32) 0%, rgba(7, 42, 44, 1) 50%, rgb(12, 62, 65) 100%);
     height: 25%;    
     width: 100%;
     position: absolute;
@@ -539,7 +576,7 @@ h1{
     align-items: center;
     justify-content: space-between;
     padding: 0 1rem;
-    background-color: rgb(38, 38, 58);  
+    background-image: linear-gradient(90deg, rgb(23, 25, 32) 0%, rgba(7, 42, 44, 1) 50%, rgb(12, 62, 65) 100%);
     height: 25%;    
     width: 100%;
     position: absolute;
@@ -550,7 +587,7 @@ h1{
     align-items: center;
     justify-content: space-between;
     padding: 0 1rem;
-    background-color: rgb(38, 38, 58);  
+    background-image: linear-gradient(90deg, rgb(23, 25, 32) 0%, rgba(7, 42, 44, 1) 50%, rgb(12, 62, 65) 100%);
     height: 25%;    
     width: 100%;
     position: absolute;

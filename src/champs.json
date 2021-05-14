@@ -1,0 +1,77 @@
+[
+
+    
+     [
+        {
+            "nome": "Ziggs",
+            "star": 1,
+            "corBorda": "rgb(54,56,73,1)",
+            "cor": "linear-gradient(90deg, rgb(23, 25, 32) 0%, rgb(45, 47, 63) 50%, rgba(54,56,73,1) 100%)",
+            "imagem": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Ziggs_7.jpg"
+        },
+        {
+            "nome": "Kha'Zix",
+            "star": 1,
+            "corBorda": "rgb(54,56,73,1)",
+            "cor": "linear-gradient(90deg, rgb(23, 25, 32) 0%, rgb(45, 47, 63) 50%, rgba(54,56,73,1) 100%)",
+            "imagem": "https://arenaesports.com.br/wp-content/uploads/2018/09/Kha-Zix-campeonato.jpg"
+        },
+        {
+            "nome": "Leona",
+            "star": 1,
+            "corBorda": "rgb(54,56,73,1)",
+            "cor": "linear-gradient(90deg, rgb(23, 25, 32) 0%, rgb(45, 47, 63) 50%, rgba(54,56,73,1) 100%)",
+            "imagem": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Leona_10.jpg"
+        }
+    ],
+
+
+
+    [
+        {
+            "nome": "Brand",
+            "star": 2,
+            "corBorda": "rgb(14, 71, 18)",
+            "cor": "linear-gradient(90deg, rgb(23, 25, 32) 0%, rgb(7, 44, 13) 50%, rgb(14, 71, 18) 100%)",
+            "imagem": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Brand_6.jpg"
+        },
+        {
+            "nome": "Syndra",
+            "star": 2,
+            "corBorda": "rgb(14, 71, 18)",
+            "cor": "linear-gradient(90deg, rgb(23, 25, 32) 0%, rgb(7, 44, 13) 50%, rgb(14, 71, 18) 100%)",
+            "imagem": "https://streamie.com.br/wp-content/uploads/2018/04/img-syndra.jpg"
+        },
+        {
+            "nome": "Varus",
+            "star": 2,
+            "corBorda": "rgb(14, 71, 18)",
+            "cor": "linear-gradient(90deg, rgb(23, 25, 32) 0%, rgb(7, 44, 13) 50%, rgb(14, 71, 18) 100%)",
+            "imagem": "https://cdn1.dotesports.com/wp-content/uploads/2021/03/30150236/Varus_2.jpg"
+        }
+    ],
+
+    [
+        {
+            "nome": "Lux",
+            "star": 3,
+            "corBorda": "rgb(23, 34, 99)",
+            "cor": "linear-gradient(90deg, rgb(23, 25, 32) 0%, rgb(14, 24, 71) 50%, rgb(23, 34, 99) 100%)",
+            "imagem": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Lux_8.jpg"
+        },
+        {
+            "nome": "Morgana",
+            "star": 3,
+            "corBorda": "rgb(23, 34, 99)",
+            "cor": "linear-gradient(90deg, rgb(23, 25, 32) 0%, rgb(14, 24, 71) 50%, rgb(23, 34, 99) 100%)",
+            "imagem": "https://kanto.legiaodosherois.com.br/w760-h398-gnw-cfill-q80/wp-content/uploads/2020/03/legiao_N1wpnj3H8YhF.jpg.jpeg"
+        },
+        {
+            "nome": "Yasuo",
+            "star": 3,
+            "corBorda": "rgb(23, 34, 99)",
+            "cor": "linear-gradient(90deg, rgb(23, 25, 32) 0%, rgb(14, 24, 71) 50%, rgb(23, 34, 99) 100%)",
+            "imagem": "https://www.outplayed.it/wp-content/uploads/2018/06/yasuo.jpg"
+        }
+    ]
+]
