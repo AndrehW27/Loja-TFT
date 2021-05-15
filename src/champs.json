@@ -4,6 +4,8 @@
      [
         {
             "nome": "Ziggs",
+            "origem": "Redeemed",
+            "classe": "Spellweaver",
             "star": 1,
             "corBorda": "rgb(54,56,73,1)",
             "cor": "linear-gradient(90deg, rgb(23, 25, 32) 0%, rgb(45, 47, 63) 50%, rgba(54,56,73,1) 100%)",
@@ -11,6 +13,8 @@
         },
         {
             "nome": "Kha'Zix",
+            "origem": "Dawnbringer",
+            "classe": "Assassin",
             "star": 1,
             "corBorda": "rgb(54,56,73,1)",
             "cor": "linear-gradient(90deg, rgb(23, 25, 32) 0%, rgb(45, 47, 63) 50%, rgba(54,56,73,1) 100%)",
@@ -18,6 +22,8 @@
         },
         {
             "nome": "Leona",
+            "origem": "Redeemed",
+            "classe": "Knight",
             "star": 1,
             "corBorda": "rgb(54,56,73,1)",
             "cor": "linear-gradient(90deg, rgb(23, 25, 32) 0%, rgb(45, 47, 63) 50%, rgba(54,56,73,1) 100%)",
@@ -30,6 +36,8 @@
     [
         {
             "nome": "Brand",
+            "origem": "Abomination",
+            "classe": "Spellweaver",
             "star": 2,
             "corBorda": "rgb(14, 71, 18)",
             "cor": "linear-gradient(90deg, rgb(23, 25, 32) 0%, rgb(7, 44, 13) 50%, rgb(14, 71, 18) 100%)",
@@ -37,6 +45,8 @@
         },
         {
             "nome": "Syndra",
+            "origem": "Redeemed",
+            "classe": "Invoker",
             "star": 2,
             "corBorda": "rgb(14, 71, 18)",
             "cor": "linear-gradient(90deg, rgb(23, 25, 32) 0%, rgb(7, 44, 13) 50%, rgb(14, 71, 18) 100%)",
@@ -44,6 +54,8 @@
         },
         {
             "nome": "Varus",
+            "origem": "Redeemed",
+            "classe": "Ranger",
             "star": 2,
             "corBorda": "rgb(14, 71, 18)",
             "cor": "linear-gradient(90deg, rgb(23, 25, 32) 0%, rgb(7, 44, 13) 50%, rgb(14, 71, 18) 100%)",
@@ -54,6 +66,8 @@
     [
         {
             "nome": "Lux",
+            "origem": "Redeemed",
+            "classe": "Mystic",
             "star": 3,
             "corBorda": "rgb(23, 34, 99)",
             "cor": "linear-gradient(90deg, rgb(23, 25, 32) 0%, rgb(14, 24, 71) 50%, rgb(23, 34, 99) 100%)",
@@ -61,6 +75,8 @@
         },
         {
             "nome": "Morgana",
+            "origem": "Nightbringer",
+            "classe": "Mystic",
             "star": 3,
             "corBorda": "rgb(23, 34, 99)",
             "cor": "linear-gradient(90deg, rgb(23, 25, 32) 0%, rgb(14, 24, 71) 50%, rgb(23, 34, 99) 100%)",
@@ -68,6 +84,8 @@
         },
         {
             "nome": "Yasuo",
+            "origem": "Nightbringer",
+            "classe": "Legionnaire",
             "star": 3,
             "corBorda": "rgb(23, 34, 99)",
             "cor": "linear-gradient(90deg, rgb(23, 25, 32) 0%, rgb(14, 24, 71) 50%, rgb(23, 34, 99) 100%)",

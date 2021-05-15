@@ -1,18 +1,23 @@
-#iconInicial1, #iconInicial2, #iconInicial3, #iconInicial4, #iconInicial5{
+#iconInicial1,
+#iconInicial2,
+#iconInicial3,
+#iconInicial4,
+#iconInicial5 {
     display: none;
 }
 
-.containerStore{
+.containerStore {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: space-between;
     height: 100vh;
     /* border: 5px solid red; */
 }
 
-.startBox{   
-    display: flex; 
+.startBox {
+    display: flex;
+    flex-direction: column;
     align-items: flex-start;
     justify-content: center;
     height: 200px;
@@ -20,33 +25,71 @@
     /* border: 5px solid green; */
 }
 
-.buttonStart{
-    font-size: 1.5rem;
-    margin: 0 4rem;
-    padding: 1rem 3rem;
-    color: white;    
+.Logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+    width: 100%;
+    /* border: 5px solid green; */
+    margin-top: 1rem;
+}
+
+.logoIcon {
+    background-image: url('../assets/tftLogoPng.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border: 5px solid green; */
+    background-color: rgba(0, 0, 0, 0.55);
+    border-radius: 1rem;
+    /* box-shadow: 0px 0px 50px 20px rgba(0,0,0,0.5); */
+    width: 450px;
+    height: 175px;
+}
+
+.buttonStart {
+    font-size: 1rem;
+    margin: 0.25rem 6.5rem;
+    padding: 1rem 2rem;
+    color: rgb(235, 207, 53);
     background-color: rgb(7, 42, 44, 0.9);
     border: 2px solid rgba(175, 153, 24, 0.836);
     border-radius: 0.5rem;
     cursor: pointer;
 }
 
-.wholeStore{
-    /* border: 5px solid blue; */
+
+/* .hide {
+    display: none;
+    margin: 0 6.5rem;
+    padding: 1rem 3rem;
+    color: white;
+    border: 2px solid rgba(175, 153, 24, 0.836);
+    background-color: rgba(58, 50, 2, 0.836);
 }
 
-.levelBar{
+.teste2:hover+ .hide {
+    display: block !important;
+} */
+
+/* .wholeStore {
+    border: 5px solid blue;
+} */
+
+.levelBar {
     display: flex;
     align-items: flex-end;
-    /* justify-content: center; */  
-    height:75px;
+    /* justify-content: center; */
+    height: 75px;
     width: 1200px;
     background-color: transparent;
     color: white;
     box-sizing: border-box;
+    cursor: pointer;
 }
 
-.level{
+.level {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -56,45 +99,45 @@
     background-color: rgb(7, 42, 44, 0.9);
     border-top: 2px solid rgba(175, 153, 24, 0.836);
     border-right: 2px solid rgba(175, 153, 24, 0.836);
-    border-left: 2px solid rgba(175, 153, 24, 0.836);     
+    border-left: 2px solid rgba(175, 153, 24, 0.836);
     height: 100%;
     width: 220px;
     z-index: 2;
 }
 
-.levelNumber{
-    display: flex;   
-    width: 100%; 
+.levelNumber {
+    display: flex;
+    width: 100%;
     align-items: center;
     justify-content: space-between;
     height: 45%;
 }
 
-.levelUpgrade{
+.levelUpgrade {
     height: 6px;
     width: 85%;
     border: 1px solid grey;
 }
 
-.levelUpgradeIn{
+.levelUpgradeIn {
     height: 100%;
     width: 25%;
     background-color: rgb(21, 110, 151);
 }
 
-.level p:first-child{
+.level p:first-child {
     font-size: 1.2rem;
     font-weight: bold;
     padding: 0.2rem 0.75rem;
 }
 
-.level p:last-child{  
+.level p:last-child {
     font-size: 1rem;
     padding: 0.2rem 0.75rem;
 }
 
-.odds{
-    display: flex;     
+.odds {
+    display: flex;
     align-items: center;
     justify-content: space-evenly;
 
@@ -104,39 +147,43 @@
     background-color: rgb(7, 42, 44, 0.9);
     border-top: 2px solid rgba(175, 153, 24, 0.836);
     border-right: 2px solid rgba(175, 153, 24, 0.836);
-   
+
     height: 50%;
     width: 275px;
 }
 
-.oneStar{
+.oneStar {
     text-align: center;
     min-width: 40px;
-    color: rgb(161, 161, 161);    
+    color: rgb(161, 161, 161);
 }
-.twoStar{
+
+.twoStar {
     text-align: center;
     min-width: 40px;
     color: rgb(80, 221, 80);
 }
-.threeStar{
+
+.threeStar {
     text-align: center;
     min-width: 40px;
     color: rgb(91, 162, 228);
 }
-.fourStar{
+
+.fourStar {
     text-align: center;
     min-width: 40px;
     color: rgb(223, 67, 210);
 }
-.fiveStar{
+
+.fiveStar {
     text-align: center;
     min-width: 40px;
     color: rgb(241, 196, 69);
 }
 
-.gold{
-    display: flex;     
+.gold {
+    display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
@@ -145,65 +192,65 @@
     background-color: rgb(7, 42, 44, 0.9);
     border-top: 2px solid rgba(175, 153, 24, 0.836);
     border-right: 2px solid rgba(175, 153, 24, 0.836);
-    border-left: 2px solid rgba(175, 153, 24, 0.836); 
+    border-left: 2px solid rgba(175, 153, 24, 0.836);
     height: 75%;
-    width: 130px;    
+    width: 130px;
 }
 
-.buttonsGold{
-    display: flex;     
+.buttonsGold {
+    display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-evenly; 
+    justify-content: space-evenly;
     position: relative;
     left: 65px;
     background-color: rgb(7, 42, 44, 0.9);
     border-top: 2px solid rgba(175, 153, 24, 0.836);
     border-right: 2px solid rgba(175, 153, 24, 0.836);
     height: 75%;
-    width: 50px;  
+    width: 50px;
     cursor: pointer;
 }
 
-.upGoldOut{
-    display: flex;     
+.upGoldOut {
+    display: flex;
     align-items: center;
     justify-content: center;
     height: 50%;
     width: 100%;
-    border-bottom: 2px solid rgba(175, 153, 24, 0.836); 
+    border-bottom: 2px solid rgba(175, 153, 24, 0.836);
     background-color: rgb(7, 42, 44, 0.9);
     color: white;
     cursor: pointer;
 }
 
-.upGold{
+.upGold {
     background: url('../assets/up-arrow-gold.png');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 
     width: 8px;
-    height: 8px;   
+    height: 8px;
 }
 
-.mais5{
+.mais5 {
     font-size: 0.7rem;
     padding: 0 0.25rem;
 }
 
-.downGold{
+.downGold {
     background: url('../assets/down-arrow-gold.png');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 
     width: 8px;
-    height: 8px;   
+    height: 8px;
 }
 
-.downGoldOut{
-    display: flex;     
+.downGoldOut {
+    display: flex;
     align-items: center;
     justify-content: center;
     height: 50%;
@@ -213,26 +260,26 @@
     cursor: pointer;
 }
 
-.resetGold{
+.resetGold {
     background: url('../assets/reset-golden.png');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 
     width: 15px;
-    height: 15px;   
+    height: 15px;
 }
 
-.resetGoldOut{
-    display: flex;     
+.resetGoldOut {
+    display: flex;
     align-items: center;
     justify-content: center;
-    
+
     width: 100%;
 
 }
 
-.goldIcon{ 
+.goldIcon {
 
     background: url('../assets/coin.png');
     background-position: center;
@@ -240,26 +287,26 @@
     background-size: cover;
 
     width: 15px;
-    height: 15px;   
+    height: 15px;
 }
 
-.goldValue{
+.goldValue {
     font-size: 1.25rem;
     margin: 6px;
 }
 
 
-.lock{
-    display: flex;     
+.lock {
+    display: flex;
     align-items: center;
     justify-content: space-evenly;
     font-size: 0.75rem;
     position: relative;
-    left: 435px;    
+    left: 435px;
     background-color: rgb(7, 42, 44, 0.9);
     border-top: 2px solid rgba(175, 153, 24, 0.836);
     border-right: 2px solid rgba(175, 153, 24, 0.836);
-    border-left: 2px solid rgba(175, 153, 24, 0.836); 
+    border-left: 2px solid rgba(175, 153, 24, 0.836);
     height: 50%;
     width: 65px;
     cursor: pointer;
@@ -271,7 +318,7 @@
 } */
 
 /* COR: #D9D152 */
-.lockIconClosed{
+.lockIconClosed {
     display: none;
     position: relative;
     background: url('../assets/unlocked-padlock.png');
@@ -280,10 +327,10 @@
     background-size: cover;
 
     width: 15px;
-    height: 15px;   
+    height: 15px;
 }
 
-.lockIconOpen{
+.lockIconOpen {
     position: relative;
     background: url('../assets/unlocked-padlock.png');
     background-position: center;
@@ -291,25 +338,25 @@
     background-size: cover;
 
     width: 15px;
-    height: 15px;   
+    height: 15px;
 }
 
-.store{
+.store {
     display: flex;
     align-items: center;
-    justify-content: center;  
+    justify-content: center;
     height: 150px;
     width: 1225px;
-    border: 2px solid rgba(175, 153, 24, 0.836);    
+    border: 2px solid rgba(175, 153, 24, 0.836);
     background-color: rgba(0, 0, 0, 0.85);
     color: white;
 }
 
-h1{
+h1 {
     color: white;
 }
 
-.levelBox{
+.levelBox {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -320,7 +367,9 @@ h1{
     /* transform: scale(0.9); */
 }
 
-.levelUp, .levelDown, .resetLevel{
+.levelUp,
+.levelDown,
+.resetLevel {
     border: 2px solid rgba(175, 153, 24, 0.836);
     background-color: rgb(7, 42, 44, 0.9);
     font-size: 1.15rem;
@@ -337,53 +386,55 @@ h1{
     opacity: 0.75;
 } */
 
-.upXPOut, .downXPOut, .resetOut{
+.upXPOut,
+.downXPOut,
+.resetOut {
     cursor: pointer;
-    display: flex;     
+    display: flex;
     align-items: center;
     justify-content: center;
     height: 100%;
     width: 100%;
-    border-bottom: 2px solid rgba(175, 153, 24, 0.836); 
+    border-bottom: 2px solid rgba(175, 153, 24, 0.836);
     background-color: rgb(7, 42, 44, 0.9);
     color: white;
 }
 
-.upXP{
+.upXP {
     background: url('../assets/up-arrow-gold.png');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     width: 10px;
-    height: 10px;   
+    height: 10px;
 }
 
-.downXP{
+.downXP {
     background: url('../assets/down-arrow-gold.png');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     width: 10px;
-    height: 10px; 
+    height: 10px;
 }
 
-.resetXP{
+.resetXP {
     background: url('../assets/reset-golden.png');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     width: 15px;
-    height: 15px;   
+    height: 15px;
 }
 
-.mais1{
+.mais1 {
     font-size: 1rem;
     padding: 0 0.35rem;
 }
 
-.botaoExternoBuyXP{
+.botaoExternoBuyXP {
     cursor: pointer;
-    display: flex;     
+    display: flex;
     align-items: center;
     justify-content: center;
     height: 40%;
@@ -393,9 +444,9 @@ h1{
     color: white;
 }
 
-.botaoExternoRefresh{
+.botaoExternoRefresh {
     cursor: pointer;
-    display: flex;     
+    display: flex;
     align-items: center;
     justify-content: center;
     height: 40%;
@@ -405,87 +456,90 @@ h1{
     color: white;
 }
 
-.buy{
+.buy {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border: 2px solid rgba(23, 75, 99, 0.836);  
-    background-color: rgba(21, 54, 54, 0.836);  
+    border: 2px solid rgba(23, 75, 99, 0.836);
+    background-color: rgba(21, 54, 54, 0.836);
     font-size: 1.2rem;
     height: 100%;
     width: 100%;
     color: white;
+    cursor: pointer;
 }
 
-.buyXp, .refreshBox{
+.buyXp,
+.refreshBox {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    margin: 0 1rem;  
+    margin: 0 1rem;
 }
 
-.valueAndIconContainer{
+.valueAndIconContainer {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.buyValue{
+.buyValue {
     font-size: 0.8rem;
     margin: 0 0.5rem;
 }
 
-.buyGoldIcon{
+.buyGoldIcon {
     background: url('../assets/coin.png');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     width: 10px;
-    height: 10px;   
+    height: 10px;
 }
 
 
 /* COR: #156E97 */
-.buyXpIcon{
+.buyXpIcon {
     background: url('../assets/up-chevron.png');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     width: 30px;
-    height: 30px;   
+    height: 30px;
     margin: 0 1rem;
 }
 
-.refresh{
+.refresh {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border: 2px solid rgba(175, 153, 24, 0.836);  
-    background-color: rgba(58, 50, 2, 0.836);  
+    border: 2px solid rgba(175, 153, 24, 0.836);
+    background-color: rgba(58, 50, 2, 0.836);
     font-size: 1.2rem;
     height: 100%;
     width: 100%;
     color: white;
+    cursor: pointer;
 }
 
-.refreshIcon{
+.refreshIcon {
     background: url('../assets/reload.png');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     width: 30px;
-    height: 30px;   
+    height: 30px;
     margin: 0 1rem;
 }
 
-.myButtonLvl{
+.myButtonLvl {
     display: flex;
     align-items: center;
     justify-content: center;
     transform: scale(0.9);
     width: 100%;
-    height: 100%; 
+    height: 100%;
 }
 
 /* .myButton{
@@ -500,14 +554,15 @@ h1{
     transition: 200ms;   
 } */
 
-.botaoDestivado{
+.botaoDestivado {
     opacity: 0.25;
 }
-.botaoDestivadoStart{
+
+.botaoDestivadoStart {
     opacity: 0.5;
 }
 
-.none{
+.none {
     visibility: hidden;
 }
 
@@ -515,12 +570,12 @@ h1{
     opacity: 0.75;
 } */
 
-.championBox{
+.championBox {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border: 3px solid rgba(58, 58, 87, 0.836);  
+    border: 3px solid rgba(58, 58, 87, 0.836);
     height: 100%;
     width: 200px;
     transform: scale(0.9);
@@ -528,71 +583,45 @@ h1{
     color: white;
 }
 
-.champImg{
+.champImg {
     position: absolute;
     top: 0;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 75%;    
-    width: 100%; 
+    height: 75%;
+    width: 100%;
 }
 
-.champNome1{
-    display: flex;   
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 1rem;
-    background-image: linear-gradient(90deg, rgb(23, 25, 32) 0%, rgba(7, 42, 44, 1) 50%, rgb(12, 62, 65) 100%);
-    height: 25%;    
-    width: 100%;
+.origemEClasse {
+    /* border: 2px solid red; */
     position: absolute;
-    bottom: 0;
-}
-.champNome2{
-    display: flex;   
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 1rem;
-    background-image: linear-gradient(90deg, rgb(23, 25, 32) 0%, rgba(7, 42, 44, 1) 50%, rgb(12, 62, 65) 100%);
-    height: 25%;    
+    bottom: 35px;
     width: 100%;
-    position: absolute;
-    bottom: 0;
-}
-.champNome3{
-    display: flex;   
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 1rem;
-    background-image: linear-gradient(90deg, rgb(23, 25, 32) 0%, rgba(7, 42, 44, 1) 50%, rgb(12, 62, 65) 100%);
-    height: 25%;    
-    width: 100%;
-    position: absolute;
-    bottom: 0;
-}
-.champNome4{
-    display: flex;   
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 1rem;
-    background-image: linear-gradient(90deg, rgb(23, 25, 32) 0%, rgba(7, 42, 44, 1) 50%, rgb(12, 62, 65) 100%);
-    height: 25%;    
-    width: 100%;
-    position: absolute;
-    bottom: 0;
-}
-.champNome5{
-    display: flex;   
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 1rem;
-    background-image: linear-gradient(90deg, rgb(23, 25, 32) 0%, rgba(7, 42, 44, 1) 50%, rgb(12, 62, 65) 100%);
-    height: 25%;    
-    width: 100%;
-    position: absolute;
-    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    justify-content: start; 
+    font-size: 0.9rem;   
 }
 
+.origemEClasse>p {
+    padding: 0.15rem 0.5rem;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 0.5rem;
+    margin: 0 0 0.15rem 0.15rem;
+}
 
+.champNome {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem;
+    background-image: linear-gradient(90deg, rgb(23, 25, 32) 0%, rgba(7, 42, 44, 1) 50%, rgb(12, 62, 65) 100%);
+    height: 25%;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    font-weight: bold;
+}
 
