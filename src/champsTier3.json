@@ -1,0 +1,129 @@
+[
+    {
+        "nome": "Zyra",
+        "origem": "Draconic",
+        "classe": "Spellweaver",
+        "star": 3,
+        "corBorda": "rgb(14, 24, 71)",
+        "cor": "linear-gradient(90deg, rgb(23, 25, 32) 0%, rgb(14, 24, 71) 50%, rgb(33, 48, 129) 100%)",
+        "imagem": "http://pm1.narvii.com/6447/ee7e3eb33f544c7a94b8d3594d6dffbe93b3361f_00.jpg"
+    },
+    {
+        "nome": "Zyra",
+        "origem": "Draconic",
+        "classe": "Spellweaver",
+        "star": 3,
+        "corBorda": "rgb(14, 24, 71)",
+        "cor": "linear-gradient(90deg, rgb(23, 25, 32) 0%, rgb(14, 24, 71) 50%, rgb(33, 48, 129) 100%)",
+        "imagem": "http://pm1.narvii.com/6447/ee7e3eb33f544c7a94b8d3594d6dffbe93b3361f_00.jpg"
+    },
+    {
+        "nome": "Yasuo",
+        "origem": "Nightbringer",
+        "classe": "Legionnaire",
+        "star": 3,
+        "corBorda": "rgb(14, 24, 71)",
+        "cor": "linear-gradient(90deg, rgb(23, 25, 32) 0%, rgb(14, 24, 71) 50%, rgb(33, 48, 129) 100%)",
+        "imagem": "https://www.outplayed.it/wp-content/uploads/2018/06/yasuo.jpg"
+    },
+    {
+        "nome": "Riven",
+        "origem": "Dawnbringer",
+        "classe": "Legionnaire",
+        "star": 3,
+        "corBorda": "rgb(14, 24, 71)",
+        "cor": "linear-gradient(90deg, rgb(23, 25, 32) 0%, rgb(14, 24, 71) 50%, rgb(33, 48, 129) 100%)",
+        "imagem": "https://i.pinimg.com/originals/73/d7/99/73d79931e8cfb400d77269e314d7c3fb.jpg"
+    },
+    {
+        "nome": "Pantheon",
+        "origem": "Dragonslayer",
+        "classe": "Skirmisher",
+        "star": 3,
+        "corBorda": "rgb(14, 24, 71)",
+        "cor": "linear-gradient(90deg, rgb(23, 25, 32) 0%, rgb(14, 24, 71) 50%, rgb(33, 48, 129) 100%)",
+        "imagem": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Pantheon_0.jpg"
+    },
+    {
+        "nome": "Nunu",
+        "origem": "Abomination",
+        "classe": "Brawler",
+        "star": 3,
+        "corBorda": "rgb(14, 24, 71)",
+        "cor": "linear-gradient(90deg, rgb(23, 25, 32) 0%, rgb(14, 24, 71) 50%, rgb(33, 48, 129) 100%)",
+        "imagem": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Nunu_1.jpg"
+    },
+    {
+        "nome": "Nocturne",
+        "origem": "Revenant",
+        "classe": "Assassin",
+        "star": 3,
+        "corBorda": "rgb(14, 24, 71)",
+        "cor": "linear-gradient(90deg, rgb(23, 25, 32) 0%, rgb(14, 24, 71) 50%, rgb(33, 48, 129) 100%)",
+        "imagem": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Nocturne_5.jpg"
+    },
+    {
+        "nome": "Nidalee",
+        "origem": "Dawnbringer",
+        "classe": "Skirmisher",
+        "star": 3,
+        "corBorda": "rgb(14, 24, 71)",
+        "cor": "linear-gradient(90deg, rgb(23, 25, 32) 0%, rgb(14, 24, 71) 50%, rgb(33, 48, 129) 100%)",
+        "imagem": "data:image/jpeg;base64,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"
+    },
+    {
+        "nome": "Morgana",
+        "origem": "Nightbringer",
+        "classe": "Mystic",
+        "star": 3,
+        "corBorda": "rgb(14, 24, 71)",
+        "cor": "linear-gradient(90deg, rgb(23, 25, 32) 0%, rgb(14, 24, 71) 50%, rgb(33, 48, 129) 100%)",
+        "imagem": "https://kanto.legiaodosherois.com.br/w760-h398-gnw-cfill-q80/wp-content/uploads/2020/03/legiao_N1wpnj3H8YhF.jpg.jpeg"
+    },
+    {
+        "nome": "Lux",
+        "origem": "Redeemed",
+        "classe": "Mystic",
+        "star": 3,
+        "corBorda": "rgb(14, 24, 71)",
+        "cor": "linear-gradient(90deg, rgb(23, 25, 32) 0%, rgb(14, 24, 71) 50%, rgb(33, 48, 129) 100%)",
+        "imagem": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Lux_8.jpg"
+    },
+    {
+        "nome": "Lulu",
+        "origem": "Hellion",
+        "classe": "Mystic",
+        "star": 3,
+        "corBorda": "rgb(14, 24, 71)",
+        "cor": "linear-gradient(90deg, rgb(23, 25, 32) 0%, rgb(14, 24, 71) 50%, rgb(33, 48, 129) 100%)",
+        "imagem": "https://i.pinimg.com/originals/20/2d/b3/202db3d7c6c32ebd378b596d15cc6c57.jpg"
+    },
+    {
+        "nome": "Leesin",
+        "origem": "Nightbringer",
+        "classe": "Skirmisher",
+        "star": 3,
+        "corBorda": "rgb(14, 24, 71)",
+        "cor": "linear-gradient(90deg, rgb(23, 25, 32) 0%, rgb(14, 24, 71) 50%, rgb(33, 48, 129) 100%)",
+        "imagem": "https://cdn1.dotesports.com/wp-content/uploads/sites/3/2020/04/09223259/lee-sin-god-fist.jpg"
+    },
+    {
+        "nome": "Katarina",
+        "origem": "Forgotten",
+        "classe": "Assassin",
+        "star": 3,
+        "corBorda": "rgb(14, 24, 71)",
+        "cor": "linear-gradient(90deg, rgb(23, 25, 32) 0%, rgb(14, 24, 71) 50%, rgb(33, 48, 129) 100%)",
+        "imagem": "https://pbs.twimg.com/media/EvfD_2_XIAYn4TZ.jpg:large"
+    },
+    {
+        "nome": "Ashe",
+        "origem": "Verdant",
+        "origem2": "Draconic",
+        "classe": "Ranger",
+        "star": 3,
+        "corBorda": "rgb(14, 24, 71)",
+        "cor": "linear-gradient(90deg, rgb(23, 25, 32) 0%, rgb(14, 24, 71) 50%, rgb(33, 48, 129) 100%)",
+        "imagem": "http://cdn.espn.com.br/image/wide/622_1b5085d6-99db-4968-a94f-79cba8d744d5.jpg"
+    }
+]

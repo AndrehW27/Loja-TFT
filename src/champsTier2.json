@@ -4,8 +4,8 @@
         "origem": "Forgotten",
         "classe": "Spellweaver",
         "star": 2,
-        "corBorda": "rgb(14, 71, 18)",
-        "cor": "linear-gradient(90deg, rgb(23, 25, 32) 0%, rgb(7, 44, 13) 50%, rgb(14, 71, 18) 100%)",
+        "corBorda": "rgb(7, 44, 13",
+        "cor": "linear-gradient(90deg, rgb(23, 25, 32) 0%, rgb(7, 44, 13) 50%, rgb(24, 87, 29) 100%)",
         "imagem": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Viktor_0.jpg"
     },
     {
@@ -13,8 +13,8 @@
         "origem": "Forgotten",
         "classe": "Spellweaver",
         "star": 2,
-        "corBorda": "rgb(14, 71, 18)",
-        "cor": "linear-gradient(90deg, rgb(23, 25, 32) 0%, rgb(7, 44, 13) 50%, rgb(14, 71, 18) 100%)",
+        "corBorda": "rgb(7, 44, 13",
+        "cor": "linear-gradient(90deg, rgb(23, 25, 32) 0%, rgb(7, 44, 13) 50%, rgb(24, 87, 29) 100%)",
         "imagem": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Viktor_0.jpg"
     },
     {
@@ -22,8 +22,8 @@
         "origem": "Redeemed",
         "classe": "Ranger",
         "star": 2,
-        "corBorda": "rgb(14, 71, 18)",
-        "cor": "linear-gradient(90deg, rgb(23, 25, 32) 0%, rgb(7, 44, 13) 50%, rgb(14, 71, 18) 100%)",
+        "corBorda": "rgb(7, 44, 13",
+        "cor": "linear-gradient(90deg, rgb(23, 25, 32) 0%, rgb(7, 44, 13) 50%, rgb(24, 87, 29) 100%)",
         "imagem": "https://cdn1.dotesports.com/wp-content/uploads/2021/03/30150236/Varus_2.jpg"
     },
     {
@@ -31,8 +31,8 @@
         "origem": "Dragonslayer",
         "classe": "Skirmisher",
         "star": 2,
-        "corBorda": "rgb(14, 71, 18)",
-        "cor": "linear-gradient(90deg, rgb(23, 25, 32) 0%, rgb(7, 44, 13) 50%, rgb(14, 71, 18) 100%)",
+        "corBorda": "rgb(7, 44, 13",
+        "cor": "linear-gradient(90deg, rgb(23, 25, 32) 0%, rgb(7, 44, 13) 50%, rgb(24, 87, 29) 100%)",
         "imagem": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Trundle_2.jpg"
     },   
     {
@@ -40,8 +40,8 @@
         "origem": "Forgotten",
         "classe": "Knight",
         "star": 2,
-        "corBorda": "rgb(14, 71, 18)",
-        "cor": "linear-gradient(90deg, rgb(23, 25, 32) 0%, rgb(7, 44, 13) 50%, rgb(14, 71, 18) 100%)",
+        "corBorda": "rgb(7, 44, 13",
+        "cor": "linear-gradient(90deg, rgb(23, 25, 32) 0%, rgb(7, 44, 13) 50%, rgb(24, 87, 29) 100%)",
         "imagem": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Thresh_6.jpg"
     },
     {
@@ -49,8 +49,8 @@
         "origem": "Redeemed",
         "classe": "Invoker",
         "star": 2,
-        "corBorda": "rgb(14, 71, 18)",
-        "cor": "linear-gradient(90deg, rgb(23, 25, 32) 0%, rgb(7, 44, 13) 50%, rgb(14, 71, 18) 100%)",
+        "corBorda": "rgb(7, 44, 13",
+        "cor": "linear-gradient(90deg, rgb(23, 25, 32) 0%, rgb(7, 44, 13) 50%, rgb(24, 87, 29) 100%)",
         "imagem": "https://streamie.com.br/wp-content/uploads/2018/04/img-syndra.jpg"
     },
     {
@@ -58,8 +58,8 @@
         "origem": "Dawnbringer",
         "classe": "Renewer",
         "star": 2,
-        "corBorda": "rgb(14, 71, 18)",
-        "cor": "linear-gradient(90deg, rgb(23, 25, 32) 0%, rgb(7, 44, 13) 50%, rgb(14, 71, 18) 100%)",
+        "corBorda": "rgb(7, 44, 13",
+        "cor": "linear-gradient(90deg, rgb(23, 25, 32) 0%, rgb(7, 44, 13) 50%, rgb(24, 87, 29) 100%)",
         "imagem": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Soraka_15.jpg"
     },
     {
@@ -67,8 +67,8 @@
         "origem": "Draconic",
         "classe": "Brawler",
         "star": 2,
-        "corBorda": "rgb(14, 71, 18)",
-        "cor": "linear-gradient(90deg, rgb(23, 25, 32) 0%, rgb(7, 44, 13) 50%, rgb(14, 71, 18) 100%)",
+        "corBorda": "rgb(7, 44, 13",
+        "cor": "linear-gradient(90deg, rgb(23, 25, 32) 0%, rgb(7, 44, 13) 50%, rgb(24, 87, 29) 100%)",
         "imagem": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Sett_0.jpg"
     },
     {
@@ -76,8 +76,8 @@
         "origem": "Nightbringer",
         "classe": "Cavalier",
         "star": 2,
-        "corBorda": "rgb(14, 71, 18)",
-        "cor": "linear-gradient(90deg, rgb(23, 25, 32) 0%, rgb(7, 44, 13) 50%, rgb(14, 71, 18) 100%)",
+        "corBorda": "rgb(7, 44, 13",
+        "cor": "linear-gradient(90deg, rgb(23, 25, 32) 0%, rgb(7, 44, 13) 50%, rgb(24, 87, 29) 100%)",
         "imagem": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Sejuani_8.jpg"
     },
     {
@@ -85,8 +85,8 @@
         "origem": "Ironclad",
         "classe": "Knight",
         "star": 2,
-        "corBorda": "rgb(14, 71, 18)",
-        "cor": "linear-gradient(90deg, rgb(23, 25, 32) 0%, rgb(7, 44, 13) 50%, rgb(14, 71, 18) 100%)",
+        "corBorda": "rgb(7, 44, 13",
+        "cor": "linear-gradient(90deg, rgb(23, 25, 32) 0%, rgb(7, 44, 13) 50%, rgb(24, 87, 29) 100%)",
         "imagem": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Nautilus_3.jpg"
     },
     {
@@ -94,8 +94,8 @@
         "origem": "Coven",
         "classe": "Assassin",
         "star": 2,
-        "corBorda": "rgb(14, 71, 18)",
-        "cor": "linear-gradient(90deg, rgb(23, 25, 32) 0%, rgb(7, 44, 13) 50%, rgb(14, 71, 18) 100%)",
+        "corBorda": "rgb(7, 44, 13",
+        "cor": "linear-gradient(90deg, rgb(23, 25, 32) 0%, rgb(7, 44, 13) 50%, rgb(24, 87, 29) 100%)",
         "imagem": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Leblanc_20.jpg"
     },
     {
@@ -103,8 +103,8 @@
         "origem": "Hellion",
         "classe": "Skirmisher",
         "star": 2,
-        "corBorda": "rgb(14, 71, 18)",
-        "cor": "linear-gradient(90deg, rgb(23, 25, 32) 0%, rgb(7, 44, 13) 50%, rgb(14, 71, 18) 100%)",
+        "corBorda": "rgb(7, 44, 13",
+        "cor": "linear-gradient(90deg, rgb(23, 25, 32) 0%, rgb(7, 44, 13) 50%, rgb(24, 87, 29) 100%)",
         "imagem": "https://streamie.com.br/wp-content/uploads/2017/03/img-kennen-skin-1.jpg"
     },
     {
@@ -112,8 +112,8 @@
         "origem": "Forgotten",
         "classe": "Cavalier",
         "star": 2,
-        "corBorda": "rgb(14, 71, 18)",
-        "cor": "linear-gradient(90deg, rgb(23, 25, 32) 0%, rgb(7, 44, 13) 50%, rgb(14, 71, 18) 100%)",
+        "corBorda": "rgb(7, 44, 13",
+        "cor": "linear-gradient(90deg, rgb(23, 25, 32) 0%, rgb(7, 44, 13) 50%, rgb(24, 87, 29) 100%)",
         "imagem": "https://pbs.twimg.com/media/EY9Yjh7XYAE1F_c.jpg"
     },
     {
@@ -121,8 +121,8 @@
         "origem": "Abomination",
         "classe": "Spellweaver",
         "star": 2,
-        "corBorda": "rgb(14, 71, 18)",
-        "cor": "linear-gradient(90deg, rgb(23, 25, 32) 0%, rgb(7, 44, 13) 50%, rgb(14, 71, 18) 100%)",
+        "corBorda": "rgb(7, 44, 13",
+        "cor": "linear-gradient(90deg, rgb(23, 25, 32) 0%, rgb(7, 44, 13) 50%, rgb(24, 87, 29) 100%)",
         "imagem": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Brand_6.jpg"
     }
 ]
