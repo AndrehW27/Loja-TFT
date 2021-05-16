@@ -13,9 +13,24 @@ import moneySound from '../assets/money.mp3';
 import padlockSound from '../assets/padlock.mp3';
 import clickSound from '../assets/click-sound.mp3';
 import letsgo from '../assets/letsGo.mp3';
+
 import champs from '../champs.json';
+import champsTier1Arr from '../champsTier1.json';
+import champsTier2Arr from '../champsTier2.json';
 
 export default function Store() {
+
+    const [sorteio1, setSorteio1] = useState("");
+    const [sorteio2, setSorteio2] = useState("");
+    const [sorteio3, setSorteio3] = useState("");
+    const [sorteio4, setSorteio4] = useState("");
+    const [sorteio5, setSorteio5] = useState("");
+    const [champ1, setchamp1] = useState("");
+    const [champ2, setchamp2] = useState("");
+    const [champ3, setchamp3] = useState("");
+    const [champ4, setchamp4] = useState("");
+    const [champ5, setchamp5] = useState("");
+
 
     const [gold, setGold] = useState(50);
     const [level, setLevel] = useState(1);
@@ -457,13 +472,22 @@ export default function Store() {
             if (gold > 1) {
                 setGold(gold - 2)
             }
+            let sorteioOdds1 = Math.floor(Math.random() * (100 - 1)) + 1
+            setSorteio1(sorteioOdds1);
+            let sorteioOdds2 = Math.floor(Math.random() * (100 - 1)) + 1
+            setSorteio2(sorteioOdds2);
+            let sorteioOdds3 = Math.floor(Math.random() * (100 - 1)) + 1
+            setSorteio3(sorteioOdds3);
+            let sorteioOdds4 = Math.floor(Math.random() * (100 - 1)) + 1
+            setSorteio4(sorteioOdds4);
+            let sorteioOdds5 = Math.floor(Math.random() * (100 - 1)) + 1
+            setSorteio5(sorteioOdds5);
 
             document.getElementById("box1").classList.remove("none");
             document.getElementById("box2").classList.remove("none");
             document.getElementById("box3").classList.remove("none");
             document.getElementById("box4").classList.remove("none");
             document.getElementById("box5").classList.remove("none");
-
 
             // document.getElementById("refreshId").setAttribute("disabled", true);
             // document.getElementById("refreshId").classList.toggle("teste");  
@@ -476,84 +500,84 @@ export default function Store() {
             // LEVEL 1
             if (level === 1 || level === 2 && gold > 1) {
                 let randomBox1 = Math.floor(Math.random() * 3);
-            let novoChampBox1 = champs[0][randomBox1].nome;
-            let novoImg1 = champs[0][randomBox1].imagem;
-            let novoStar1 = champs[0][randomBox1].star;
-            let novoCor1 = champs[0][randomBox1].cor;
-            let novoCorBorder1 = champs[0][randomBox1].corBorda;
-            let novoOrigem1 = champs[0][randomBox1].origem;
-            let novoClasse1 = champs[0][randomBox1].classe;
-            setOrigem1(novoOrigem1);
-            setClasse1(novoClasse1);
-            setCorBorder1(novoCorBorder1);
-            setCor1(novoCor1);
-            setChampImg1(novoImg1);
-            setChampionNome1(novoChampBox1);
-            setStarNumber1(novoStar1);
+                let novoChampBox1 = champs[0][randomBox1].nome;
+                let novoImg1 = champs[0][randomBox1].imagem;
+                let novoStar1 = champs[0][randomBox1].star;
+                let novoCor1 = champs[0][randomBox1].cor;
+                let novoCorBorder1 = champs[0][randomBox1].corBorda;
+                let novoOrigem1 = champs[0][randomBox1].origem;
+                let novoClasse1 = champs[0][randomBox1].classe;
+                setOrigem1(novoOrigem1);
+                setClasse1(novoClasse1);
+                setCorBorder1(novoCorBorder1);
+                setCor1(novoCor1);
+                setChampImg1(novoImg1);
+                setChampionNome1(novoChampBox1);
+                setStarNumber1(novoStar1);
 
-            let randomBox2 = Math.floor(Math.random() * 3);
-            let novoChampBox2 = champs[0][randomBox2].nome;
-            let novoImg2 = champs[0][randomBox2].imagem;
-            let novoStar2 = champs[0][randomBox2].star;
-            let novoCor2 = champs[0][randomBox2].cor;
-            let novoCorBorder2 = champs[0][randomBox2].corBorda;
-            let novoOrigem2 = champs[0][randomBox2].origem;
-            let novoClasse2 = champs[0][randomBox2].classe;
-            setOrigem2(novoOrigem2);
-            setClasse2(novoClasse2);
-            setCorBorder2(novoCorBorder2);
-            setCor2(novoCor2);
-            setChampImg2(novoImg2);
-            setChampionNome2(novoChampBox2);
-            setStarNumber2(novoStar2);
+                let randomBox2 = Math.floor(Math.random() * 3);
+                let novoChampBox2 = champs[0][randomBox2].nome;
+                let novoImg2 = champs[0][randomBox2].imagem;
+                let novoStar2 = champs[0][randomBox2].star;
+                let novoCor2 = champs[0][randomBox2].cor;
+                let novoCorBorder2 = champs[0][randomBox2].corBorda;
+                let novoOrigem2 = champs[0][randomBox2].origem;
+                let novoClasse2 = champs[0][randomBox2].classe;
+                setOrigem2(novoOrigem2);
+                setClasse2(novoClasse2);
+                setCorBorder2(novoCorBorder2);
+                setCor2(novoCor2);
+                setChampImg2(novoImg2);
+                setChampionNome2(novoChampBox2);
+                setStarNumber2(novoStar2);
 
-            let randomBox3 = Math.floor(Math.random() * 3);
-            let novoChampBox3 = champs[0][randomBox3].nome;
-            let novoImg3 = champs[0][randomBox3].imagem;
-            let novoStar3 = champs[0][randomBox3].star;
-            let novoCor3 = champs[0][randomBox3].cor;
-            let novoCorBorder3 = champs[0][randomBox3].corBorda;
-            let novoOrigem3 = champs[0][randomBox3].origem;
-            let novoClasse3 = champs[0][randomBox3].classe;
-            setOrigem3(novoOrigem3);
-            setClasse3(novoClasse3);
-            setCorBorder3(novoCorBorder3);
-            setCor3(novoCor3);
-            setChampImg3(novoImg3);
-            setChampionNome3(novoChampBox3);
-            setStarNumber3(novoStar3);
+                let randomBox3 = Math.floor(Math.random() * 3);
+                let novoChampBox3 = champs[0][randomBox3].nome;
+                let novoImg3 = champs[0][randomBox3].imagem;
+                let novoStar3 = champs[0][randomBox3].star;
+                let novoCor3 = champs[0][randomBox3].cor;
+                let novoCorBorder3 = champs[0][randomBox3].corBorda;
+                let novoOrigem3 = champs[0][randomBox3].origem;
+                let novoClasse3 = champs[0][randomBox3].classe;
+                setOrigem3(novoOrigem3);
+                setClasse3(novoClasse3);
+                setCorBorder3(novoCorBorder3);
+                setCor3(novoCor3);
+                setChampImg3(novoImg3);
+                setChampionNome3(novoChampBox3);
+                setStarNumber3(novoStar3);
 
-            let randomBox4 = Math.floor(Math.random() * 3);
-            let novoChampBox4 = champs[0][randomBox4].nome;
-            let novoImg4 = champs[0][randomBox4].imagem;
-            let novoStar4 = champs[0][randomBox4].star;
-            let novoCor4 = champs[0][randomBox4].cor;
-            let novoCorBorder4 = champs[0][randomBox4].corBorda;
-            let novoOrigem4 = champs[0][randomBox4].origem;
-            let novoClasse4 = champs[0][randomBox4].classe;
-            setOrigem4(novoOrigem4);
-            setClasse4(novoClasse4);
-            setCorBorder4(novoCorBorder4);
-            setCor4(novoCor4);
-            setChampImg4(novoImg4);
-            setChampionNome4(novoChampBox4);
-            setStarNumber4(novoStar4);
+                let randomBox4 = Math.floor(Math.random() * 3);
+                let novoChampBox4 = champs[0][randomBox4].nome;
+                let novoImg4 = champs[0][randomBox4].imagem;
+                let novoStar4 = champs[0][randomBox4].star;
+                let novoCor4 = champs[0][randomBox4].cor;
+                let novoCorBorder4 = champs[0][randomBox4].corBorda;
+                let novoOrigem4 = champs[0][randomBox4].origem;
+                let novoClasse4 = champs[0][randomBox4].classe;
+                setOrigem4(novoOrigem4);
+                setClasse4(novoClasse4);
+                setCorBorder4(novoCorBorder4);
+                setCor4(novoCor4);
+                setChampImg4(novoImg4);
+                setChampionNome4(novoChampBox4);
+                setStarNumber4(novoStar4);
 
-            let randomBox5 = Math.floor(Math.random() * 3);
-            let novoChampBox5 = champs[0][randomBox5].nome;
-            let novoImg5 = champs[0][randomBox5].imagem;
-            let novoStar5 = champs[0][randomBox5].star;
-            let novoCor5 = champs[0][randomBox5].cor;
-            let novoCorBorder5 = champs[0][randomBox5].corBorda;
-            let novoOrigem5 = champs[0][randomBox5].origem;
-            let novoClasse5 = champs[0][randomBox5].classe;
-            setOrigem5(novoOrigem5);
-            setClasse5(novoClasse5);
-            setCorBorder5(novoCorBorder5);
-            setCor5(novoCor5);
-            setChampImg5(novoImg5);
-            setChampionNome5(novoChampBox5);
-            setStarNumber5(novoStar5);
+                let randomBox5 = Math.floor(Math.random() * 3);
+                let novoChampBox5 = champs[0][randomBox5].nome;
+                let novoImg5 = champs[0][randomBox5].imagem;
+                let novoStar5 = champs[0][randomBox5].star;
+                let novoCor5 = champs[0][randomBox5].cor;
+                let novoCorBorder5 = champs[0][randomBox5].corBorda;
+                let novoOrigem5 = champs[0][randomBox5].origem;
+                let novoClasse5 = champs[0][randomBox5].classe;
+                setOrigem5(novoOrigem5);
+                setClasse5(novoClasse5);
+                setCorBorder5(novoCorBorder5);
+                setCor5(novoCor5);
+                setChampImg5(novoImg5);
+                setChampionNome5(novoChampBox5);
+                setStarNumber5(novoStar5);
 
             }
 
@@ -574,7 +598,7 @@ export default function Store() {
                 setChampImg1(novoImg1);
                 setChampionNome1(novoChampBox1);
                 setStarNumber1(novoStar1);
-    
+
                 let randomBox2 = Math.floor(Math.random() * 3);
                 let novoChampBox2 = champs[1][randomBox2].nome;
                 let novoImg2 = champs[1][randomBox2].imagem;
@@ -590,7 +614,7 @@ export default function Store() {
                 setChampImg2(novoImg2);
                 setChampionNome2(novoChampBox2);
                 setStarNumber2(novoStar2);
-    
+
                 let randomBox3 = Math.floor(Math.random() * 3);
                 let novoChampBox3 = champs[1][randomBox3].nome;
                 let novoImg3 = champs[1][randomBox3].imagem;
@@ -606,7 +630,7 @@ export default function Store() {
                 setChampImg3(novoImg3);
                 setChampionNome3(novoChampBox3);
                 setStarNumber3(novoStar3);
-    
+
                 let randomBox4 = Math.floor(Math.random() * 3);
                 let novoChampBox4 = champs[1][randomBox4].nome;
                 let novoImg4 = champs[1][randomBox4].imagem;
@@ -622,7 +646,7 @@ export default function Store() {
                 setChampImg4(novoImg4);
                 setChampionNome4(novoChampBox4);
                 setStarNumber4(novoStar4);
-    
+
                 let randomBox5 = Math.floor(Math.random() * 3);
                 let novoChampBox5 = champs[1][randomBox5].nome;
                 let novoImg5 = champs[1][randomBox5].imagem;
@@ -638,8 +662,62 @@ export default function Store() {
                 setChampImg5(novoImg5);
                 setChampionNome5(novoChampBox5);
                 setStarNumber5(novoStar5);
-    
+
             }
+
+            // LEVEL 4
+            else if (level === 4 && gold > 1) {
+
+                // BOX1
+                if (sorteioOdds1 >= 1 && sorteioOdds1 <= 55) {
+                    let champ1Lvl4 = Math.floor(Math.random() * (13 - 1)) + 1
+                    setchamp1(champ1Lvl4);
+
+                    let novoChampBox1 = champsTier1Arr[champ1Lvl4].nome;
+                    let novoImg1 = champsTier1Arr[champ1Lvl4].imagem;
+                    let novoStar1 = champsTier1Arr[champ1Lvl4].star;
+                    let novoCor1 = champsTier1Arr[champ1Lvl4].cor;
+                    let novoCorBorder1 = champsTier1Arr[champ1Lvl4].corBorda;
+                    let novoOrigem1 = champsTier1Arr[champ1Lvl4].origem;
+                    let novoClasse1 = champsTier1Arr[champ1Lvl4].classe;
+                    setOrigem1(novoOrigem1);
+                    setClasse1(novoClasse1);
+                    setCorBorder1(novoCorBorder1);
+                    setCor1(novoCor1);
+                    setChampImg1(novoImg1);
+                    setChampionNome1(novoChampBox1);
+                    setStarNumber1(novoStar1);
+
+                } else if (sorteioOdds1 >= 56 && sorteioOdds1 <= 85) {
+                    let champ1Lvl4 = Math.floor(Math.random() * (13 - 1)) + 1
+                    setchamp1(champ1Lvl4);
+
+                    let novoChampBox1 = champsTier2Arr[champ1Lvl4].nome;
+                    let novoImg1 = champsTier2Arr[champ1Lvl4].imagem;
+                    let novoStar1 = champsTier2Arr[champ1Lvl4].star;
+                    let novoCor1 = champsTier2Arr[champ1Lvl4].cor;
+                    let novoCorBorder1 = champsTier2Arr[champ1Lvl4].corBorda;
+                    let novoOrigem1 = champsTier2Arr[champ1Lvl4].origem;
+                    let novoClasse1 = champsTier2Arr[champ1Lvl4].classe;
+                    setOrigem1(novoOrigem1);
+                    setClasse1(novoClasse1);
+                    setCorBorder1(novoCorBorder1);
+                    setCor1(novoCor1);
+                    setChampImg1(novoImg1);
+                    setChampionNome1(novoChampBox1);
+                    setStarNumber1(novoStar1);
+                    
+                } else {
+                    setchamp1("Lux");
+                }
+
+                // BOX2
+
+
+
+
+            }
+
         }
     }
 
@@ -652,9 +730,8 @@ export default function Store() {
             </div>
 
             <div className="startBox">
-                <button id="startId" className="buttonStart" type="button" onClick={start} onMouseDown={set4}>Start</button>
-
-                <button className="buttonStart" type="button" onClick={reloadPage} onMouseDown={startPaper}>Restart</button>
+                <button id="startId" className="buttonStart" type="button" onClick={start} onMouseDown={set4}>START</button>
+                <button className="buttonStart" type="button" onClick={reloadPage} onMouseDown={startPaper}>RESTART</button>
                 {/* <div className="hide">Experiência para o próximo level: {maxExp - currentExp}</div>
                 <div className="teste2">Experiência para o próximo level: {maxExp - currentExp}</div> */}
             </div>
@@ -761,6 +838,8 @@ export default function Store() {
                         onClick={BuyChamp1} onMouseDown={startPaper}>
                         <img src={champImg1} className="champImg"></img>
                         <div className="origemEClasse">
+                            <p>{sorteio1}</p>
+                            <p>{champ1}</p>
                             <p>{origem1}</p>
                             <p>{classe1}</p>
                         </div>
@@ -776,6 +855,8 @@ export default function Store() {
                         onClick={BuyChamp2} onMouseDown={startPaper}>
                         <img src={champImg2} className="champImg"></img>
                         <div className="origemEClasse">
+                            <p>{sorteio2}</p>
+                            <p>{champ2}</p>
                             <p>{origem2}</p>
                             <p>{classe2}</p>
                         </div>
@@ -791,6 +872,8 @@ export default function Store() {
                         onClick={BuyChamp3} onMouseDown={startPaper}>
                         <img src={champImg3} className="champImg"></img>
                         <div className="origemEClasse">
+                            <p>{sorteio3}</p>
+                            <p>{champ3}</p>
                             <p>{origem3}</p>
                             <p>{classe3}</p>
                         </div>
@@ -806,6 +889,8 @@ export default function Store() {
                         onClick={BuyChamp4} onMouseDown={startPaper}>
                         <img src={champImg4} className="champImg"></img>
                         <div className="origemEClasse">
+                            <p>{sorteio4}</p>
+                            <p>{champ4}</p>
                             <p>{origem4}</p>
                             <p>{classe4}</p>
                         </div>
@@ -821,6 +906,8 @@ export default function Store() {
                         onClick={BuyChamp5} onMouseDown={startPaper}>
                         <img src={champImg5} className="champImg"></img>
                         <div className="origemEClasse">
+                            <p>{sorteio5}</p>
+                            <p>{champ5}</p>
                             <p>{origem5}</p>
                             <p>{classe5}</p>
                         </div>
