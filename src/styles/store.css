@@ -302,7 +302,7 @@
     justify-content: space-evenly;
     font-size: 0.75rem;
     position: relative;
-    left: 435px;
+    left: 385px;
     background-color: rgb(7, 42, 44, 0.9);
     border-top: 2px solid rgba(175, 153, 24, 0.836);
     border-right: 2px solid rgba(175, 153, 24, 0.836);
@@ -313,32 +313,33 @@
     transition: 200ms;
 }
 
-/* .lock:hover{
-    opacity: 0.9;
-} */
 
 /* COR: #D9D152 */
 .lockIconClosed {
     display: none;
-    position: relative;
-    background: url('../assets/unlocked-padlock.png');
+    background: url('../assets/locked-padlock.png');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 
-    width: 15px;
-    height: 15px;
+    width: 20px;
+    height: 20px;
 }
 
-.lockIconOpen {
-    position: relative;
+.trancarCadeado{
+    display: block;
+}
+
+.lockIconOpen {  
+    position: absolute;
+ 
     background: url('../assets/unlocked-padlock.png');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 
-    width: 15px;
-    height: 15px;
+    width: 20px;
+    height: 20px;
 }
 
 .store {
@@ -557,6 +558,10 @@ h1 {
 
 .botaoDestivado {
     opacity: 0.25;
+}
+
+.botaoDestivadoChamp{
+    opacity: 0.10;
 }
 
 .botaoDestivadoStart {

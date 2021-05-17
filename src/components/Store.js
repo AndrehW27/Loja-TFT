@@ -34,11 +34,12 @@ export default function Store() {
     const [champ4, setchamp4] = useState("");
     const [champ5, setchamp5] = useState("");
 
-
     const [gold, setGold] = useState(50);
     const [level, setLevel] = useState(1);
     const [currentExp, setCurrentExp] = useState(0);
     const [maxExp, setMaxExp] = useState(2);
+    const [lockedIsOpen, setLockedIsOpen] = useState(true);
+
 
     const [oddsOneStar, setOddsOneStar] = useState(100);
     const [oddsTwoStar, setOddsTwoStar] = useState(0);
@@ -232,37 +233,58 @@ export default function Store() {
     const reloadPage = () => {
         // document.location.reload(true);        
         // window.location.reload(true);
-        // setGold(50);
-        // setLevel(1);      
+
         window.location.href = window.location.href;
     }
+    // Cadeado
+    const cadeado = () => {
+        if (lockedIsOpen === true) {
+            setLockedIsOpen(false);
+        }
+        else {
+            setLockedIsOpen(true);
+        }
+
+        document.getElementById("cadeadoFechadoId").classList.toggle("trancarCadeado");
+
+        document.getElementById("box1").classList.toggle("botaoDestivado");
+        document.getElementById("box2").classList.toggle("botaoDestivado");
+        document.getElementById("box3").classList.toggle("botaoDestivado");
+        document.getElementById("box4").classList.toggle("botaoDestivado");
+        document.getElementById("box5").classList.toggle("botaoDestivado");
+
+        document.getElementById("refreshId").classList.toggle("botaoDestivado");
+
+
+    }
+
     //COMPRANDO CHAMP
     const BuyChamp1 = () => {
-        if (championNome1 != "Welcome" && gold >= starNumber1) {
+        if (championNome1 != "Welcome" && gold >= starNumber1 && lockedIsOpen === true) {
             setGold(gold - starNumber1)
             document.getElementById("box1").classList.add("none");
         }
     }
     const BuyChamp2 = () => {
-        if (championNome1 != "Welcome" && gold >= starNumber2) {
+        if (championNome1 != "Welcome" && gold >= starNumber2 && lockedIsOpen === true) {
             setGold(gold - starNumber2)
             document.getElementById("box2").classList.add("none");
         }
     }
     const BuyChamp3 = () => {
-        if (championNome1 != "Welcome" && gold >= starNumber3) {
+        if (championNome1 != "Welcome" && gold >= starNumber3 && lockedIsOpen === true) {
             setGold(gold - starNumber3)
             document.getElementById("box3").classList.add("none");
         }
     }
     const BuyChamp4 = () => {
-        if (championNome1 != "Welcome" && gold >= starNumber4) {
+        if (championNome1 != "Welcome" && gold >= starNumber4 && lockedIsOpen === true) {
             setGold(gold - starNumber4)
             document.getElementById("box4").classList.add("none");
         }
     }
     const BuyChamp5 = () => {
-        if (championNome1 != "Welcome" && gold >= starNumber5) {
+        if (championNome1 != "Welcome" && gold >= starNumber5 && lockedIsOpen === true) {
             setGold(gold - starNumber5)
             document.getElementById("box5").classList.add("none");
         }
@@ -281,6 +303,16 @@ export default function Store() {
             if (gold > 4) {
                 setGold(gold - 5)
             }
+        }
+    }
+    const maximo = () => {
+        if (championNome1 != "Welcome") {
+            setGold(100)
+        }
+    }
+    const minimo = () => {
+        if (championNome1 != "Welcome") {
+            setGold(0)
         }
     }
     const resetGold = () => {
@@ -352,7 +384,7 @@ export default function Store() {
 
     // COMPRANDO XP
     const buyXP = () => {
-        if (championNome1 != "Welcome") {
+        if (championNome1 != "Welcome" && level < 9) {
             if (gold > 3) {
                 setGold(gold - 4)
                 setCurrentExp(currentExp + 4);
@@ -455,55 +487,77 @@ export default function Store() {
     useEffect(() => {
         if (gold <= 4) {
             document.getElementById("minusFiveId").classList.add("botaoDestivado");
+            // document.getElementById("minusFiveId").setAttribute("disabled", true);
+
             if (gold <= 3) {
                 document.getElementById("buyXpId").classList.add("botaoDestivado");
+                document.getElementById("buyXpId").setAttribute("disabled", true);
             }
             if (gold <= 1) {
                 document.getElementById("refreshId").classList.add("botaoDestivado");
+                document.getElementById("refreshId").setAttribute("disabled", true);
+            }
+            if (gold === 0) {
+                document.getElementById("minimoId").classList.add("botaoDestivado");
+                document.getElementById("maxId").classList.remove("botaoDestivado");
+                document.getElementById("plusFiveId").classList.remove("botaoDestivado");
+                // document.getElementById("minusFiveId").setAttribute("disabled", true);
             }
         }
 
         else if (gold === 100) {
             document.getElementById("plusFiveId").classList.add("botaoDestivado");
+            document.getElementById("maxId").classList.add("botaoDestivado");
+            document.getElementById("minimoId").classList.remove("botaoDestivado");
+            document.getElementById("minusFiveId").classList.remove("botaoDestivado");
+            document.getElementById("buyXpId").classList.remove("botaoDestivado");
+            document.getElementById("refreshId").classList.remove("botaoDestivado");
+            document.getElementById("buyXpId").removeAttribute("disabled");
+            document.getElementById("refreshId").removeAttribute("disabled");
         } else {
             document.getElementById("buyXpId").classList.remove("botaoDestivado");
             document.getElementById("refreshId").classList.remove("botaoDestivado");
+            document.getElementById("maxId").classList.remove("botaoDestivado");
             document.getElementById("plusFiveId").classList.remove("botaoDestivado");
             document.getElementById("minusFiveId").classList.remove("botaoDestivado");
+            document.getElementById("minimoId").classList.remove("botaoDestivado");
+
+            document.getElementById("buyXpId").removeAttribute("disabled");
+            document.getElementById("refreshId").removeAttribute("disabled");
         }
 
 
 
-
-
         // if (gold < starNumber1) {
-        //     document.getElementById("box1").classList.add("botaoDestivado");
-        // }else
-        // if (gold < starNumber2) {
-        //     document.getElementById("box2").classList.add("botaoDestivado");
-        // }else
-        // if (gold < starNumber3) {
-        //     document.getElementById("box3").classList.add("botaoDestivado");
-        // }else
-        // if (gold < starNumber4) {
-        //     document.getElementById("box4").classList.add("botaoDestivado");
-        // }else 
-        // if (gold < starNumber5) {
-        //     document.getElementById("box5").classList.add("botaoDestivado");
+        //     document.getElementById("box1").classList.add("botaoDestivadoChamp");
         // }
-        // else {
-        //     document.getElementById("box1").classList.remove("botaoDestivado");
-        //     document.getElementById("box2").classList.remove("botaoDestivado");
-        //     document.getElementById("box3").classList.remove("botaoDestivado");
-        //     document.getElementById("box4").classList.remove("botaoDestivado");
-        //     document.getElementById("box5").classList.remove("botaoDestivado");
+        // if (gold < starNumber2) {
+        //     document.getElementById("box2").classList.add("botaoDestivadoChamp");
+        // }
+        // if (gold < starNumber3) {
+        //     document.getElementById("box3").classList.add("botaoDestivadoChamp");
+        // }
+        // if (gold < starNumber4) {
+        //     document.getElementById("box4").classList.add("botaoDestivadoChamp");
+        // }
+        // if (gold < starNumber5) {
+        //     document.getElementById("box5").classList.add("botaoDestivadoChamp");
+        // }
+
+        // else{
+        //     document.getElementById("box1").classList.remove("botaoDestivadoChamp");
+        //     document.getElementById("box2").classList.remove("botaoDestivadoChamp");
+        //     document.getElementById("box3").classList.remove("botaoDestivadoChamp");
+        //     document.getElementById("box4").classList.remove("botaoDestivadoChamp");
+        //     document.getElementById("box5").classList.remove("botaoDestivadoChamp");
         // }
 
     }, [gold])
 
     // ATUALIZAR LOJA
     const refreshStore = () => {
-        if (championNome1 != "Welcome") {
+
+        if (championNome1 != "Welcome" && lockedIsOpen === true) {
             if (gold > 1) {
                 setGold(gold - 2)
             }
@@ -3399,6 +3453,7 @@ export default function Store() {
 
 
         }
+
     }
 
     return (
@@ -3463,6 +3518,16 @@ export default function Store() {
                     </div>
 
                     <div className="buttonsGold">
+                        <button id="maxId" className="upGoldOut" type="button" onClick={maximo} onMouseDown={startMoney}>
+                            {/* <div className="upGold"></div> */}
+                            <div className="mais5">Máx.</div>
+                        </button>
+                        <button id="minimoId" className="downGoldOut" type="button" onClick={minimo} onMouseDown={startMoney}>
+                            {/* <div className="downGold"></div> */}
+                            <div className="mais5">Min.</div>
+                        </button>
+                    </div>
+                    <div className="buttonsGold">
                         <button id="plusFiveId" className="upGoldOut" type="button" onClick={plusFiveGold} onMouseDown={startMoney}>
                             <div className="upGold"></div>
                             <div className="mais5">+5</div>
@@ -3477,17 +3542,19 @@ export default function Store() {
                         <div className="resetGold"></div>
                     </button>
 
-                    <button type="button" className="lock" onMouseDown={startPadlock}>
-                        <div className="lockIconClosed"></div>
+                    <button type="button" className="lock" onClick={cadeado} onMouseDown={startPadlock}>
                         <div className="lockIconOpen"></div>
+                        <div id="cadeadoFechadoId" className="lockIconClosed"></div>
+
                     </button>
+
                 </div>
 
                 <div className="store">
                     <div className="levelBox">
 
 
-                        <button className="botaoExternoBuyXP">
+                        <button className="botaoExternoBuyXP" >
                             <button id="buyXpId" className="myButton buy" type="button" onClick={buyXP} onMouseDown={startPaper2}>
                                 <p className="buyXp">
                                     Buy XP
@@ -3518,8 +3585,8 @@ export default function Store() {
                         onClick={BuyChamp1} onMouseDown={startPaper}>
                         <img src={champImg1} className="champImg"></img>
                         <div className="origemEClasse">
-                            <p>{sorteio1}</p>
-                            <p>{champ1}</p>
+                            {/* <p>{sorteio1}</p>
+                            <p>{champ1}</p> */}
                             <p>{origem1}</p>
                             <p>{classe1}</p>
                         </div>
@@ -3535,8 +3602,8 @@ export default function Store() {
                         onClick={BuyChamp2} onMouseDown={startPaper}>
                         <img src={champImg2} className="champImg"></img>
                         <div className="origemEClasse">
-                            <p>{sorteio2}</p>
-                            <p>{champ2}</p>
+                            {/* <p>{sorteio2}</p>
+                            <p>{champ2}</p> */}
                             <p>{origem2}</p>
                             <p>{classe2}</p>
                         </div>
@@ -3552,8 +3619,8 @@ export default function Store() {
                         onClick={BuyChamp3} onMouseDown={startPaper}>
                         <img src={champImg3} className="champImg"></img>
                         <div className="origemEClasse">
-                            <p>{sorteio3}</p>
-                            <p>{champ3}</p>
+                            {/* <p>{sorteio3}</p>
+                            <p>{champ3}</p> */}
                             <p>{origem3}</p>
                             <p>{classe3}</p>
                         </div>
@@ -3569,8 +3636,8 @@ export default function Store() {
                         onClick={BuyChamp4} onMouseDown={startPaper}>
                         <img src={champImg4} className="champImg"></img>
                         <div className="origemEClasse">
-                            <p>{sorteio4}</p>
-                            <p>{champ4}</p>
+                            {/* <p>{sorteio4}</p>
+                            <p>{champ4}</p> */}
                             <p>{origem4}</p>
                             <p>{classe4}</p>
                         </div>
@@ -3586,8 +3653,8 @@ export default function Store() {
                         onClick={BuyChamp5} onMouseDown={startPaper}>
                         <img src={champImg5} className="champImg"></img>
                         <div className="origemEClasse">
-                            <p>{sorteio5}</p>
-                            <p>{champ5}</p>
+                            {/* <p>{sorteio5}</p>
+                            <p>{champ5}</p> */}
                             <p>{origem5}</p>
                             <p>{classe5}</p>
                         </div>
