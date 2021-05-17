@@ -1,0 +1,90 @@
+[
+    {
+        "nome": "Volibear",
+        "origem": "Revenant",
+        "classe": "Brawler",
+        "star": 5,
+        "corBorda": "rgb(247, 179, 33)",
+        "cor": "linear-gradient(90deg, rgb(23, 25, 32) 0%, rgb(247, 179, 33) 50%, rgb(247, 232, 35) 100%)",
+        "imagem": "https://s2.glbimg.com/F0q1EMN97PqHVgEQ6iRpwlj8grM=/0x0:1920x1080/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_bc8228b6673f488aa253bbcb03c80ec5/internal_photos/bs/2020/B/x/BOw9rlTIKlaRGbrdn5pw/skin-urso-dos-mil-flagelos.jpg"
+    },
+    {
+        "nome": "Volibear",
+        "origem": "Revenant",
+        "classe": "Brawler",
+        "star": 5,
+        "corBorda": "rgb(247, 179, 33)",
+        "cor": "linear-gradient(90deg, rgb(23, 25, 32) 0%, rgb(247, 179, 33) 50%, rgb(247, 232, 35) 100%)",
+        "imagem": "https://s2.glbimg.com/F0q1EMN97PqHVgEQ6iRpwlj8grM=/0x0:1920x1080/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_bc8228b6673f488aa253bbcb03c80ec5/internal_photos/bs/2020/B/x/BOw9rlTIKlaRGbrdn5pw/skin-urso-dos-mil-flagelos.jpg"
+    },
+    {
+        "nome": "Viego",
+        "origem": "Forgotten",
+        "classe": "Assassin",
+        "classe2": "Skirmisher",
+        "star": 5,
+        "corBorda": "rgb(247, 179, 33)",
+        "cor": "linear-gradient(90deg, rgb(23, 25, 32) 0%, rgb(247, 179, 33) 50%, rgb(247, 232, 35) 100%)",
+        "imagem": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Viego_0.jpg"
+    },
+    {
+        "nome": "Teemo",
+        "origem": "Hellion",       
+        "classe": "Cruel",
+        "classe2": "Invoker",
+        "star": 5,
+        "corBorda": "rgb(235, 25, 25)",
+        "cor": "linear-gradient(90deg, rgb(23, 25, 32) 0%, rgb(235, 25, 25) 50%, rgb(238, 68, 68) 100%)",
+        "imagem": "https://cdn1.dotesports.com/wp-content/uploads/sites/3/2020/03/06201049/devil-teemo-770x454.jpg"
+    },
+    {
+        "nome": "Kindred",
+        "origem": "Eternal",
+        "classe": "Ranger",
+        "classe2": "Mystic",
+        "star": 5,
+        "corBorda": "rgb(247, 179, 33)",
+        "cor": "linear-gradient(90deg, rgb(23, 25, 32) 0%, rgb(247, 179, 33) 50%, rgb(247, 232, 35) 100%)",
+        "imagem": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Kindred_3.jpg"
+    },
+    {
+        "nome": "Kayle",
+        "origem": "Redeemed",
+        "origem2": "Verdant",
+        "classe": "Legionnaire",
+        "star": 5,
+        "corBorda": "rgb(247, 179, 33)",
+        "cor": "linear-gradient(90deg, rgb(23, 25, 32) 0%, rgb(247, 179, 33) 50%, rgb(247, 232, 35) 100%)",
+        "imagem": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Kayle_2.jpg"
+    },
+    {
+        "nome": "Heimerdinger",
+        "origem": "Draconic",
+        "classe": "Caretaker",
+        "classe2": "Renewer",
+        "star": 5,
+        "corBorda": "rgb(247, 179, 33)",
+        "cor": "linear-gradient(90deg, rgb(23, 25, 32) 0%, rgb(247, 179, 33) 50%, rgb(247, 232, 35) 100%)",
+        "imagem": "https://cdna.artstation.com/p/assets/images/images/014/440/920/large/jem-flores-dragontrainerheimer-jemflores.jpg?1543976580"
+    },
+    {
+        "nome": "Garen",
+        "origem": "Dawnbringer",
+        "classe": "Knight",
+        "classe2": "God-King",
+        "star": 5,
+        "corBorda": "rgb(247, 179, 33)",
+        "cor": "linear-gradient(90deg, rgb(23, 25, 32) 0%, rgb(247, 179, 33) 50%, rgb(247, 232, 35) 100%)",
+        "imagem": "https://i.pinimg.com/originals/af/33/97/af3397963491a0a5d99008d97bfe0017.jpg"
+    },
+    {
+        "nome": "Darius",
+        "origem": "Nightbringer",
+        "classe": "Knight",
+        "classe2": "God-King",
+        "star": 5,
+        "corBorda": "rgb(247, 179, 33)",
+        "cor": "linear-gradient(90deg, rgb(23, 25, 32) 0%, rgb(247, 179, 33) 50%, rgb(247, 232, 35) 100%)",
+        "imagem": "https://i.pinimg.com/originals/08/7a/34/087a342d13b6b88d93772ca15783ce1a.jpg"
+    }
+]

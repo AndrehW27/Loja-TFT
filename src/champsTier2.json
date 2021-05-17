@@ -1,6 +1,6 @@
 [
     {
-        "nome": "Victor",
+        "nome": "Viktor",
         "origem": "Forgotten",
         "classe": "Spellweaver",
         "star": 2,
@@ -9,13 +9,13 @@
         "imagem": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Viktor_0.jpg"
     },
     {
-        "nome": "Victor",
+        "nome": "Viktor",
         "origem": "Forgotten",
         "classe": "Spellweaver",
         "star": 2,
         "corBorda": "rgb(7, 44, 13",
         "cor": "linear-gradient(90deg, rgb(23, 25, 32) 0%, rgb(7, 44, 13) 50%, rgb(24, 87, 29) 100%)",
-        "imagem": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Viktor_0.jpg"
+        "imagem": "https://images5.alphacoders.com/879/879038.jpg"
     },
     {
         "nome": "Varus",
@@ -33,7 +33,7 @@
         "star": 2,
         "corBorda": "rgb(7, 44, 13",
         "cor": "linear-gradient(90deg, rgb(23, 25, 32) 0%, rgb(7, 44, 13) 50%, rgb(24, 87, 29) 100%)",
-        "imagem": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Trundle_2.jpg"
+        "imagem": "https://i.pinimg.com/originals/3d/7d/c4/3d7dc472645a700676c6674b3db34fab.png"
     },   
     {
         "nome": "Thresh",
@@ -42,7 +42,7 @@
         "star": 2,
         "corBorda": "rgb(7, 44, 13",
         "cor": "linear-gradient(90deg, rgb(23, 25, 32) 0%, rgb(7, 44, 13) 50%, rgb(24, 87, 29) 100%)",
-        "imagem": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Thresh_6.jpg"
+        "imagem": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Thresh_0.jpg"
     },
     {
         "nome": "Syndra",
@@ -51,7 +51,7 @@
         "star": 2,
         "corBorda": "rgb(7, 44, 13",
         "cor": "linear-gradient(90deg, rgb(23, 25, 32) 0%, rgb(7, 44, 13) 50%, rgb(24, 87, 29) 100%)",
-        "imagem": "https://streamie.com.br/wp-content/uploads/2018/04/img-syndra.jpg"
+        "imagem": "https://superbimundohome.files.wordpress.com/2019/05/syndra_justiceiraskin.jpg"
     },
     {
         "nome": "Soraka",
@@ -69,7 +69,7 @@
         "star": 2,
         "corBorda": "rgb(7, 44, 13",
         "cor": "linear-gradient(90deg, rgb(23, 25, 32) 0%, rgb(7, 44, 13) 50%, rgb(24, 87, 29) 100%)",
-        "imagem": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Sett_0.jpg"
+        "imagem": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Sett_8.jpg"
     },
     {
         "nome": "Sejuani",
@@ -78,7 +78,7 @@
         "star": 2,
         "corBorda": "rgb(7, 44, 13",
         "cor": "linear-gradient(90deg, rgb(23, 25, 32) 0%, rgb(7, 44, 13) 50%, rgb(24, 87, 29) 100%)",
-        "imagem": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Sejuani_8.jpg"
+        "imagem": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Sejuani_2.jpg"
     },
     {
         "nome": "Nautilus",
@@ -87,7 +87,7 @@
         "star": 2,
         "corBorda": "rgb(7, 44, 13",
         "cor": "linear-gradient(90deg, rgb(23, 25, 32) 0%, rgb(7, 44, 13) 50%, rgb(24, 87, 29) 100%)",
-        "imagem": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Nautilus_3.jpg"
+        "imagem": "http://lol-stats.net/uploads/G4Zlz7NhHzWZZiFL4JIJPkjGgo6Rib0MJWMVggr5.jpeg"
     },
     {
         "nome": "Leblanc",
@@ -105,7 +105,7 @@
         "star": 2,
         "corBorda": "rgb(7, 44, 13",
         "cor": "linear-gradient(90deg, rgb(23, 25, 32) 0%, rgb(7, 44, 13) 50%, rgb(24, 87, 29) 100%)",
-        "imagem": "https://streamie.com.br/wp-content/uploads/2017/03/img-kennen-skin-1.jpg"
+        "imagem": "https://images.contentstack.io/v3/assets/blt731acb42bb3d1659/blte855026c1596c4df/5efe979fe22ca44fde3b8653/Infernal_Kennen_Splash_Card.jpg"
     },
     {
         "nome": "Hecarim",
@@ -114,7 +114,7 @@
         "star": 2,
         "corBorda": "rgb(7, 44, 13",
         "cor": "linear-gradient(90deg, rgb(23, 25, 32) 0%, rgb(7, 44, 13) 50%, rgb(24, 87, 29) 100%)",
-        "imagem": "https://pbs.twimg.com/media/EY9Yjh7XYAE1F_c.jpg"
+        "imagem": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Hecarim_0.jpg"
     },
     {
         "nome": "Brand",
@@ -123,6 +123,6 @@
         "star": 2,
         "corBorda": "rgb(7, 44, 13",
         "cor": "linear-gradient(90deg, rgb(23, 25, 32) 0%, rgb(7, 44, 13) 50%, rgb(24, 87, 29) 100%)",
-        "imagem": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Brand_6.jpg"
+        "imagem": "https://static2.lolwallpapers.net/2015/12/Zombie-Brand.jpg"
     }
 ]

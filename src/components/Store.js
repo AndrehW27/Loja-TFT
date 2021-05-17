@@ -18,6 +18,8 @@ import letsgo from '../assets/letsGo.mp3';
 import champsTier1Arr from '../champsTier1.json';
 import champsTier2Arr from '../champsTier2.json';
 import champsTier3Arr from '../champsTier3.json';
+import champsTier4Arr from '../champsTier4.json';
+import champsTier5Arr from '../champsTier5.json';
 
 export default function Store() {
 
@@ -115,16 +117,18 @@ export default function Store() {
         new Audio(paperSound2).play();
     }
 
-    // MOSTRAR DIVS
-    // const mostrar = () => {
-    //     document.getElementById("levelId").classList.toggle("mostrar");
-    // }
-    // const ocultar = () => {
-    //     document.getElementById("levelId").classList.add("none");
-    // }
-
     // START
     const start = () => {
+        let sorteioOdds1 = Math.floor(Math.random() * (100 - 1)) + 1
+        setSorteio1(sorteioOdds1);
+        let sorteioOdds2 = Math.floor(Math.random() * (100 - 1)) + 1
+        setSorteio2(sorteioOdds2);
+        let sorteioOdds3 = Math.floor(Math.random() * (100 - 1)) + 1
+        setSorteio3(sorteioOdds3);
+        let sorteioOdds4 = Math.floor(Math.random() * (100 - 1)) + 1
+        setSorteio4(sorteioOdds4);
+        let sorteioOdds5 = Math.floor(Math.random() * (100 - 1)) + 1
+        setSorteio5(sorteioOdds5);
 
         document.getElementById("iconInicial1").style.display = "flex";
         document.getElementById("iconInicial2").style.display = "flex";
@@ -138,6 +142,7 @@ export default function Store() {
 
 
             let randomBox1 = Math.floor(Math.random() * (13 - 1)) + 1
+            setchamp1(randomBox1);
             let novoChampBox1 = champsTier1Arr[randomBox1].nome;
             let novoImg1 = champsTier1Arr[randomBox1].imagem;
             let novoStar1 = champsTier1Arr[randomBox1].star;
@@ -154,6 +159,7 @@ export default function Store() {
             setStarNumber1(novoStar1);
 
             let randomBox2 = Math.floor(Math.random() * (13 - 1)) + 1
+            setchamp2(randomBox2);
             let novoChampBox2 = champsTier1Arr[randomBox2].nome;
             let novoImg2 = champsTier1Arr[randomBox2].imagem;
             let novoStar2 = champsTier1Arr[randomBox2].star;
@@ -170,6 +176,7 @@ export default function Store() {
             setStarNumber2(novoStar2);
 
             let randomBox3 = Math.floor(Math.random() * (13 - 1)) + 1
+            setchamp3(randomBox3);
             let novoChampBox3 = champsTier1Arr[randomBox3].nome;
             let novoImg3 = champsTier1Arr[randomBox3].imagem;
             let novoStar3 = champsTier1Arr[randomBox3].star;
@@ -186,6 +193,7 @@ export default function Store() {
             setStarNumber3(novoStar3);
 
             let randomBox4 = Math.floor(Math.random() * (13 - 1)) + 1
+            setchamp4(randomBox4);
             let novoChampBox4 = champsTier1Arr[randomBox4].nome;
             let novoImg4 = champsTier1Arr[randomBox4].imagem;
             let novoStar4 = champsTier1Arr[randomBox4].star;
@@ -202,6 +210,7 @@ export default function Store() {
             setStarNumber4(novoStar4);
 
             let randomBox5 = Math.floor(Math.random() * (13 - 1)) + 1
+            setchamp5(randomBox5);
             let novoChampBox5 = champsTier1Arr[randomBox5].nome;
             let novoImg5 = champsTier1Arr[randomBox5].imagem;
             let novoStar5 = champsTier1Arr[randomBox5].star;
@@ -229,32 +238,32 @@ export default function Store() {
     }
     //COMPRANDO CHAMP
     const BuyChamp1 = () => {
-        if (championNome1 != "Welcome") {
-            setGold(gold - 2)
+        if (championNome1 != "Welcome" && gold >= starNumber1) {
+            setGold(gold - starNumber1)
             document.getElementById("box1").classList.add("none");
         }
     }
     const BuyChamp2 = () => {
-        if (championNome1 != "Welcome") {
-            setGold(gold - 2)
+        if (championNome1 != "Welcome" && gold >= starNumber2) {
+            setGold(gold - starNumber2)
             document.getElementById("box2").classList.add("none");
         }
     }
     const BuyChamp3 = () => {
-        if (championNome1 != "Welcome") {
-            setGold(gold - 2)
+        if (championNome1 != "Welcome" && gold >= starNumber3) {
+            setGold(gold - starNumber3)
             document.getElementById("box3").classList.add("none");
         }
     }
     const BuyChamp4 = () => {
-        if (championNome1 != "Welcome") {
-            setGold(gold - 2)
+        if (championNome1 != "Welcome" && gold >= starNumber4) {
+            setGold(gold - starNumber4)
             document.getElementById("box4").classList.add("none");
         }
     }
     const BuyChamp5 = () => {
-        if (championNome1 != "Welcome") {
-            setGold(gold - 2)
+        if (championNome1 != "Welcome" && gold >= starNumber5) {
+            setGold(gold - starNumber5)
             document.getElementById("box5").classList.add("none");
         }
     }
@@ -444,27 +453,52 @@ export default function Store() {
 
     // MONITORANDO GOLD
     useEffect(() => {
-        if (gold <= 3) {
-            document.getElementById("buyXpId").classList.add("botaoDestivado");
-            // document.getElementById("buyXpId").setAttribute("disabled", true);
-
+        if (gold <= 4) {
             document.getElementById("minusFiveId").classList.add("botaoDestivado");
-
+            if (gold <= 3) {
+                document.getElementById("buyXpId").classList.add("botaoDestivado");
+            }
             if (gold <= 1) {
                 document.getElementById("refreshId").classList.add("botaoDestivado");
-                // document.getElementById("buyXpId").setAttribute("disabled", true);
             }
-        } else if (gold === 100) {
+        }
+
+        else if (gold === 100) {
             document.getElementById("plusFiveId").classList.add("botaoDestivado");
         } else {
             document.getElementById("buyXpId").classList.remove("botaoDestivado");
             document.getElementById("refreshId").classList.remove("botaoDestivado");
             document.getElementById("plusFiveId").classList.remove("botaoDestivado");
             document.getElementById("minusFiveId").classList.remove("botaoDestivado");
-
-            // document.getElementById("refreshId").setAttribute("disabled", false);
-            // document.getElementById("buyXpId").setAttribute("disabled", false);
         }
+
+
+
+
+
+        // if (gold < starNumber1) {
+        //     document.getElementById("box1").classList.add("botaoDestivado");
+        // }else
+        // if (gold < starNumber2) {
+        //     document.getElementById("box2").classList.add("botaoDestivado");
+        // }else
+        // if (gold < starNumber3) {
+        //     document.getElementById("box3").classList.add("botaoDestivado");
+        // }else
+        // if (gold < starNumber4) {
+        //     document.getElementById("box4").classList.add("botaoDestivado");
+        // }else 
+        // if (gold < starNumber5) {
+        //     document.getElementById("box5").classList.add("botaoDestivado");
+        // }
+        // else {
+        //     document.getElementById("box1").classList.remove("botaoDestivado");
+        //     document.getElementById("box2").classList.remove("botaoDestivado");
+        //     document.getElementById("box3").classList.remove("botaoDestivado");
+        //     document.getElementById("box4").classList.remove("botaoDestivado");
+        //     document.getElementById("box5").classList.remove("botaoDestivado");
+        // }
+
     }, [gold])
 
     // ATUALIZAR LOJA
@@ -499,8 +533,10 @@ export default function Store() {
             document.getElementById("iconInicial5").style.display = "flex";
 
             // LEVEL 1 E 2
-            if (level === 1 || level === 2 && gold > 1) {
+            if ((level === 1 || level === 2) && gold > 1) {
                 let randomBox1 = Math.floor(Math.random() * (13 - 1)) + 1
+                setchamp1(randomBox1);
+
                 let novoChampBox1 = champsTier1Arr[randomBox1].nome;
                 let novoImg1 = champsTier1Arr[randomBox1].imagem;
                 let novoStar1 = champsTier1Arr[randomBox1].star;
@@ -517,6 +553,7 @@ export default function Store() {
                 setStarNumber1(novoStar1);
 
                 let randomBox2 = Math.floor(Math.random() * (13 - 1)) + 1
+                setchamp2(randomBox2);
                 let novoChampBox2 = champsTier1Arr[randomBox2].nome;
                 let novoImg2 = champsTier1Arr[randomBox2].imagem;
                 let novoStar2 = champsTier1Arr[randomBox2].star;
@@ -533,6 +570,7 @@ export default function Store() {
                 setStarNumber2(novoStar2);
 
                 let randomBox3 = Math.floor(Math.random() * (13 - 1)) + 1
+                setchamp3(randomBox3);
                 let novoChampBox3 = champsTier1Arr[randomBox3].nome;
                 let novoImg3 = champsTier1Arr[randomBox3].imagem;
                 let novoStar3 = champsTier1Arr[randomBox3].star;
@@ -549,6 +587,7 @@ export default function Store() {
                 setStarNumber3(novoStar3);
 
                 let randomBox4 = Math.floor(Math.random() * (13 - 1)) + 1
+                setchamp4(randomBox4);
                 let novoChampBox4 = champsTier1Arr[randomBox4].nome;
                 let novoImg4 = champsTier1Arr[randomBox4].imagem;
                 let novoStar4 = champsTier1Arr[randomBox4].star;
@@ -565,6 +604,7 @@ export default function Store() {
                 setStarNumber4(novoStar4);
 
                 let randomBox5 = Math.floor(Math.random() * (13 - 1)) + 1
+                setchamp5(randomBox5);
                 let novoChampBox5 = champsTier1Arr[randomBox5].nome;
                 let novoImg5 = champsTier1Arr[randomBox5].imagem;
                 let novoStar5 = champsTier1Arr[randomBox5].star;
@@ -587,16 +627,16 @@ export default function Store() {
 
                 // BOX1
                 if (sorteioOdds1 >= 1 && sorteioOdds1 <= 75) {
-                    let champ1Lvl4 = Math.floor(Math.random() * (13 - 1)) + 1
-                    setchamp1(champ1Lvl4);
+                    let champ1Lvl3 = Math.floor(Math.random() * (13 - 1)) + 1
+                    setchamp1(champ1Lvl3);
 
-                    let novoChampBox1 = champsTier1Arr[champ1Lvl4].nome;
-                    let novoImg1 = champsTier1Arr[champ1Lvl4].imagem;
-                    let novoStar1 = champsTier1Arr[champ1Lvl4].star;
-                    let novoCor1 = champsTier1Arr[champ1Lvl4].cor;
-                    let novoCorBorder1 = champsTier1Arr[champ1Lvl4].corBorda;
-                    let novoOrigem1 = champsTier1Arr[champ1Lvl4].origem;
-                    let novoClasse1 = champsTier1Arr[champ1Lvl4].classe;
+                    let novoChampBox1 = champsTier1Arr[champ1Lvl3].nome;
+                    let novoImg1 = champsTier1Arr[champ1Lvl3].imagem;
+                    let novoStar1 = champsTier1Arr[champ1Lvl3].star;
+                    let novoCor1 = champsTier1Arr[champ1Lvl3].cor;
+                    let novoCorBorder1 = champsTier1Arr[champ1Lvl3].corBorda;
+                    let novoOrigem1 = champsTier1Arr[champ1Lvl3].origem;
+                    let novoClasse1 = champsTier1Arr[champ1Lvl3].classe;
                     setOrigem1(novoOrigem1);
                     setClasse1(novoClasse1);
                     setCorBorder1(novoCorBorder1);
@@ -605,17 +645,17 @@ export default function Store() {
                     setChampionNome1(novoChampBox1);
                     setStarNumber1(novoStar1);
 
-                } else{
-                    let champ1Lvl4 = Math.floor(Math.random() * (13 - 1)) + 1
-                    setchamp1(champ1Lvl4);
+                } else {
+                    let champ2Lvl3 = Math.floor(Math.random() * (13 - 1)) + 1
+                    setchamp1(champ2Lvl3);
 
-                    let novoChampBox1 = champsTier2Arr[champ1Lvl4].nome;
-                    let novoImg1 = champsTier2Arr[champ1Lvl4].imagem;
-                    let novoStar1 = champsTier2Arr[champ1Lvl4].star;
-                    let novoCor1 = champsTier2Arr[champ1Lvl4].cor;
-                    let novoCorBorder1 = champsTier2Arr[champ1Lvl4].corBorda;
-                    let novoOrigem1 = champsTier2Arr[champ1Lvl4].origem;
-                    let novoClasse1 = champsTier2Arr[champ1Lvl4].classe;
+                    let novoChampBox1 = champsTier2Arr[champ2Lvl3].nome;
+                    let novoImg1 = champsTier2Arr[champ2Lvl3].imagem;
+                    let novoStar1 = champsTier2Arr[champ2Lvl3].star;
+                    let novoCor1 = champsTier2Arr[champ2Lvl3].cor;
+                    let novoCorBorder1 = champsTier2Arr[champ2Lvl3].corBorda;
+                    let novoOrigem1 = champsTier2Arr[champ2Lvl3].origem;
+                    let novoClasse1 = champsTier2Arr[champ2Lvl3].classe;
                     setOrigem1(novoOrigem1);
                     setClasse1(novoClasse1);
                     setCorBorder1(novoCorBorder1);
@@ -623,20 +663,20 @@ export default function Store() {
                     setChampImg1(novoImg1);
                     setChampionNome1(novoChampBox1);
                     setStarNumber1(novoStar1);
-                } 
+                }
 
                 // BOX2
                 if (sorteioOdds2 >= 1 && sorteioOdds2 <= 75) {
-                    let champ2Lvl4 = Math.floor(Math.random() * (13 - 1)) + 1
-                    setchamp2(champ2Lvl4);
+                    let champ1Lvl3 = Math.floor(Math.random() * (13 - 1)) + 1
+                    setchamp2(champ1Lvl3);
 
-                    let novoChampBox2 = champsTier1Arr[champ2Lvl4].nome;
-                    let novoImg2 = champsTier1Arr[champ2Lvl4].imagem;
-                    let novoStar2 = champsTier1Arr[champ2Lvl4].star;
-                    let novoCor2 = champsTier1Arr[champ2Lvl4].cor;
-                    let novoCorBorder2 = champsTier1Arr[champ2Lvl4].corBorda;
-                    let novoOrigem2 = champsTier1Arr[champ2Lvl4].origem;
-                    let novoClasse2 = champsTier1Arr[champ2Lvl4].classe;
+                    let novoChampBox2 = champsTier1Arr[champ1Lvl3].nome;
+                    let novoImg2 = champsTier1Arr[champ1Lvl3].imagem;
+                    let novoStar2 = champsTier1Arr[champ1Lvl3].star;
+                    let novoCor2 = champsTier1Arr[champ1Lvl3].cor;
+                    let novoCorBorder2 = champsTier1Arr[champ1Lvl3].corBorda;
+                    let novoOrigem2 = champsTier1Arr[champ1Lvl3].origem;
+                    let novoClasse2 = champsTier1Arr[champ1Lvl3].classe;
                     setOrigem2(novoOrigem2);
                     setClasse2(novoClasse2);
                     setCorBorder2(novoCorBorder2);
@@ -646,16 +686,16 @@ export default function Store() {
                     setStarNumber2(novoStar2);
 
                 } else {
-                    let champ2Lvl4 = Math.floor(Math.random() * (13 - 1)) + 1
-                    setchamp2(champ2Lvl4);
+                    let champ2Lvl3 = Math.floor(Math.random() * (13 - 1)) + 1
+                    setchamp2(champ2Lvl3);
 
-                    let novoChampBox2 = champsTier2Arr[champ2Lvl4].nome;
-                    let novoImg2 = champsTier2Arr[champ2Lvl4].imagem;
-                    let novoStar2 = champsTier2Arr[champ2Lvl4].star;
-                    let novoCor2 = champsTier2Arr[champ2Lvl4].cor;
-                    let novoCorBorder2 = champsTier2Arr[champ2Lvl4].corBorda;
-                    let novoOrigem2 = champsTier2Arr[champ2Lvl4].origem;
-                    let novoClasse2 = champsTier2Arr[champ2Lvl4].classe;
+                    let novoChampBox2 = champsTier2Arr[champ2Lvl3].nome;
+                    let novoImg2 = champsTier2Arr[champ2Lvl3].imagem;
+                    let novoStar2 = champsTier2Arr[champ2Lvl3].star;
+                    let novoCor2 = champsTier2Arr[champ2Lvl3].cor;
+                    let novoCorBorder2 = champsTier2Arr[champ2Lvl3].corBorda;
+                    let novoOrigem2 = champsTier2Arr[champ2Lvl3].origem;
+                    let novoClasse2 = champsTier2Arr[champ2Lvl3].classe;
                     setOrigem2(novoOrigem2);
                     setClasse2(novoClasse2);
                     setCorBorder2(novoCorBorder2);
@@ -663,20 +703,20 @@ export default function Store() {
                     setChampImg2(novoImg2);
                     setChampionNome2(novoChampBox2);
                     setStarNumber2(novoStar2);
-                } 
+                }
 
                 // BOX3
                 if (sorteioOdds3 >= 1 && sorteioOdds3 <= 75) {
-                    let champ3Lvl4 = Math.floor(Math.random() * (13 - 1)) + 1
-                    setchamp3(champ3Lvl4);
+                    let champ1Lvl3 = Math.floor(Math.random() * (13 - 1)) + 1
+                    setchamp3(champ1Lvl3);
 
-                    let novoChampBox3 = champsTier1Arr[champ3Lvl4].nome;
-                    let novoImg3 = champsTier1Arr[champ3Lvl4].imagem;
-                    let novoStar3 = champsTier1Arr[champ3Lvl4].star;
-                    let novoCor3 = champsTier1Arr[champ3Lvl4].cor;
-                    let novoCorBorder3 = champsTier1Arr[champ3Lvl4].corBorda;
-                    let novoOrigem3 = champsTier1Arr[champ3Lvl4].origem;
-                    let novoClasse3 = champsTier1Arr[champ3Lvl4].classe;
+                    let novoChampBox3 = champsTier1Arr[champ1Lvl3].nome;
+                    let novoImg3 = champsTier1Arr[champ1Lvl3].imagem;
+                    let novoStar3 = champsTier1Arr[champ1Lvl3].star;
+                    let novoCor3 = champsTier1Arr[champ1Lvl3].cor;
+                    let novoCorBorder3 = champsTier1Arr[champ1Lvl3].corBorda;
+                    let novoOrigem3 = champsTier1Arr[champ1Lvl3].origem;
+                    let novoClasse3 = champsTier1Arr[champ1Lvl3].classe;
                     setOrigem3(novoOrigem3);
                     setClasse3(novoClasse3);
                     setCorBorder3(novoCorBorder3);
@@ -686,16 +726,16 @@ export default function Store() {
                     setStarNumber3(novoStar3);
 
                 } else {
-                    let champ3Lvl4 = Math.floor(Math.random() * (13 - 1)) + 1
-                    setchamp3(champ3Lvl4);
+                    let champ2Lvl3 = Math.floor(Math.random() * (13 - 1)) + 1
+                    setchamp3(champ2Lvl3);
 
-                    let novoChampBox3 = champsTier2Arr[champ3Lvl4].nome;
-                    let novoImg3 = champsTier2Arr[champ3Lvl4].imagem;
-                    let novoStar3 = champsTier2Arr[champ3Lvl4].star;
-                    let novoCor3 = champsTier2Arr[champ3Lvl4].cor;
-                    let novoCorBorder3 = champsTier2Arr[champ3Lvl4].corBorda;
-                    let novoOrigem3 = champsTier2Arr[champ3Lvl4].origem;
-                    let novoClasse3 = champsTier2Arr[champ3Lvl4].classe;
+                    let novoChampBox3 = champsTier2Arr[champ2Lvl3].nome;
+                    let novoImg3 = champsTier2Arr[champ2Lvl3].imagem;
+                    let novoStar3 = champsTier2Arr[champ2Lvl3].star;
+                    let novoCor3 = champsTier2Arr[champ2Lvl3].cor;
+                    let novoCorBorder3 = champsTier2Arr[champ2Lvl3].corBorda;
+                    let novoOrigem3 = champsTier2Arr[champ2Lvl3].origem;
+                    let novoClasse3 = champsTier2Arr[champ2Lvl3].classe;
                     setOrigem3(novoOrigem3);
                     setClasse3(novoClasse3);
                     setCorBorder3(novoCorBorder3);
@@ -704,20 +744,20 @@ export default function Store() {
                     setChampionNome3(novoChampBox3);
                     setStarNumber3(novoStar3);
 
-                } 
+                }
 
                 // BOX4
                 if (sorteioOdds4 >= 1 && sorteioOdds4 <= 75) {
-                    let champ4Lvl4 = Math.floor(Math.random() * (13 - 1)) + 1
-                    setchamp4(champ4Lvl4);
+                    let champ1Lvl3 = Math.floor(Math.random() * (13 - 1)) + 1
+                    setchamp4(champ1Lvl3);
 
-                    let novoChampBox4 = champsTier1Arr[champ4Lvl4].nome;
-                    let novoImg4 = champsTier1Arr[champ4Lvl4].imagem;
-                    let novoStar4 = champsTier1Arr[champ4Lvl4].star;
-                    let novoCor4 = champsTier1Arr[champ4Lvl4].cor;
-                    let novoCorBorder4 = champsTier1Arr[champ4Lvl4].corBorda;
-                    let novoOrigem4 = champsTier1Arr[champ4Lvl4].origem;
-                    let novoClasse4 = champsTier1Arr[champ4Lvl4].classe;
+                    let novoChampBox4 = champsTier1Arr[champ1Lvl3].nome;
+                    let novoImg4 = champsTier1Arr[champ1Lvl3].imagem;
+                    let novoStar4 = champsTier1Arr[champ1Lvl3].star;
+                    let novoCor4 = champsTier1Arr[champ1Lvl3].cor;
+                    let novoCorBorder4 = champsTier1Arr[champ1Lvl3].corBorda;
+                    let novoOrigem4 = champsTier1Arr[champ1Lvl3].origem;
+                    let novoClasse4 = champsTier1Arr[champ1Lvl3].classe;
                     setOrigem4(novoOrigem4);
                     setClasse4(novoClasse4);
                     setCorBorder4(novoCorBorder4);
@@ -727,16 +767,16 @@ export default function Store() {
                     setStarNumber4(novoStar4);
 
                 } else {
-                    let champ4Lvl4 = Math.floor(Math.random() * (13 - 1)) + 1
-                    setchamp4(champ4Lvl4);
+                    let champ2Lvl3 = Math.floor(Math.random() * (13 - 1)) + 1
+                    setchamp4(champ2Lvl3);
 
-                    let novoChampBox4 = champsTier2Arr[champ4Lvl4].nome;
-                    let novoImg4 = champsTier2Arr[champ4Lvl4].imagem;
-                    let novoStar4 = champsTier2Arr[champ4Lvl4].star;
-                    let novoCor4 = champsTier2Arr[champ4Lvl4].cor;
-                    let novoCorBorder4 = champsTier2Arr[champ4Lvl4].corBorda;
-                    let novoOrigem4 = champsTier2Arr[champ4Lvl4].origem;
-                    let novoClasse4 = champsTier2Arr[champ4Lvl4].classe;
+                    let novoChampBox4 = champsTier2Arr[champ2Lvl3].nome;
+                    let novoImg4 = champsTier2Arr[champ2Lvl3].imagem;
+                    let novoStar4 = champsTier2Arr[champ2Lvl3].star;
+                    let novoCor4 = champsTier2Arr[champ2Lvl3].cor;
+                    let novoCorBorder4 = champsTier2Arr[champ2Lvl3].corBorda;
+                    let novoOrigem4 = champsTier2Arr[champ2Lvl3].origem;
+                    let novoClasse4 = champsTier2Arr[champ2Lvl3].classe;
                     setOrigem4(novoOrigem4);
                     setClasse4(novoClasse4);
                     setCorBorder4(novoCorBorder4);
@@ -746,20 +786,20 @@ export default function Store() {
                     setStarNumber4(novoStar4);
 
 
-                } 
+                }
 
                 // BOX5
                 if (sorteioOdds5 >= 1 && sorteioOdds5 <= 75) {
-                    let champ5Lvl4 = Math.floor(Math.random() * (13 - 1)) + 1
-                    setchamp5(champ5Lvl4);
+                    let champ1Lvl3 = Math.floor(Math.random() * (13 - 1)) + 1
+                    setchamp5(champ1Lvl3);
 
-                    let novoChampBox5 = champsTier1Arr[champ5Lvl4].nome;
-                    let novoImg5 = champsTier1Arr[champ5Lvl4].imagem;
-                    let novoStar5 = champsTier1Arr[champ5Lvl4].star;
-                    let novoCor5 = champsTier1Arr[champ5Lvl4].cor;
-                    let novoCorBorder5 = champsTier1Arr[champ5Lvl4].corBorda;
-                    let novoOrigem5 = champsTier1Arr[champ5Lvl4].origem;
-                    let novoClasse5 = champsTier1Arr[champ5Lvl4].classe;
+                    let novoChampBox5 = champsTier1Arr[champ1Lvl3].nome;
+                    let novoImg5 = champsTier1Arr[champ1Lvl3].imagem;
+                    let novoStar5 = champsTier1Arr[champ1Lvl3].star;
+                    let novoCor5 = champsTier1Arr[champ1Lvl3].cor;
+                    let novoCorBorder5 = champsTier1Arr[champ1Lvl3].corBorda;
+                    let novoOrigem5 = champsTier1Arr[champ1Lvl3].origem;
+                    let novoClasse5 = champsTier1Arr[champ1Lvl3].classe;
                     setOrigem5(novoOrigem5);
                     setClasse5(novoClasse5);
                     setCorBorder5(novoCorBorder5);
@@ -769,16 +809,16 @@ export default function Store() {
                     setStarNumber5(novoStar5);
 
                 } else {
-                    let champ5Lvl4 = Math.floor(Math.random() * (13 - 1)) + 1
-                    setchamp5(champ5Lvl4);
+                    let champ2Lvl3 = Math.floor(Math.random() * (13 - 1)) + 1
+                    setchamp5(champ2Lvl3);
 
-                    let novoChampBox5 = champsTier2Arr[champ5Lvl4].nome;
-                    let novoImg5 = champsTier2Arr[champ5Lvl4].imagem;
-                    let novoStar5 = champsTier2Arr[champ5Lvl4].star;
-                    let novoCor5 = champsTier2Arr[champ5Lvl4].cor;
-                    let novoCorBorder5 = champsTier2Arr[champ5Lvl4].corBorda;
-                    let novoOrigem5 = champsTier2Arr[champ5Lvl4].origem;
-                    let novoClasse5 = champsTier2Arr[champ5Lvl4].classe;
+                    let novoChampBox5 = champsTier2Arr[champ2Lvl3].nome;
+                    let novoImg5 = champsTier2Arr[champ2Lvl3].imagem;
+                    let novoStar5 = champsTier2Arr[champ2Lvl3].star;
+                    let novoCor5 = champsTier2Arr[champ2Lvl3].cor;
+                    let novoCorBorder5 = champsTier2Arr[champ2Lvl3].corBorda;
+                    let novoOrigem5 = champsTier2Arr[champ2Lvl3].origem;
+                    let novoClasse5 = champsTier2Arr[champ2Lvl3].classe;
                     setOrigem5(novoOrigem5);
                     setClasse5(novoClasse5);
                     setCorBorder5(novoCorBorder5);
@@ -786,7 +826,7 @@ export default function Store() {
                     setChampImg5(novoImg5);
                     setChampionNome5(novoChampBox5);
                     setStarNumber5(novoStar5);
-                } 
+                }
 
             }
 
@@ -814,16 +854,16 @@ export default function Store() {
                     setStarNumber1(novoStar1);
 
                 } else if (sorteioOdds1 >= 56 && sorteioOdds1 <= 85) {
-                    let champ1Lvl4 = Math.floor(Math.random() * (13 - 1)) + 1
-                    setchamp1(champ1Lvl4);
+                    let champ2Lvl4 = Math.floor(Math.random() * (13 - 1)) + 1
+                    setchamp1(champ2Lvl4);
 
-                    let novoChampBox1 = champsTier2Arr[champ1Lvl4].nome;
-                    let novoImg1 = champsTier2Arr[champ1Lvl4].imagem;
-                    let novoStar1 = champsTier2Arr[champ1Lvl4].star;
-                    let novoCor1 = champsTier2Arr[champ1Lvl4].cor;
-                    let novoCorBorder1 = champsTier2Arr[champ1Lvl4].corBorda;
-                    let novoOrigem1 = champsTier2Arr[champ1Lvl4].origem;
-                    let novoClasse1 = champsTier2Arr[champ1Lvl4].classe;
+                    let novoChampBox1 = champsTier2Arr[champ2Lvl4].nome;
+                    let novoImg1 = champsTier2Arr[champ2Lvl4].imagem;
+                    let novoStar1 = champsTier2Arr[champ2Lvl4].star;
+                    let novoCor1 = champsTier2Arr[champ2Lvl4].cor;
+                    let novoCorBorder1 = champsTier2Arr[champ2Lvl4].corBorda;
+                    let novoOrigem1 = champsTier2Arr[champ2Lvl4].origem;
+                    let novoClasse1 = champsTier2Arr[champ2Lvl4].classe;
                     setOrigem1(novoOrigem1);
                     setClasse1(novoClasse1);
                     setCorBorder1(novoCorBorder1);
@@ -833,16 +873,16 @@ export default function Store() {
                     setStarNumber1(novoStar1);
 
                 } else {
-                    let champ1Lvl4 = Math.floor(Math.random() * (13 - 1)) + 1
-                    setchamp1(champ1Lvl4);
+                    let champ3Lvl4 = Math.floor(Math.random() * (13 - 1)) + 1
+                    setchamp1(champ3Lvl4);
 
-                    let novoChampBox1 = champsTier3Arr[champ1Lvl4].nome;
-                    let novoImg1 = champsTier3Arr[champ1Lvl4].imagem;
-                    let novoStar1 = champsTier3Arr[champ1Lvl4].star;
-                    let novoCor1 = champsTier3Arr[champ1Lvl4].cor;
-                    let novoCorBorder1 = champsTier3Arr[champ1Lvl4].corBorda;
-                    let novoOrigem1 = champsTier3Arr[champ1Lvl4].origem;
-                    let novoClasse1 = champsTier3Arr[champ1Lvl4].classe;
+                    let novoChampBox1 = champsTier3Arr[champ3Lvl4].nome;
+                    let novoImg1 = champsTier3Arr[champ3Lvl4].imagem;
+                    let novoStar1 = champsTier3Arr[champ3Lvl4].star;
+                    let novoCor1 = champsTier3Arr[champ3Lvl4].cor;
+                    let novoCorBorder1 = champsTier3Arr[champ3Lvl4].corBorda;
+                    let novoOrigem1 = champsTier3Arr[champ3Lvl4].origem;
+                    let novoClasse1 = champsTier3Arr[champ3Lvl4].classe;
                     setOrigem1(novoOrigem1);
                     setClasse1(novoClasse1);
                     setCorBorder1(novoCorBorder1);
@@ -892,16 +932,16 @@ export default function Store() {
                     setStarNumber2(novoStar2);
 
                 } else {
-                    let champ2Lvl4 = Math.floor(Math.random() * (13 - 1)) + 1
-                    setchamp2(champ2Lvl4);
+                    let champ3Lvl4 = Math.floor(Math.random() * (13 - 1)) + 1
+                    setchamp2(champ3Lvl4);
 
-                    let novoChampBox2 = champsTier3Arr[champ2Lvl4].nome;
-                    let novoImg2 = champsTier3Arr[champ2Lvl4].imagem;
-                    let novoStar2 = champsTier3Arr[champ2Lvl4].star;
-                    let novoCor2 = champsTier3Arr[champ2Lvl4].cor;
-                    let novoCorBorder2 = champsTier3Arr[champ2Lvl4].corBorda;
-                    let novoOrigem2 = champsTier3Arr[champ2Lvl4].origem;
-                    let novoClasse2 = champsTier3Arr[champ2Lvl4].classe;
+                    let novoChampBox2 = champsTier3Arr[champ3Lvl4].nome;
+                    let novoImg2 = champsTier3Arr[champ3Lvl4].imagem;
+                    let novoStar2 = champsTier3Arr[champ3Lvl4].star;
+                    let novoCor2 = champsTier3Arr[champ3Lvl4].cor;
+                    let novoCorBorder2 = champsTier3Arr[champ3Lvl4].corBorda;
+                    let novoOrigem2 = champsTier3Arr[champ3Lvl4].origem;
+                    let novoClasse2 = champsTier3Arr[champ3Lvl4].classe;
                     setOrigem2(novoOrigem2);
                     setClasse2(novoClasse2);
                     setCorBorder2(novoCorBorder2);
@@ -932,16 +972,16 @@ export default function Store() {
                     setStarNumber3(novoStar3);
 
                 } else if (sorteioOdds3 >= 56 && sorteioOdds3 <= 85) {
-                    let champ3Lvl4 = Math.floor(Math.random() * (13 - 1)) + 1
-                    setchamp3(champ3Lvl4);
+                    let champ2Lvl4 = Math.floor(Math.random() * (13 - 1)) + 1
+                    setchamp3(champ2Lvl4);
 
-                    let novoChampBox3 = champsTier2Arr[champ3Lvl4].nome;
-                    let novoImg3 = champsTier2Arr[champ3Lvl4].imagem;
-                    let novoStar3 = champsTier2Arr[champ3Lvl4].star;
-                    let novoCor3 = champsTier2Arr[champ3Lvl4].cor;
-                    let novoCorBorder3 = champsTier2Arr[champ3Lvl4].corBorda;
-                    let novoOrigem3 = champsTier2Arr[champ3Lvl4].origem;
-                    let novoClasse3 = champsTier2Arr[champ3Lvl4].classe;
+                    let novoChampBox3 = champsTier2Arr[champ2Lvl4].nome;
+                    let novoImg3 = champsTier2Arr[champ2Lvl4].imagem;
+                    let novoStar3 = champsTier2Arr[champ2Lvl4].star;
+                    let novoCor3 = champsTier2Arr[champ2Lvl4].cor;
+                    let novoCorBorder3 = champsTier2Arr[champ2Lvl4].corBorda;
+                    let novoOrigem3 = champsTier2Arr[champ2Lvl4].origem;
+                    let novoClasse3 = champsTier2Arr[champ2Lvl4].classe;
                     setOrigem3(novoOrigem3);
                     setClasse3(novoClasse3);
                     setCorBorder3(novoCorBorder3);
@@ -993,16 +1033,16 @@ export default function Store() {
                     setStarNumber4(novoStar4);
 
                 } else if (sorteioOdds4 >= 56 && sorteioOdds4 <= 85) {
-                    let champ4Lvl4 = Math.floor(Math.random() * (13 - 1)) + 1
-                    setchamp4(champ4Lvl4);
+                    let champ2Lvl4 = Math.floor(Math.random() * (13 - 1)) + 1
+                    setchamp4(champ2Lvl4);
 
-                    let novoChampBox4 = champsTier2Arr[champ4Lvl4].nome;
-                    let novoImg4 = champsTier2Arr[champ4Lvl4].imagem;
-                    let novoStar4 = champsTier2Arr[champ4Lvl4].star;
-                    let novoCor4 = champsTier2Arr[champ4Lvl4].cor;
-                    let novoCorBorder4 = champsTier2Arr[champ4Lvl4].corBorda;
-                    let novoOrigem4 = champsTier2Arr[champ4Lvl4].origem;
-                    let novoClasse4 = champsTier2Arr[champ4Lvl4].classe;
+                    let novoChampBox4 = champsTier2Arr[champ2Lvl4].nome;
+                    let novoImg4 = champsTier2Arr[champ2Lvl4].imagem;
+                    let novoStar4 = champsTier2Arr[champ2Lvl4].star;
+                    let novoCor4 = champsTier2Arr[champ2Lvl4].cor;
+                    let novoCorBorder4 = champsTier2Arr[champ2Lvl4].corBorda;
+                    let novoOrigem4 = champsTier2Arr[champ2Lvl4].origem;
+                    let novoClasse4 = champsTier2Arr[champ2Lvl4].classe;
                     setOrigem4(novoOrigem4);
                     setClasse4(novoClasse4);
                     setCorBorder4(novoCorBorder4);
@@ -1013,16 +1053,16 @@ export default function Store() {
 
 
                 } else {
-                    let champ4Lvl4 = Math.floor(Math.random() * (13 - 1)) + 1
-                    setchamp4(champ4Lvl4);
+                    let champ3Lvl4 = Math.floor(Math.random() * (13 - 1)) + 1
+                    setchamp4(champ3Lvl4);
 
-                    let novoChampBox4 = champsTier3Arr[champ4Lvl4].nome;
-                    let novoImg4 = champsTier3Arr[champ4Lvl4].imagem;
-                    let novoStar4 = champsTier3Arr[champ4Lvl4].star;
-                    let novoCor4 = champsTier3Arr[champ4Lvl4].cor;
-                    let novoCorBorder4 = champsTier3Arr[champ4Lvl4].corBorda;
-                    let novoOrigem4 = champsTier3Arr[champ4Lvl4].origem;
-                    let novoClasse4 = champsTier3Arr[champ4Lvl4].classe;
+                    let novoChampBox4 = champsTier3Arr[champ3Lvl4].nome;
+                    let novoImg4 = champsTier3Arr[champ3Lvl4].imagem;
+                    let novoStar4 = champsTier3Arr[champ3Lvl4].star;
+                    let novoCor4 = champsTier3Arr[champ3Lvl4].cor;
+                    let novoCorBorder4 = champsTier3Arr[champ3Lvl4].corBorda;
+                    let novoOrigem4 = champsTier3Arr[champ3Lvl4].origem;
+                    let novoClasse4 = champsTier3Arr[champ3Lvl4].classe;
                     setOrigem4(novoOrigem4);
                     setClasse4(novoClasse4);
                     setCorBorder4(novoCorBorder4);
@@ -1054,16 +1094,16 @@ export default function Store() {
                     setStarNumber5(novoStar5);
 
                 } else if (sorteioOdds5 >= 56 && sorteioOdds5 <= 85) {
-                    let champ5Lvl4 = Math.floor(Math.random() * (13 - 1)) + 1
-                    setchamp5(champ5Lvl4);
+                    let champ2Lvl4 = Math.floor(Math.random() * (13 - 1)) + 1
+                    setchamp5(champ2Lvl4);
 
-                    let novoChampBox5 = champsTier2Arr[champ5Lvl4].nome;
-                    let novoImg5 = champsTier2Arr[champ5Lvl4].imagem;
-                    let novoStar5 = champsTier2Arr[champ5Lvl4].star;
-                    let novoCor5 = champsTier2Arr[champ5Lvl4].cor;
-                    let novoCorBorder5 = champsTier2Arr[champ5Lvl4].corBorda;
-                    let novoOrigem5 = champsTier2Arr[champ5Lvl4].origem;
-                    let novoClasse5 = champsTier2Arr[champ5Lvl4].classe;
+                    let novoChampBox5 = champsTier2Arr[champ2Lvl4].nome;
+                    let novoImg5 = champsTier2Arr[champ2Lvl4].imagem;
+                    let novoStar5 = champsTier2Arr[champ2Lvl4].star;
+                    let novoCor5 = champsTier2Arr[champ2Lvl4].cor;
+                    let novoCorBorder5 = champsTier2Arr[champ2Lvl4].corBorda;
+                    let novoOrigem5 = champsTier2Arr[champ2Lvl4].origem;
+                    let novoClasse5 = champsTier2Arr[champ2Lvl4].classe;
                     setOrigem5(novoOrigem5);
                     setClasse5(novoClasse5);
                     setCorBorder5(novoCorBorder5);
@@ -1073,16 +1113,16 @@ export default function Store() {
                     setStarNumber5(novoStar5);
 
                 } else {
-                    let champ5Lvl4 = Math.floor(Math.random() * (13 - 1)) + 1
-                    setchamp5(champ5Lvl4);
+                    let champ3Lvl4 = Math.floor(Math.random() * (13 - 1)) + 1
+                    setchamp5(champ3Lvl4);
 
-                    let novoChampBox5 = champsTier3Arr[champ5Lvl4].nome;
-                    let novoImg5 = champsTier3Arr[champ5Lvl4].imagem;
-                    let novoStar5 = champsTier3Arr[champ5Lvl4].star;
-                    let novoCor5 = champsTier3Arr[champ5Lvl4].cor;
-                    let novoCorBorder5 = champsTier3Arr[champ5Lvl4].corBorda;
-                    let novoOrigem5 = champsTier3Arr[champ5Lvl4].origem;
-                    let novoClasse5 = champsTier3Arr[champ5Lvl4].classe;
+                    let novoChampBox5 = champsTier3Arr[champ3Lvl4].nome;
+                    let novoImg5 = champsTier3Arr[champ3Lvl4].imagem;
+                    let novoStar5 = champsTier3Arr[champ3Lvl4].star;
+                    let novoCor5 = champsTier3Arr[champ3Lvl4].cor;
+                    let novoCorBorder5 = champsTier3Arr[champ3Lvl4].corBorda;
+                    let novoOrigem5 = champsTier3Arr[champ3Lvl4].origem;
+                    let novoClasse5 = champsTier3Arr[champ3Lvl4].classe;
                     setOrigem5(novoOrigem5);
                     setClasse5(novoClasse5);
                     setCorBorder5(novoCorBorder5);
@@ -1093,6 +1133,2271 @@ export default function Store() {
                 }
 
             }
+
+            // LEVEL 5
+            else if (level === 5 && gold > 1) {
+
+                // BOX1
+                if (sorteioOdds1 >= 1 && sorteioOdds1 <= 45) {
+                    let chosen = Math.floor(Math.random() * (13 - 1)) + 1
+                    setchamp1(chosen);
+
+                    let novoChampBox1 = champsTier1Arr[chosen].nome;
+                    let novoImg1 = champsTier1Arr[chosen].imagem;
+                    let novoStar1 = champsTier1Arr[chosen].star;
+                    let novoCor1 = champsTier1Arr[chosen].cor;
+                    let novoCorBorder1 = champsTier1Arr[chosen].corBorda;
+                    let novoOrigem1 = champsTier1Arr[chosen].origem;
+                    let novoClasse1 = champsTier1Arr[chosen].classe;
+                    setOrigem1(novoOrigem1);
+                    setClasse1(novoClasse1);
+                    setCorBorder1(novoCorBorder1);
+                    setCor1(novoCor1);
+                    setChampImg1(novoImg1);
+                    setChampionNome1(novoChampBox1);
+                    setStarNumber1(novoStar1);
+
+                } else if (sorteioOdds1 >= 46 && sorteioOdds1 <= 78) {
+                    let chosen = Math.floor(Math.random() * (13 - 1)) + 1
+                    setchamp1(chosen);
+
+                    let novoChampBox1 = champsTier2Arr[chosen].nome;
+                    let novoImg1 = champsTier2Arr[chosen].imagem;
+                    let novoStar1 = champsTier2Arr[chosen].star;
+                    let novoCor1 = champsTier2Arr[chosen].cor;
+                    let novoCorBorder1 = champsTier2Arr[chosen].corBorda;
+                    let novoOrigem1 = champsTier2Arr[chosen].origem;
+                    let novoClasse1 = champsTier2Arr[chosen].classe;
+                    setOrigem1(novoOrigem1);
+                    setClasse1(novoClasse1);
+                    setCorBorder1(novoCorBorder1);
+                    setCor1(novoCor1);
+                    setChampImg1(novoImg1);
+                    setChampionNome1(novoChampBox1);
+                    setStarNumber1(novoStar1);
+
+                } else if (sorteioOdds1 >= 79 && sorteioOdds1 <= 98) {
+                    let chosen = Math.floor(Math.random() * (13 - 1)) + 1
+                    setchamp1(chosen);
+
+                    let novoChampBox1 = champsTier3Arr[chosen].nome;
+                    let novoImg1 = champsTier3Arr[chosen].imagem;
+                    let novoStar1 = champsTier3Arr[chosen].star;
+                    let novoCor1 = champsTier3Arr[chosen].cor;
+                    let novoCorBorder1 = champsTier3Arr[chosen].corBorda;
+                    let novoOrigem1 = champsTier3Arr[chosen].origem;
+                    let novoClasse1 = champsTier3Arr[chosen].classe;
+                    setOrigem1(novoOrigem1);
+                    setClasse1(novoClasse1);
+                    setCorBorder1(novoCorBorder1);
+                    setCor1(novoCor1);
+                    setChampImg1(novoImg1);
+                    setChampionNome1(novoChampBox1);
+                    setStarNumber1(novoStar1);
+
+                } else {
+                    let chosen = Math.floor(Math.random() * (10 - 1)) + 1
+                    setchamp1(chosen);
+
+                    let novoChampBox1 = champsTier4Arr[chosen].nome;
+                    let novoImg1 = champsTier4Arr[chosen].imagem;
+                    let novoStar1 = champsTier4Arr[chosen].star;
+                    let novoCor1 = champsTier4Arr[chosen].cor;
+                    let novoCorBorder1 = champsTier4Arr[chosen].corBorda;
+                    let novoOrigem1 = champsTier4Arr[chosen].origem;
+                    let novoClasse1 = champsTier4Arr[chosen].classe;
+                    setOrigem1(novoOrigem1);
+                    setClasse1(novoClasse1);
+                    setCorBorder1(novoCorBorder1);
+                    setCor1(novoCor1);
+                    setChampImg1(novoImg1);
+                    setChampionNome1(novoChampBox1);
+                    setStarNumber1(novoStar1);
+                }
+
+                // BOX2
+                if (sorteioOdds2 >= 1 && sorteioOdds2 <= 45) {
+                    let chosen = Math.floor(Math.random() * (13 - 1)) + 1
+                    setchamp2(chosen);
+
+                    let novoChampBox2 = champsTier1Arr[chosen].nome;
+                    let novoImg2 = champsTier1Arr[chosen].imagem;
+                    let novoStar2 = champsTier1Arr[chosen].star;
+                    let novoCor2 = champsTier1Arr[chosen].cor;
+                    let novoCorBorder2 = champsTier1Arr[chosen].corBorda;
+                    let novoOrigem2 = champsTier1Arr[chosen].origem;
+                    let novoClasse2 = champsTier1Arr[chosen].classe;
+                    setOrigem2(novoOrigem2);
+                    setClasse2(novoClasse2);
+                    setCorBorder2(novoCorBorder2);
+                    setCor2(novoCor2);
+                    setChampImg2(novoImg2);
+                    setChampionNome2(novoChampBox2);
+                    setStarNumber2(novoStar2);
+
+                } else if (sorteioOdds2 >= 46 && sorteioOdds2 <= 78) {
+                    let chosen = Math.floor(Math.random() * (13 - 1)) + 1
+                    setchamp2(chosen);
+
+                    let novoChampBox2 = champsTier2Arr[chosen].nome;
+                    let novoImg2 = champsTier2Arr[chosen].imagem;
+                    let novoStar2 = champsTier2Arr[chosen].star;
+                    let novoCor2 = champsTier2Arr[chosen].cor;
+                    let novoCorBorder2 = champsTier2Arr[chosen].corBorda;
+                    let novoOrigem2 = champsTier2Arr[chosen].origem;
+                    let novoClasse2 = champsTier2Arr[chosen].classe;
+                    setOrigem2(novoOrigem2);
+                    setClasse2(novoClasse2);
+                    setCorBorder2(novoCorBorder2);
+                    setCor2(novoCor2);
+                    setChampImg2(novoImg2);
+                    setChampionNome2(novoChampBox2);
+                    setStarNumber2(novoStar2);
+                }
+                else if (sorteioOdds2 >= 79 && sorteioOdds2 <= 98) {
+                    let chosen = Math.floor(Math.random() * (13 - 1)) + 1
+                    setchamp2(chosen);
+
+                    let novoChampBox2 = champsTier3Arr[chosen].nome;
+                    let novoImg2 = champsTier3Arr[chosen].imagem;
+                    let novoStar2 = champsTier3Arr[chosen].star;
+                    let novoCor2 = champsTier3Arr[chosen].cor;
+                    let novoCorBorder2 = champsTier3Arr[chosen].corBorda;
+                    let novoOrigem2 = champsTier3Arr[chosen].origem;
+                    let novoClasse2 = champsTier3Arr[chosen].classe;
+                    setOrigem2(novoOrigem2);
+                    setClasse2(novoClasse2);
+                    setCorBorder2(novoCorBorder2);
+                    setCor2(novoCor2);
+                    setChampImg2(novoImg2);
+                    setChampionNome2(novoChampBox2);
+                    setStarNumber2(novoStar2);
+                }
+                else {
+                    let chosen = Math.floor(Math.random() * (10 - 1)) + 1
+                    setchamp2(chosen);
+
+                    let novoChampBox2 = champsTier4Arr[chosen].nome;
+                    let novoImg2 = champsTier4Arr[chosen].imagem;
+                    let novoStar2 = champsTier4Arr[chosen].star;
+                    let novoCor2 = champsTier4Arr[chosen].cor;
+                    let novoCorBorder2 = champsTier4Arr[chosen].corBorda;
+                    let novoOrigem2 = champsTier4Arr[chosen].origem;
+                    let novoClasse2 = champsTier4Arr[chosen].classe;
+                    setOrigem2(novoOrigem2);
+                    setClasse2(novoClasse2);
+                    setCorBorder2(novoCorBorder2);
+                    setCor2(novoCor2);
+                    setChampImg2(novoImg2);
+                    setChampionNome2(novoChampBox2);
+                    setStarNumber2(novoStar2);
+                }
+
+                // BOX3
+                if (sorteioOdds3 >= 1 && sorteioOdds3 <= 45) {
+                    let chosen = Math.floor(Math.random() * (13 - 1)) + 1
+                    setchamp3(chosen);
+
+                    let novoChampBox3 = champsTier1Arr[chosen].nome;
+                    let novoImg3 = champsTier1Arr[chosen].imagem;
+                    let novoStar3 = champsTier1Arr[chosen].star;
+                    let novoCor3 = champsTier1Arr[chosen].cor;
+                    let novoCorBorder3 = champsTier1Arr[chosen].corBorda;
+                    let novoOrigem3 = champsTier1Arr[chosen].origem;
+                    let novoClasse3 = champsTier1Arr[chosen].classe;
+                    setOrigem3(novoOrigem3);
+                    setClasse3(novoClasse3);
+                    setCorBorder3(novoCorBorder3);
+                    setCor3(novoCor3);
+                    setChampImg3(novoImg3);
+                    setChampionNome3(novoChampBox3);
+                    setStarNumber3(novoStar3);
+
+                } else if (sorteioOdds3 >= 46 && sorteioOdds3 <= 78) {
+                    let chosen = Math.floor(Math.random() * (13 - 1)) + 1
+                    setchamp3(chosen);
+
+                    let novoChampBox3 = champsTier2Arr[chosen].nome;
+                    let novoImg3 = champsTier2Arr[chosen].imagem;
+                    let novoStar3 = champsTier2Arr[chosen].star;
+                    let novoCor3 = champsTier2Arr[chosen].cor;
+                    let novoCorBorder3 = champsTier2Arr[chosen].corBorda;
+                    let novoOrigem3 = champsTier2Arr[chosen].origem;
+                    let novoClasse3 = champsTier2Arr[chosen].classe;
+                    setOrigem3(novoOrigem3);
+                    setClasse3(novoClasse3);
+                    setCorBorder3(novoCorBorder3);
+                    setCor3(novoCor3);
+                    setChampImg3(novoImg3);
+                    setChampionNome3(novoChampBox3);
+                    setStarNumber3(novoStar3);
+
+                } else if (sorteioOdds3 >= 79 && sorteioOdds3 <= 98) {
+                    let chosen = Math.floor(Math.random() * (13 - 1)) + 1
+                    setchamp3(chosen);
+
+                    let novoChampBox3 = champsTier3Arr[chosen].nome;
+                    let novoImg3 = champsTier3Arr[chosen].imagem;
+                    let novoStar3 = champsTier3Arr[chosen].star;
+                    let novoCor3 = champsTier3Arr[chosen].cor;
+                    let novoCorBorder3 = champsTier3Arr[chosen].corBorda;
+                    let novoOrigem3 = champsTier3Arr[chosen].origem;
+                    let novoClasse3 = champsTier3Arr[chosen].classe;
+                    setOrigem3(novoOrigem3);
+                    setClasse3(novoClasse3);
+                    setCorBorder3(novoCorBorder3);
+                    setCor3(novoCor3);
+                    setChampImg3(novoImg3);
+                    setChampionNome3(novoChampBox3);
+                    setStarNumber3(novoStar3);
+                } else {
+                    let chosen = Math.floor(Math.random() * (10 - 1)) + 1
+                    setchamp3(chosen);
+
+                    let novoChampBox3 = champsTier4Arr[chosen].nome;
+                    let novoImg3 = champsTier4Arr[chosen].imagem;
+                    let novoStar3 = champsTier4Arr[chosen].star;
+                    let novoCor3 = champsTier4Arr[chosen].cor;
+                    let novoCorBorder3 = champsTier4Arr[chosen].corBorda;
+                    let novoOrigem3 = champsTier4Arr[chosen].origem;
+                    let novoClasse3 = champsTier4Arr[chosen].classe;
+                    setOrigem3(novoOrigem3);
+                    setClasse3(novoClasse3);
+                    setCorBorder3(novoCorBorder3);
+                    setCor3(novoCor3);
+                    setChampImg3(novoImg3);
+                    setChampionNome3(novoChampBox3);
+                    setStarNumber3(novoStar3);
+
+                }
+
+                // BOX4
+                if (sorteioOdds4 >= 1 && sorteioOdds4 <= 45) {
+                    let chosen = Math.floor(Math.random() * (13 - 1)) + 1
+                    setchamp4(chosen);
+
+                    let novoChampBox4 = champsTier1Arr[chosen].nome;
+                    let novoImg4 = champsTier1Arr[chosen].imagem;
+                    let novoStar4 = champsTier1Arr[chosen].star;
+                    let novoCor4 = champsTier1Arr[chosen].cor;
+                    let novoCorBorder4 = champsTier1Arr[chosen].corBorda;
+                    let novoOrigem4 = champsTier1Arr[chosen].origem;
+                    let novoClasse4 = champsTier1Arr[chosen].classe;
+                    setOrigem4(novoOrigem4);
+                    setClasse4(novoClasse4);
+                    setCorBorder4(novoCorBorder4);
+                    setCor4(novoCor4);
+                    setChampImg4(novoImg4);
+                    setChampionNome4(novoChampBox4);
+                    setStarNumber4(novoStar4);
+
+                } else if (sorteioOdds4 >= 46 && sorteioOdds4 <= 78) {
+                    let chosen = Math.floor(Math.random() * (13 - 1)) + 1
+                    setchamp4(chosen);
+
+                    let novoChampBox4 = champsTier2Arr[chosen].nome;
+                    let novoImg4 = champsTier2Arr[chosen].imagem;
+                    let novoStar4 = champsTier2Arr[chosen].star;
+                    let novoCor4 = champsTier2Arr[chosen].cor;
+                    let novoCorBorder4 = champsTier2Arr[chosen].corBorda;
+                    let novoOrigem4 = champsTier2Arr[chosen].origem;
+                    let novoClasse4 = champsTier2Arr[chosen].classe;
+                    setOrigem4(novoOrigem4);
+                    setClasse4(novoClasse4);
+                    setCorBorder4(novoCorBorder4);
+                    setCor4(novoCor4);
+                    setChampImg4(novoImg4);
+                    setChampionNome4(novoChampBox4);
+                    setStarNumber4(novoStar4);
+                }
+                else if (sorteioOdds4 >= 79 && sorteioOdds4 <= 98) {
+                    let chosen = Math.floor(Math.random() * (13 - 1)) + 1
+                    setchamp4(chosen);
+
+                    let novoChampBox4 = champsTier3Arr[chosen].nome;
+                    let novoImg4 = champsTier3Arr[chosen].imagem;
+                    let novoStar4 = champsTier3Arr[chosen].star;
+                    let novoCor4 = champsTier3Arr[chosen].cor;
+                    let novoCorBorder4 = champsTier3Arr[chosen].corBorda;
+                    let novoOrigem4 = champsTier3Arr[chosen].origem;
+                    let novoClasse4 = champsTier3Arr[chosen].classe;
+                    setOrigem4(novoOrigem4);
+                    setClasse4(novoClasse4);
+                    setCorBorder4(novoCorBorder4);
+                    setCor4(novoCor4);
+                    setChampImg4(novoImg4);
+                    setChampionNome4(novoChampBox4);
+                    setStarNumber4(novoStar4);
+                }
+                else {
+                    let chosen = Math.floor(Math.random() * (10 - 1)) + 1
+                    setchamp4(chosen);
+
+                    let novoChampBox4 = champsTier4Arr[chosen].nome;
+                    let novoImg4 = champsTier4Arr[chosen].imagem;
+                    let novoStar4 = champsTier4Arr[chosen].star;
+                    let novoCor4 = champsTier4Arr[chosen].cor;
+                    let novoCorBorder4 = champsTier4Arr[chosen].corBorda;
+                    let novoOrigem4 = champsTier4Arr[chosen].origem;
+                    let novoClasse4 = champsTier4Arr[chosen].classe;
+                    setOrigem4(novoOrigem4);
+                    setClasse4(novoClasse4);
+                    setCorBorder4(novoCorBorder4);
+                    setCor4(novoCor4);
+                    setChampImg4(novoImg4);
+                    setChampionNome4(novoChampBox4);
+                    setStarNumber4(novoStar4);
+
+                }
+
+                // BOX5
+                if (sorteioOdds5 >= 1 && sorteioOdds5 <= 45) {
+                    let chosen = Math.floor(Math.random() * (13 - 1)) + 1
+                    setchamp5(chosen);
+
+                    let novoChampBox5 = champsTier1Arr[chosen].nome;
+                    let novoImg5 = champsTier1Arr[chosen].imagem;
+                    let novoStar5 = champsTier1Arr[chosen].star;
+                    let novoCor5 = champsTier1Arr[chosen].cor;
+                    let novoCorBorder5 = champsTier1Arr[chosen].corBorda;
+                    let novoOrigem5 = champsTier1Arr[chosen].origem;
+                    let novoClasse5 = champsTier1Arr[chosen].classe;
+                    setOrigem5(novoOrigem5);
+                    setClasse5(novoClasse5);
+                    setCorBorder5(novoCorBorder5);
+                    setCor5(novoCor5);
+                    setChampImg5(novoImg5);
+                    setChampionNome5(novoChampBox5);
+                    setStarNumber5(novoStar5);
+
+                } else if (sorteioOdds5 >= 46 && sorteioOdds5 <= 78) {
+                    let chosen = Math.floor(Math.random() * (13 - 1)) + 1
+                    setchamp5(chosen);
+
+                    let novoChampBox5 = champsTier2Arr[chosen].nome;
+                    let novoImg5 = champsTier2Arr[chosen].imagem;
+                    let novoStar5 = champsTier2Arr[chosen].star;
+                    let novoCor5 = champsTier2Arr[chosen].cor;
+                    let novoCorBorder5 = champsTier2Arr[chosen].corBorda;
+                    let novoOrigem5 = champsTier2Arr[chosen].origem;
+                    let novoClasse5 = champsTier2Arr[chosen].classe;
+                    setOrigem5(novoOrigem5);
+                    setClasse5(novoClasse5);
+                    setCorBorder5(novoCorBorder5);
+                    setCor5(novoCor5);
+                    setChampImg5(novoImg5);
+                    setChampionNome5(novoChampBox5);
+                    setStarNumber5(novoStar5);
+
+                } else if (sorteioOdds5 >= 79 && sorteioOdds5 <= 98) {
+                    let chosen = Math.floor(Math.random() * (13 - 1)) + 1
+                    setchamp5(chosen);
+
+                    let novoChampBox5 = champsTier3Arr[chosen].nome;
+                    let novoImg5 = champsTier3Arr[chosen].imagem;
+                    let novoStar5 = champsTier3Arr[chosen].star;
+                    let novoCor5 = champsTier3Arr[chosen].cor;
+                    let novoCorBorder5 = champsTier3Arr[chosen].corBorda;
+                    let novoOrigem5 = champsTier3Arr[chosen].origem;
+                    let novoClasse5 = champsTier3Arr[chosen].classe;
+                    setOrigem5(novoOrigem5);
+                    setClasse5(novoClasse5);
+                    setCorBorder5(novoCorBorder5);
+                    setCor5(novoCor5);
+                    setChampImg5(novoImg5);
+                    setChampionNome5(novoChampBox5);
+                    setStarNumber5(novoStar5);
+
+                }
+                else {
+                    let chosen = Math.floor(Math.random() * (10 - 1)) + 1
+                    setchamp5(chosen);
+
+                    let novoChampBox5 = champsTier4Arr[chosen].nome;
+                    let novoImg5 = champsTier4Arr[chosen].imagem;
+                    let novoStar5 = champsTier4Arr[chosen].star;
+                    let novoCor5 = champsTier4Arr[chosen].cor;
+                    let novoCorBorder5 = champsTier4Arr[chosen].corBorda;
+                    let novoOrigem5 = champsTier4Arr[chosen].origem;
+                    let novoClasse5 = champsTier4Arr[chosen].classe;
+                    setOrigem5(novoOrigem5);
+                    setClasse5(novoClasse5);
+                    setCorBorder5(novoCorBorder5);
+                    setCor5(novoCor5);
+                    setChampImg5(novoImg5);
+                    setChampionNome5(novoChampBox5);
+                    setStarNumber5(novoStar5);
+                }
+
+            }
+
+            // LEVEL 6
+            else if (level === 6 && gold > 1) {
+
+                // BOX1
+                if (sorteioOdds1 >= 1 && sorteioOdds1 <= 35) {
+                    let chosen = Math.floor(Math.random() * (13 - 1)) + 1
+                    setchamp1(chosen);
+
+                    let novoChampBox1 = champsTier1Arr[chosen].nome;
+                    let novoImg1 = champsTier1Arr[chosen].imagem;
+                    let novoStar1 = champsTier1Arr[chosen].star;
+                    let novoCor1 = champsTier1Arr[chosen].cor;
+                    let novoCorBorder1 = champsTier1Arr[chosen].corBorda;
+                    let novoOrigem1 = champsTier1Arr[chosen].origem;
+                    let novoClasse1 = champsTier1Arr[chosen].classe;
+                    setOrigem1(novoOrigem1);
+                    setClasse1(novoClasse1);
+                    setCorBorder1(novoCorBorder1);
+                    setCor1(novoCor1);
+                    setChampImg1(novoImg1);
+                    setChampionNome1(novoChampBox1);
+                    setStarNumber1(novoStar1);
+
+                } else if (sorteioOdds1 >= 36 && sorteioOdds1 <= 70) {
+                    let chosen = Math.floor(Math.random() * (13 - 1)) + 1
+                    setchamp1(chosen);
+
+                    let novoChampBox1 = champsTier2Arr[chosen].nome;
+                    let novoImg1 = champsTier2Arr[chosen].imagem;
+                    let novoStar1 = champsTier2Arr[chosen].star;
+                    let novoCor1 = champsTier2Arr[chosen].cor;
+                    let novoCorBorder1 = champsTier2Arr[chosen].corBorda;
+                    let novoOrigem1 = champsTier2Arr[chosen].origem;
+                    let novoClasse1 = champsTier2Arr[chosen].classe;
+                    setOrigem1(novoOrigem1);
+                    setClasse1(novoClasse1);
+                    setCorBorder1(novoCorBorder1);
+                    setCor1(novoCor1);
+                    setChampImg1(novoImg1);
+                    setChampionNome1(novoChampBox1);
+                    setStarNumber1(novoStar1);
+
+                } else if (sorteioOdds1 >= 71 && sorteioOdds1 <= 95) {
+                    let chosen = Math.floor(Math.random() * (13 - 1)) + 1
+                    setchamp1(chosen);
+
+                    let novoChampBox1 = champsTier3Arr[chosen].nome;
+                    let novoImg1 = champsTier3Arr[chosen].imagem;
+                    let novoStar1 = champsTier3Arr[chosen].star;
+                    let novoCor1 = champsTier3Arr[chosen].cor;
+                    let novoCorBorder1 = champsTier3Arr[chosen].corBorda;
+                    let novoOrigem1 = champsTier3Arr[chosen].origem;
+                    let novoClasse1 = champsTier3Arr[chosen].classe;
+                    setOrigem1(novoOrigem1);
+                    setClasse1(novoClasse1);
+                    setCorBorder1(novoCorBorder1);
+                    setCor1(novoCor1);
+                    setChampImg1(novoImg1);
+                    setChampionNome1(novoChampBox1);
+                    setStarNumber1(novoStar1);
+
+                } else {
+                    let chosen = Math.floor(Math.random() * (10 - 1)) + 1
+                    setchamp1(chosen);
+
+                    let novoChampBox1 = champsTier4Arr[chosen].nome;
+                    let novoImg1 = champsTier4Arr[chosen].imagem;
+                    let novoStar1 = champsTier4Arr[chosen].star;
+                    let novoCor1 = champsTier4Arr[chosen].cor;
+                    let novoCorBorder1 = champsTier4Arr[chosen].corBorda;
+                    let novoOrigem1 = champsTier4Arr[chosen].origem;
+                    let novoClasse1 = champsTier4Arr[chosen].classe;
+                    setOrigem1(novoOrigem1);
+                    setClasse1(novoClasse1);
+                    setCorBorder1(novoCorBorder1);
+                    setCor1(novoCor1);
+                    setChampImg1(novoImg1);
+                    setChampionNome1(novoChampBox1);
+                    setStarNumber1(novoStar1);
+                }
+
+                // BOX2
+                if (sorteioOdds2 >= 1 && sorteioOdds2 <= 35) {
+                    let chosen = Math.floor(Math.random() * (13 - 1)) + 1
+                    setchamp2(chosen);
+
+                    let novoChampBox2 = champsTier1Arr[chosen].nome;
+                    let novoImg2 = champsTier1Arr[chosen].imagem;
+                    let novoStar2 = champsTier1Arr[chosen].star;
+                    let novoCor2 = champsTier1Arr[chosen].cor;
+                    let novoCorBorder2 = champsTier1Arr[chosen].corBorda;
+                    let novoOrigem2 = champsTier1Arr[chosen].origem;
+                    let novoClasse2 = champsTier1Arr[chosen].classe;
+                    setOrigem2(novoOrigem2);
+                    setClasse2(novoClasse2);
+                    setCorBorder2(novoCorBorder2);
+                    setCor2(novoCor2);
+                    setChampImg2(novoImg2);
+                    setChampionNome2(novoChampBox2);
+                    setStarNumber2(novoStar2);
+
+                } else if (sorteioOdds2 >= 36 && sorteioOdds2 <= 70) {
+                    let chosen = Math.floor(Math.random() * (13 - 1)) + 1
+                    setchamp2(chosen);
+
+                    let novoChampBox2 = champsTier2Arr[chosen].nome;
+                    let novoImg2 = champsTier2Arr[chosen].imagem;
+                    let novoStar2 = champsTier2Arr[chosen].star;
+                    let novoCor2 = champsTier2Arr[chosen].cor;
+                    let novoCorBorder2 = champsTier2Arr[chosen].corBorda;
+                    let novoOrigem2 = champsTier2Arr[chosen].origem;
+                    let novoClasse2 = champsTier2Arr[chosen].classe;
+                    setOrigem2(novoOrigem2);
+                    setClasse2(novoClasse2);
+                    setCorBorder2(novoCorBorder2);
+                    setCor2(novoCor2);
+                    setChampImg2(novoImg2);
+                    setChampionNome2(novoChampBox2);
+                    setStarNumber2(novoStar2);
+                }
+                else if (sorteioOdds2 >= 71 && sorteioOdds2 <= 95) {
+                    let chosen = Math.floor(Math.random() * (13 - 1)) + 1
+                    setchamp2(chosen);
+
+                    let novoChampBox2 = champsTier3Arr[chosen].nome;
+                    let novoImg2 = champsTier3Arr[chosen].imagem;
+                    let novoStar2 = champsTier3Arr[chosen].star;
+                    let novoCor2 = champsTier3Arr[chosen].cor;
+                    let novoCorBorder2 = champsTier3Arr[chosen].corBorda;
+                    let novoOrigem2 = champsTier3Arr[chosen].origem;
+                    let novoClasse2 = champsTier3Arr[chosen].classe;
+                    setOrigem2(novoOrigem2);
+                    setClasse2(novoClasse2);
+                    setCorBorder2(novoCorBorder2);
+                    setCor2(novoCor2);
+                    setChampImg2(novoImg2);
+                    setChampionNome2(novoChampBox2);
+                    setStarNumber2(novoStar2);
+                }
+                else {
+                    let chosen = Math.floor(Math.random() * (10 - 1)) + 1
+                    setchamp2(chosen);
+
+                    let novoChampBox2 = champsTier4Arr[chosen].nome;
+                    let novoImg2 = champsTier4Arr[chosen].imagem;
+                    let novoStar2 = champsTier4Arr[chosen].star;
+                    let novoCor2 = champsTier4Arr[chosen].cor;
+                    let novoCorBorder2 = champsTier4Arr[chosen].corBorda;
+                    let novoOrigem2 = champsTier4Arr[chosen].origem;
+                    let novoClasse2 = champsTier4Arr[chosen].classe;
+                    setOrigem2(novoOrigem2);
+                    setClasse2(novoClasse2);
+                    setCorBorder2(novoCorBorder2);
+                    setCor2(novoCor2);
+                    setChampImg2(novoImg2);
+                    setChampionNome2(novoChampBox2);
+                    setStarNumber2(novoStar2);
+                }
+
+                // BOX3
+                if (sorteioOdds3 >= 1 && sorteioOdds3 <= 35) {
+                    let chosen = Math.floor(Math.random() * (13 - 1)) + 1
+                    setchamp3(chosen);
+
+                    let novoChampBox3 = champsTier1Arr[chosen].nome;
+                    let novoImg3 = champsTier1Arr[chosen].imagem;
+                    let novoStar3 = champsTier1Arr[chosen].star;
+                    let novoCor3 = champsTier1Arr[chosen].cor;
+                    let novoCorBorder3 = champsTier1Arr[chosen].corBorda;
+                    let novoOrigem3 = champsTier1Arr[chosen].origem;
+                    let novoClasse3 = champsTier1Arr[chosen].classe;
+                    setOrigem3(novoOrigem3);
+                    setClasse3(novoClasse3);
+                    setCorBorder3(novoCorBorder3);
+                    setCor3(novoCor3);
+                    setChampImg3(novoImg3);
+                    setChampionNome3(novoChampBox3);
+                    setStarNumber3(novoStar3);
+
+                } else if (sorteioOdds3 >= 36 && sorteioOdds3 <= 70) {
+                    let chosen = Math.floor(Math.random() * (13 - 1)) + 1
+                    setchamp3(chosen);
+
+                    let novoChampBox3 = champsTier2Arr[chosen].nome;
+                    let novoImg3 = champsTier2Arr[chosen].imagem;
+                    let novoStar3 = champsTier2Arr[chosen].star;
+                    let novoCor3 = champsTier2Arr[chosen].cor;
+                    let novoCorBorder3 = champsTier2Arr[chosen].corBorda;
+                    let novoOrigem3 = champsTier2Arr[chosen].origem;
+                    let novoClasse3 = champsTier2Arr[chosen].classe;
+                    setOrigem3(novoOrigem3);
+                    setClasse3(novoClasse3);
+                    setCorBorder3(novoCorBorder3);
+                    setCor3(novoCor3);
+                    setChampImg3(novoImg3);
+                    setChampionNome3(novoChampBox3);
+                    setStarNumber3(novoStar3);
+
+                } else if (sorteioOdds3 >= 71 && sorteioOdds3 <= 95) {
+                    let chosen = Math.floor(Math.random() * (13 - 1)) + 1
+                    setchamp3(chosen);
+
+                    let novoChampBox3 = champsTier3Arr[chosen].nome;
+                    let novoImg3 = champsTier3Arr[chosen].imagem;
+                    let novoStar3 = champsTier3Arr[chosen].star;
+                    let novoCor3 = champsTier3Arr[chosen].cor;
+                    let novoCorBorder3 = champsTier3Arr[chosen].corBorda;
+                    let novoOrigem3 = champsTier3Arr[chosen].origem;
+                    let novoClasse3 = champsTier3Arr[chosen].classe;
+                    setOrigem3(novoOrigem3);
+                    setClasse3(novoClasse3);
+                    setCorBorder3(novoCorBorder3);
+                    setCor3(novoCor3);
+                    setChampImg3(novoImg3);
+                    setChampionNome3(novoChampBox3);
+                    setStarNumber3(novoStar3);
+                } else {
+                    let chosen = Math.floor(Math.random() * (10 - 1)) + 1
+                    setchamp3(chosen);
+
+                    let novoChampBox3 = champsTier4Arr[chosen].nome;
+                    let novoImg3 = champsTier4Arr[chosen].imagem;
+                    let novoStar3 = champsTier4Arr[chosen].star;
+                    let novoCor3 = champsTier4Arr[chosen].cor;
+                    let novoCorBorder3 = champsTier4Arr[chosen].corBorda;
+                    let novoOrigem3 = champsTier4Arr[chosen].origem;
+                    let novoClasse3 = champsTier4Arr[chosen].classe;
+                    setOrigem3(novoOrigem3);
+                    setClasse3(novoClasse3);
+                    setCorBorder3(novoCorBorder3);
+                    setCor3(novoCor3);
+                    setChampImg3(novoImg3);
+                    setChampionNome3(novoChampBox3);
+                    setStarNumber3(novoStar3);
+
+                }
+
+                // BOX4
+                if (sorteioOdds4 >= 1 && sorteioOdds4 <= 35) {
+                    let chosen = Math.floor(Math.random() * (13 - 1)) + 1
+                    setchamp4(chosen);
+
+                    let novoChampBox4 = champsTier1Arr[chosen].nome;
+                    let novoImg4 = champsTier1Arr[chosen].imagem;
+                    let novoStar4 = champsTier1Arr[chosen].star;
+                    let novoCor4 = champsTier1Arr[chosen].cor;
+                    let novoCorBorder4 = champsTier1Arr[chosen].corBorda;
+                    let novoOrigem4 = champsTier1Arr[chosen].origem;
+                    let novoClasse4 = champsTier1Arr[chosen].classe;
+                    setOrigem4(novoOrigem4);
+                    setClasse4(novoClasse4);
+                    setCorBorder4(novoCorBorder4);
+                    setCor4(novoCor4);
+                    setChampImg4(novoImg4);
+                    setChampionNome4(novoChampBox4);
+                    setStarNumber4(novoStar4);
+
+                } else if (sorteioOdds4 >= 36 && sorteioOdds4 <= 70) {
+                    let chosen = Math.floor(Math.random() * (13 - 1)) + 1
+                    setchamp4(chosen);
+
+                    let novoChampBox4 = champsTier2Arr[chosen].nome;
+                    let novoImg4 = champsTier2Arr[chosen].imagem;
+                    let novoStar4 = champsTier2Arr[chosen].star;
+                    let novoCor4 = champsTier2Arr[chosen].cor;
+                    let novoCorBorder4 = champsTier2Arr[chosen].corBorda;
+                    let novoOrigem4 = champsTier2Arr[chosen].origem;
+                    let novoClasse4 = champsTier2Arr[chosen].classe;
+                    setOrigem4(novoOrigem4);
+                    setClasse4(novoClasse4);
+                    setCorBorder4(novoCorBorder4);
+                    setCor4(novoCor4);
+                    setChampImg4(novoImg4);
+                    setChampionNome4(novoChampBox4);
+                    setStarNumber4(novoStar4);
+                }
+                else if (sorteioOdds4 >= 71 && sorteioOdds4 <= 95) {
+                    let chosen = Math.floor(Math.random() * (13 - 1)) + 1
+                    setchamp4(chosen);
+
+                    let novoChampBox4 = champsTier3Arr[chosen].nome;
+                    let novoImg4 = champsTier3Arr[chosen].imagem;
+                    let novoStar4 = champsTier3Arr[chosen].star;
+                    let novoCor4 = champsTier3Arr[chosen].cor;
+                    let novoCorBorder4 = champsTier3Arr[chosen].corBorda;
+                    let novoOrigem4 = champsTier3Arr[chosen].origem;
+                    let novoClasse4 = champsTier3Arr[chosen].classe;
+                    setOrigem4(novoOrigem4);
+                    setClasse4(novoClasse4);
+                    setCorBorder4(novoCorBorder4);
+                    setCor4(novoCor4);
+                    setChampImg4(novoImg4);
+                    setChampionNome4(novoChampBox4);
+                    setStarNumber4(novoStar4);
+                }
+                else {
+                    let chosen = Math.floor(Math.random() * (10 - 1)) + 1
+                    setchamp4(chosen);
+
+                    let novoChampBox4 = champsTier4Arr[chosen].nome;
+                    let novoImg4 = champsTier4Arr[chosen].imagem;
+                    let novoStar4 = champsTier4Arr[chosen].star;
+                    let novoCor4 = champsTier4Arr[chosen].cor;
+                    let novoCorBorder4 = champsTier4Arr[chosen].corBorda;
+                    let novoOrigem4 = champsTier4Arr[chosen].origem;
+                    let novoClasse4 = champsTier4Arr[chosen].classe;
+                    setOrigem4(novoOrigem4);
+                    setClasse4(novoClasse4);
+                    setCorBorder4(novoCorBorder4);
+                    setCor4(novoCor4);
+                    setChampImg4(novoImg4);
+                    setChampionNome4(novoChampBox4);
+                    setStarNumber4(novoStar4);
+
+                }
+
+                // BOX5
+                if (sorteioOdds5 >= 1 && sorteioOdds5 <= 35) {
+                    let chosen = Math.floor(Math.random() * (13 - 1)) + 1
+                    setchamp5(chosen);
+
+                    let novoChampBox5 = champsTier1Arr[chosen].nome;
+                    let novoImg5 = champsTier1Arr[chosen].imagem;
+                    let novoStar5 = champsTier1Arr[chosen].star;
+                    let novoCor5 = champsTier1Arr[chosen].cor;
+                    let novoCorBorder5 = champsTier1Arr[chosen].corBorda;
+                    let novoOrigem5 = champsTier1Arr[chosen].origem;
+                    let novoClasse5 = champsTier1Arr[chosen].classe;
+                    setOrigem5(novoOrigem5);
+                    setClasse5(novoClasse5);
+                    setCorBorder5(novoCorBorder5);
+                    setCor5(novoCor5);
+                    setChampImg5(novoImg5);
+                    setChampionNome5(novoChampBox5);
+                    setStarNumber5(novoStar5);
+
+                } else if (sorteioOdds5 >= 36 && sorteioOdds5 <= 70) {
+                    let chosen = Math.floor(Math.random() * (13 - 1)) + 1
+                    setchamp5(chosen);
+
+                    let novoChampBox5 = champsTier2Arr[chosen].nome;
+                    let novoImg5 = champsTier2Arr[chosen].imagem;
+                    let novoStar5 = champsTier2Arr[chosen].star;
+                    let novoCor5 = champsTier2Arr[chosen].cor;
+                    let novoCorBorder5 = champsTier2Arr[chosen].corBorda;
+                    let novoOrigem5 = champsTier2Arr[chosen].origem;
+                    let novoClasse5 = champsTier2Arr[chosen].classe;
+                    setOrigem5(novoOrigem5);
+                    setClasse5(novoClasse5);
+                    setCorBorder5(novoCorBorder5);
+                    setCor5(novoCor5);
+                    setChampImg5(novoImg5);
+                    setChampionNome5(novoChampBox5);
+                    setStarNumber5(novoStar5);
+
+                } else if (sorteioOdds5 >= 71 && sorteioOdds5 <= 95) {
+                    let chosen = Math.floor(Math.random() * (13 - 1)) + 1
+                    setchamp5(chosen);
+
+                    let novoChampBox5 = champsTier3Arr[chosen].nome;
+                    let novoImg5 = champsTier3Arr[chosen].imagem;
+                    let novoStar5 = champsTier3Arr[chosen].star;
+                    let novoCor5 = champsTier3Arr[chosen].cor;
+                    let novoCorBorder5 = champsTier3Arr[chosen].corBorda;
+                    let novoOrigem5 = champsTier3Arr[chosen].origem;
+                    let novoClasse5 = champsTier3Arr[chosen].classe;
+                    setOrigem5(novoOrigem5);
+                    setClasse5(novoClasse5);
+                    setCorBorder5(novoCorBorder5);
+                    setCor5(novoCor5);
+                    setChampImg5(novoImg5);
+                    setChampionNome5(novoChampBox5);
+                    setStarNumber5(novoStar5);
+
+                }
+                else {
+                    let chosen = Math.floor(Math.random() * (10 - 1)) + 1
+                    setchamp5(chosen);
+
+                    let novoChampBox5 = champsTier4Arr[chosen].nome;
+                    let novoImg5 = champsTier4Arr[chosen].imagem;
+                    let novoStar5 = champsTier4Arr[chosen].star;
+                    let novoCor5 = champsTier4Arr[chosen].cor;
+                    let novoCorBorder5 = champsTier4Arr[chosen].corBorda;
+                    let novoOrigem5 = champsTier4Arr[chosen].origem;
+                    let novoClasse5 = champsTier4Arr[chosen].classe;
+                    setOrigem5(novoOrigem5);
+                    setClasse5(novoClasse5);
+                    setCorBorder5(novoCorBorder5);
+                    setCor5(novoCor5);
+                    setChampImg5(novoImg5);
+                    setChampionNome5(novoChampBox5);
+                    setStarNumber5(novoStar5);
+                }
+            }
+
+            // LEVEL 7
+            else if (level === 7 && gold > 1) {
+
+                // BOX1
+                if (sorteioOdds1 >= 1 && sorteioOdds1 <= 19) {
+                    let chosen = Math.floor(Math.random() * (13 - 1)) + 1
+                    setchamp1(chosen);
+
+                    let novoChampBox1 = champsTier1Arr[chosen].nome;
+                    let novoImg1 = champsTier1Arr[chosen].imagem;
+                    let novoStar1 = champsTier1Arr[chosen].star;
+                    let novoCor1 = champsTier1Arr[chosen].cor;
+                    let novoCorBorder1 = champsTier1Arr[chosen].corBorda;
+                    let novoOrigem1 = champsTier1Arr[chosen].origem;
+                    let novoClasse1 = champsTier1Arr[chosen].classe;
+                    setOrigem1(novoOrigem1);
+                    setClasse1(novoClasse1);
+                    setCorBorder1(novoCorBorder1);
+                    setCor1(novoCor1);
+                    setChampImg1(novoImg1);
+                    setChampionNome1(novoChampBox1);
+                    setStarNumber1(novoStar1);
+
+                } else if (sorteioOdds1 >= 20 && sorteioOdds1 <= 54) {
+                    let chosen = Math.floor(Math.random() * (13 - 1)) + 1
+                    setchamp1(chosen);
+
+                    let novoChampBox1 = champsTier2Arr[chosen].nome;
+                    let novoImg1 = champsTier2Arr[chosen].imagem;
+                    let novoStar1 = champsTier2Arr[chosen].star;
+                    let novoCor1 = champsTier2Arr[chosen].cor;
+                    let novoCorBorder1 = champsTier2Arr[chosen].corBorda;
+                    let novoOrigem1 = champsTier2Arr[chosen].origem;
+                    let novoClasse1 = champsTier2Arr[chosen].classe;
+                    setOrigem1(novoOrigem1);
+                    setClasse1(novoClasse1);
+                    setCorBorder1(novoCorBorder1);
+                    setCor1(novoCor1);
+                    setChampImg1(novoImg1);
+                    setChampionNome1(novoChampBox1);
+                    setStarNumber1(novoStar1);
+
+                } else if (sorteioOdds1 >= 55 && sorteioOdds1 <= 84) {
+                    let chosen = Math.floor(Math.random() * (13 - 1)) + 1
+                    setchamp1(chosen);
+
+                    let novoChampBox1 = champsTier3Arr[chosen].nome;
+                    let novoImg1 = champsTier3Arr[chosen].imagem;
+                    let novoStar1 = champsTier3Arr[chosen].star;
+                    let novoCor1 = champsTier3Arr[chosen].cor;
+                    let novoCorBorder1 = champsTier3Arr[chosen].corBorda;
+                    let novoOrigem1 = champsTier3Arr[chosen].origem;
+                    let novoClasse1 = champsTier3Arr[chosen].classe;
+                    setOrigem1(novoOrigem1);
+                    setClasse1(novoClasse1);
+                    setCorBorder1(novoCorBorder1);
+                    setCor1(novoCor1);
+                    setChampImg1(novoImg1);
+                    setChampionNome1(novoChampBox1);
+                    setStarNumber1(novoStar1);
+
+                } else if (sorteioOdds1 >= 85 && sorteioOdds1 <= 99) {
+                    let chosen = Math.floor(Math.random() * (10 - 1)) + 1
+                    setchamp1(chosen);
+
+                    let novoChampBox1 = champsTier4Arr[chosen].nome;
+                    let novoImg1 = champsTier4Arr[chosen].imagem;
+                    let novoStar1 = champsTier4Arr[chosen].star;
+                    let novoCor1 = champsTier4Arr[chosen].cor;
+                    let novoCorBorder1 = champsTier4Arr[chosen].corBorda;
+                    let novoOrigem1 = champsTier4Arr[chosen].origem;
+                    let novoClasse1 = champsTier4Arr[chosen].classe;
+                    setOrigem1(novoOrigem1);
+                    setClasse1(novoClasse1);
+                    setCorBorder1(novoCorBorder1);
+                    setCor1(novoCor1);
+                    setChampImg1(novoImg1);
+                    setChampionNome1(novoChampBox1);
+                    setStarNumber1(novoStar1);
+                } else {
+                    let chosen = Math.floor(Math.random() * (8 - 1)) + 1
+                    setchamp1(chosen);
+
+                    let novoChampBox1 = champsTier5Arr[chosen].nome;
+                    let novoImg1 = champsTier5Arr[chosen].imagem;
+                    let novoStar1 = champsTier5Arr[chosen].star;
+                    let novoCor1 = champsTier5Arr[chosen].cor;
+                    let novoCorBorder1 = champsTier5Arr[chosen].corBorda;
+                    let novoOrigem1 = champsTier5Arr[chosen].origem;
+                    let novoClasse1 = champsTier5Arr[chosen].classe;
+                    setOrigem1(novoOrigem1);
+                    setClasse1(novoClasse1);
+                    setCorBorder1(novoCorBorder1);
+                    setCor1(novoCor1);
+                    setChampImg1(novoImg1);
+                    setChampionNome1(novoChampBox1);
+                    setStarNumber1(novoStar1);
+                }
+
+                // BOX2
+                if (sorteioOdds2 >= 1 && sorteioOdds2 <= 19) {
+                    let chosen = Math.floor(Math.random() * (13 - 1)) + 1
+                    setchamp2(chosen);
+
+                    let novoChampBox2 = champsTier1Arr[chosen].nome;
+                    let novoImg2 = champsTier1Arr[chosen].imagem;
+                    let novoStar2 = champsTier1Arr[chosen].star;
+                    let novoCor2 = champsTier1Arr[chosen].cor;
+                    let novoCorBorder2 = champsTier1Arr[chosen].corBorda;
+                    let novoOrigem2 = champsTier1Arr[chosen].origem;
+                    let novoClasse2 = champsTier1Arr[chosen].classe;
+                    setOrigem2(novoOrigem2);
+                    setClasse2(novoClasse2);
+                    setCorBorder2(novoCorBorder2);
+                    setCor2(novoCor2);
+                    setChampImg2(novoImg2);
+                    setChampionNome2(novoChampBox2);
+                    setStarNumber2(novoStar2);
+
+                } else if (sorteioOdds2 >= 20 && sorteioOdds2 <= 54) {
+                    let chosen = Math.floor(Math.random() * (13 - 1)) + 1
+                    setchamp2(chosen);
+
+                    let novoChampBox2 = champsTier2Arr[chosen].nome;
+                    let novoImg2 = champsTier2Arr[chosen].imagem;
+                    let novoStar2 = champsTier2Arr[chosen].star;
+                    let novoCor2 = champsTier2Arr[chosen].cor;
+                    let novoCorBorder2 = champsTier2Arr[chosen].corBorda;
+                    let novoOrigem2 = champsTier2Arr[chosen].origem;
+                    let novoClasse2 = champsTier2Arr[chosen].classe;
+                    setOrigem2(novoOrigem2);
+                    setClasse2(novoClasse2);
+                    setCorBorder2(novoCorBorder2);
+                    setCor2(novoCor2);
+                    setChampImg2(novoImg2);
+                    setChampionNome2(novoChampBox2);
+                    setStarNumber2(novoStar2);
+                }
+                else if (sorteioOdds2 >= 55 && sorteioOdds2 <= 84) {
+                    let chosen = Math.floor(Math.random() * (13 - 1)) + 1
+                    setchamp2(chosen);
+
+                    let novoChampBox2 = champsTier3Arr[chosen].nome;
+                    let novoImg2 = champsTier3Arr[chosen].imagem;
+                    let novoStar2 = champsTier3Arr[chosen].star;
+                    let novoCor2 = champsTier3Arr[chosen].cor;
+                    let novoCorBorder2 = champsTier3Arr[chosen].corBorda;
+                    let novoOrigem2 = champsTier3Arr[chosen].origem;
+                    let novoClasse2 = champsTier3Arr[chosen].classe;
+                    setOrigem2(novoOrigem2);
+                    setClasse2(novoClasse2);
+                    setCorBorder2(novoCorBorder2);
+                    setCor2(novoCor2);
+                    setChampImg2(novoImg2);
+                    setChampionNome2(novoChampBox2);
+                    setStarNumber2(novoStar2);
+                }
+                else if (sorteioOdds2 >= 85 && sorteioOdds2 <= 99) {
+                    let chosen = Math.floor(Math.random() * (10 - 1)) + 1
+                    setchamp2(chosen);
+
+                    let novoChampBox2 = champsTier4Arr[chosen].nome;
+                    let novoImg2 = champsTier4Arr[chosen].imagem;
+                    let novoStar2 = champsTier4Arr[chosen].star;
+                    let novoCor2 = champsTier4Arr[chosen].cor;
+                    let novoCorBorder2 = champsTier4Arr[chosen].corBorda;
+                    let novoOrigem2 = champsTier4Arr[chosen].origem;
+                    let novoClasse2 = champsTier4Arr[chosen].classe;
+                    setOrigem2(novoOrigem2);
+                    setClasse2(novoClasse2);
+                    setCorBorder2(novoCorBorder2);
+                    setCor2(novoCor2);
+                    setChampImg2(novoImg2);
+                    setChampionNome2(novoChampBox2);
+                    setStarNumber2(novoStar2);
+                }
+                else {
+                    let chosen = Math.floor(Math.random() * (8 - 1)) + 1
+                    setchamp2(chosen);
+
+                    let novoChampBox2 = champsTier5Arr[chosen].nome;
+                    let novoImg2 = champsTier5Arr[chosen].imagem;
+                    let novoStar2 = champsTier5Arr[chosen].star;
+                    let novoCor2 = champsTier5Arr[chosen].cor;
+                    let novoCorBorder2 = champsTier5Arr[chosen].corBorda;
+                    let novoOrigem2 = champsTier5Arr[chosen].origem;
+                    let novoClasse2 = champsTier5Arr[chosen].classe;
+                    setOrigem2(novoOrigem2);
+                    setClasse2(novoClasse2);
+                    setCorBorder2(novoCorBorder2);
+                    setCor2(novoCor2);
+                    setChampImg2(novoImg2);
+                    setChampionNome2(novoChampBox2);
+                    setStarNumber2(novoStar2);
+                }
+
+                // BOX3
+                if (sorteioOdds3 >= 1 && sorteioOdds3 <= 19) {
+                    let chosen = Math.floor(Math.random() * (13 - 1)) + 1
+                    setchamp3(chosen);
+
+                    let novoChampBox3 = champsTier1Arr[chosen].nome;
+                    let novoImg3 = champsTier1Arr[chosen].imagem;
+                    let novoStar3 = champsTier1Arr[chosen].star;
+                    let novoCor3 = champsTier1Arr[chosen].cor;
+                    let novoCorBorder3 = champsTier1Arr[chosen].corBorda;
+                    let novoOrigem3 = champsTier1Arr[chosen].origem;
+                    let novoClasse3 = champsTier1Arr[chosen].classe;
+                    setOrigem3(novoOrigem3);
+                    setClasse3(novoClasse3);
+                    setCorBorder3(novoCorBorder3);
+                    setCor3(novoCor3);
+                    setChampImg3(novoImg3);
+                    setChampionNome3(novoChampBox3);
+                    setStarNumber3(novoStar3);
+
+                } else if (sorteioOdds3 >= 20 && sorteioOdds3 <= 54) {
+                    let chosen = Math.floor(Math.random() * (13 - 1)) + 1
+                    setchamp3(chosen);
+
+                    let novoChampBox3 = champsTier2Arr[chosen].nome;
+                    let novoImg3 = champsTier2Arr[chosen].imagem;
+                    let novoStar3 = champsTier2Arr[chosen].star;
+                    let novoCor3 = champsTier2Arr[chosen].cor;
+                    let novoCorBorder3 = champsTier2Arr[chosen].corBorda;
+                    let novoOrigem3 = champsTier2Arr[chosen].origem;
+                    let novoClasse3 = champsTier2Arr[chosen].classe;
+                    setOrigem3(novoOrigem3);
+                    setClasse3(novoClasse3);
+                    setCorBorder3(novoCorBorder3);
+                    setCor3(novoCor3);
+                    setChampImg3(novoImg3);
+                    setChampionNome3(novoChampBox3);
+                    setStarNumber3(novoStar3);
+
+                } else if (sorteioOdds3 >= 55 && sorteioOdds3 <= 84) {
+                    let chosen = Math.floor(Math.random() * (13 - 1)) + 1
+                    setchamp3(chosen);
+
+                    let novoChampBox3 = champsTier3Arr[chosen].nome;
+                    let novoImg3 = champsTier3Arr[chosen].imagem;
+                    let novoStar3 = champsTier3Arr[chosen].star;
+                    let novoCor3 = champsTier3Arr[chosen].cor;
+                    let novoCorBorder3 = champsTier3Arr[chosen].corBorda;
+                    let novoOrigem3 = champsTier3Arr[chosen].origem;
+                    let novoClasse3 = champsTier3Arr[chosen].classe;
+                    setOrigem3(novoOrigem3);
+                    setClasse3(novoClasse3);
+                    setCorBorder3(novoCorBorder3);
+                    setCor3(novoCor3);
+                    setChampImg3(novoImg3);
+                    setChampionNome3(novoChampBox3);
+                    setStarNumber3(novoStar3);
+                }
+                else if (sorteioOdds3 >= 85 && sorteioOdds3 <= 99) {
+                    let chosen = Math.floor(Math.random() * (10 - 1)) + 1
+                    setchamp3(chosen);
+
+                    let novoChampBox3 = champsTier4Arr[chosen].nome;
+                    let novoImg3 = champsTier4Arr[chosen].imagem;
+                    let novoStar3 = champsTier4Arr[chosen].star;
+                    let novoCor3 = champsTier4Arr[chosen].cor;
+                    let novoCorBorder3 = champsTier4Arr[chosen].corBorda;
+                    let novoOrigem3 = champsTier4Arr[chosen].origem;
+                    let novoClasse3 = champsTier4Arr[chosen].classe;
+                    setOrigem3(novoOrigem3);
+                    setClasse3(novoClasse3);
+                    setCorBorder3(novoCorBorder3);
+                    setCor3(novoCor3);
+                    setChampImg3(novoImg3);
+                    setChampionNome3(novoChampBox3);
+                    setStarNumber3(novoStar3);
+                }
+                else {
+                    let chosen = Math.floor(Math.random() * (8 - 1)) + 1
+                    setchamp3(chosen);
+
+                    let novoChampBox3 = champsTier5Arr[chosen].nome;
+                    let novoImg3 = champsTier5Arr[chosen].imagem;
+                    let novoStar3 = champsTier5Arr[chosen].star;
+                    let novoCor3 = champsTier5Arr[chosen].cor;
+                    let novoCorBorder3 = champsTier5Arr[chosen].corBorda;
+                    let novoOrigem3 = champsTier5Arr[chosen].origem;
+                    let novoClasse3 = champsTier5Arr[chosen].classe;
+                    setOrigem3(novoOrigem3);
+                    setClasse3(novoClasse3);
+                    setCorBorder3(novoCorBorder3);
+                    setCor3(novoCor3);
+                    setChampImg3(novoImg3);
+                    setChampionNome3(novoChampBox3);
+                    setStarNumber3(novoStar3);
+
+                }
+
+                // BOX4
+                if (sorteioOdds4 >= 1 && sorteioOdds4 <= 19) {
+                    let chosen = Math.floor(Math.random() * (13 - 1)) + 1
+                    setchamp4(chosen);
+
+                    let novoChampBox4 = champsTier1Arr[chosen].nome;
+                    let novoImg4 = champsTier1Arr[chosen].imagem;
+                    let novoStar4 = champsTier1Arr[chosen].star;
+                    let novoCor4 = champsTier1Arr[chosen].cor;
+                    let novoCorBorder4 = champsTier1Arr[chosen].corBorda;
+                    let novoOrigem4 = champsTier1Arr[chosen].origem;
+                    let novoClasse4 = champsTier1Arr[chosen].classe;
+                    setOrigem4(novoOrigem4);
+                    setClasse4(novoClasse4);
+                    setCorBorder4(novoCorBorder4);
+                    setCor4(novoCor4);
+                    setChampImg4(novoImg4);
+                    setChampionNome4(novoChampBox4);
+                    setStarNumber4(novoStar4);
+
+                } else if (sorteioOdds4 >= 20 && sorteioOdds4 <= 54) {
+                    let chosen = Math.floor(Math.random() * (13 - 1)) + 1
+                    setchamp4(chosen);
+
+                    let novoChampBox4 = champsTier2Arr[chosen].nome;
+                    let novoImg4 = champsTier2Arr[chosen].imagem;
+                    let novoStar4 = champsTier2Arr[chosen].star;
+                    let novoCor4 = champsTier2Arr[chosen].cor;
+                    let novoCorBorder4 = champsTier2Arr[chosen].corBorda;
+                    let novoOrigem4 = champsTier2Arr[chosen].origem;
+                    let novoClasse4 = champsTier2Arr[chosen].classe;
+                    setOrigem4(novoOrigem4);
+                    setClasse4(novoClasse4);
+                    setCorBorder4(novoCorBorder4);
+                    setCor4(novoCor4);
+                    setChampImg4(novoImg4);
+                    setChampionNome4(novoChampBox4);
+                    setStarNumber4(novoStar4);
+                }
+                else if (sorteioOdds4 >= 55 && sorteioOdds4 <= 84) {
+                    let chosen = Math.floor(Math.random() * (13 - 1)) + 1
+                    setchamp4(chosen);
+
+                    let novoChampBox4 = champsTier3Arr[chosen].nome;
+                    let novoImg4 = champsTier3Arr[chosen].imagem;
+                    let novoStar4 = champsTier3Arr[chosen].star;
+                    let novoCor4 = champsTier3Arr[chosen].cor;
+                    let novoCorBorder4 = champsTier3Arr[chosen].corBorda;
+                    let novoOrigem4 = champsTier3Arr[chosen].origem;
+                    let novoClasse4 = champsTier3Arr[chosen].classe;
+                    setOrigem4(novoOrigem4);
+                    setClasse4(novoClasse4);
+                    setCorBorder4(novoCorBorder4);
+                    setCor4(novoCor4);
+                    setChampImg4(novoImg4);
+                    setChampionNome4(novoChampBox4);
+                    setStarNumber4(novoStar4);
+                }
+                else if (sorteioOdds4 >= 85 && sorteioOdds4 <= 99) {
+                    let chosen = Math.floor(Math.random() * (10 - 1)) + 1
+                    setchamp4(chosen);
+
+                    let novoChampBox4 = champsTier4Arr[chosen].nome;
+                    let novoImg4 = champsTier4Arr[chosen].imagem;
+                    let novoStar4 = champsTier4Arr[chosen].star;
+                    let novoCor4 = champsTier4Arr[chosen].cor;
+                    let novoCorBorder4 = champsTier4Arr[chosen].corBorda;
+                    let novoOrigem4 = champsTier4Arr[chosen].origem;
+                    let novoClasse4 = champsTier4Arr[chosen].classe;
+                    setOrigem4(novoOrigem4);
+                    setClasse4(novoClasse4);
+                    setCorBorder4(novoCorBorder4);
+                    setCor4(novoCor4);
+                    setChampImg4(novoImg4);
+                    setChampionNome4(novoChampBox4);
+                    setStarNumber4(novoStar4);
+                }
+                else {
+                    let chosen = Math.floor(Math.random() * (8 - 1)) + 1
+                    setchamp4(chosen);
+
+                    let novoChampBox4 = champsTier5Arr[chosen].nome;
+                    let novoImg4 = champsTier5Arr[chosen].imagem;
+                    let novoStar4 = champsTier5Arr[chosen].star;
+                    let novoCor4 = champsTier5Arr[chosen].cor;
+                    let novoCorBorder4 = champsTier5Arr[chosen].corBorda;
+                    let novoOrigem4 = champsTier5Arr[chosen].origem;
+                    let novoClasse4 = champsTier5Arr[chosen].classe;
+                    setOrigem4(novoOrigem4);
+                    setClasse4(novoClasse4);
+                    setCorBorder4(novoCorBorder4);
+                    setCor4(novoCor4);
+                    setChampImg4(novoImg4);
+                    setChampionNome4(novoChampBox4);
+                    setStarNumber4(novoStar4);
+
+                }
+
+                // BOX5
+                if (sorteioOdds5 >= 1 && sorteioOdds5 <= 19) {
+                    let chosen = Math.floor(Math.random() * (13 - 1)) + 1
+                    setchamp5(chosen);
+
+                    let novoChampBox5 = champsTier1Arr[chosen].nome;
+                    let novoImg5 = champsTier1Arr[chosen].imagem;
+                    let novoStar5 = champsTier1Arr[chosen].star;
+                    let novoCor5 = champsTier1Arr[chosen].cor;
+                    let novoCorBorder5 = champsTier1Arr[chosen].corBorda;
+                    let novoOrigem5 = champsTier1Arr[chosen].origem;
+                    let novoClasse5 = champsTier1Arr[chosen].classe;
+                    setOrigem5(novoOrigem5);
+                    setClasse5(novoClasse5);
+                    setCorBorder5(novoCorBorder5);
+                    setCor5(novoCor5);
+                    setChampImg5(novoImg5);
+                    setChampionNome5(novoChampBox5);
+                    setStarNumber5(novoStar5);
+
+                } else if (sorteioOdds5 >= 20 && sorteioOdds5 <= 54) {
+                    let chosen = Math.floor(Math.random() * (13 - 1)) + 1
+                    setchamp5(chosen);
+
+                    let novoChampBox5 = champsTier2Arr[chosen].nome;
+                    let novoImg5 = champsTier2Arr[chosen].imagem;
+                    let novoStar5 = champsTier2Arr[chosen].star;
+                    let novoCor5 = champsTier2Arr[chosen].cor;
+                    let novoCorBorder5 = champsTier2Arr[chosen].corBorda;
+                    let novoOrigem5 = champsTier2Arr[chosen].origem;
+                    let novoClasse5 = champsTier2Arr[chosen].classe;
+                    setOrigem5(novoOrigem5);
+                    setClasse5(novoClasse5);
+                    setCorBorder5(novoCorBorder5);
+                    setCor5(novoCor5);
+                    setChampImg5(novoImg5);
+                    setChampionNome5(novoChampBox5);
+                    setStarNumber5(novoStar5);
+
+                } else if (sorteioOdds5 >= 55 && sorteioOdds5 <= 84) {
+                    let chosen = Math.floor(Math.random() * (13 - 1)) + 1
+                    setchamp5(chosen);
+
+                    let novoChampBox5 = champsTier3Arr[chosen].nome;
+                    let novoImg5 = champsTier3Arr[chosen].imagem;
+                    let novoStar5 = champsTier3Arr[chosen].star;
+                    let novoCor5 = champsTier3Arr[chosen].cor;
+                    let novoCorBorder5 = champsTier3Arr[chosen].corBorda;
+                    let novoOrigem5 = champsTier3Arr[chosen].origem;
+                    let novoClasse5 = champsTier3Arr[chosen].classe;
+                    setOrigem5(novoOrigem5);
+                    setClasse5(novoClasse5);
+                    setCorBorder5(novoCorBorder5);
+                    setCor5(novoCor5);
+                    setChampImg5(novoImg5);
+                    setChampionNome5(novoChampBox5);
+                    setStarNumber5(novoStar5);
+                }
+                else if (sorteioOdds5 >= 85 && sorteioOdds5 <= 99) {
+                    let chosen = Math.floor(Math.random() * (10 - 1)) + 1
+                    setchamp5(chosen);
+
+                    let novoChampBox5 = champsTier4Arr[chosen].nome;
+                    let novoImg5 = champsTier4Arr[chosen].imagem;
+                    let novoStar5 = champsTier4Arr[chosen].star;
+                    let novoCor5 = champsTier4Arr[chosen].cor;
+                    let novoCorBorder5 = champsTier4Arr[chosen].corBorda;
+                    let novoOrigem5 = champsTier4Arr[chosen].origem;
+                    let novoClasse5 = champsTier4Arr[chosen].classe;
+                    setOrigem5(novoOrigem5);
+                    setClasse5(novoClasse5);
+                    setCorBorder5(novoCorBorder5);
+                    setCor5(novoCor5);
+                    setChampImg5(novoImg5);
+                    setChampionNome5(novoChampBox5);
+                    setStarNumber5(novoStar5);
+                }
+                else {
+                    let chosen = Math.floor(Math.random() * (8 - 1)) + 1
+                    setchamp5(chosen);
+
+                    let novoChampBox5 = champsTier5Arr[chosen].nome;
+                    let novoImg5 = champsTier5Arr[chosen].imagem;
+                    let novoStar5 = champsTier5Arr[chosen].star;
+                    let novoCor5 = champsTier5Arr[chosen].cor;
+                    let novoCorBorder5 = champsTier5Arr[chosen].corBorda;
+                    let novoOrigem5 = champsTier5Arr[chosen].origem;
+                    let novoClasse5 = champsTier5Arr[chosen].classe;
+                    setOrigem5(novoOrigem5);
+                    setClasse5(novoClasse5);
+                    setCorBorder5(novoCorBorder5);
+                    setCor5(novoCor5);
+                    setChampImg5(novoImg5);
+                    setChampionNome5(novoChampBox5);
+                    setStarNumber5(novoStar5);
+                }
+            }
+
+            // LEVEL 8
+            else if (level === 8 && gold > 1) {
+
+                // BOX1
+                if (sorteioOdds1 >= 1 && sorteioOdds1 <= 15) {
+                    let chosen = Math.floor(Math.random() * (13 - 1)) + 1
+                    setchamp1(chosen);
+
+                    let novoChampBox1 = champsTier1Arr[chosen].nome;
+                    let novoImg1 = champsTier1Arr[chosen].imagem;
+                    let novoStar1 = champsTier1Arr[chosen].star;
+                    let novoCor1 = champsTier1Arr[chosen].cor;
+                    let novoCorBorder1 = champsTier1Arr[chosen].corBorda;
+                    let novoOrigem1 = champsTier1Arr[chosen].origem;
+                    let novoClasse1 = champsTier1Arr[chosen].classe;
+                    setOrigem1(novoOrigem1);
+                    setClasse1(novoClasse1);
+                    setCorBorder1(novoCorBorder1);
+                    setCor1(novoCor1);
+                    setChampImg1(novoImg1);
+                    setChampionNome1(novoChampBox1);
+                    setStarNumber1(novoStar1);
+
+                } else if (sorteioOdds1 >= 16 && sorteioOdds1 <= 35) {
+                    let chosen = Math.floor(Math.random() * (13 - 1)) + 1
+                    setchamp1(chosen);
+
+                    let novoChampBox1 = champsTier2Arr[chosen].nome;
+                    let novoImg1 = champsTier2Arr[chosen].imagem;
+                    let novoStar1 = champsTier2Arr[chosen].star;
+                    let novoCor1 = champsTier2Arr[chosen].cor;
+                    let novoCorBorder1 = champsTier2Arr[chosen].corBorda;
+                    let novoOrigem1 = champsTier2Arr[chosen].origem;
+                    let novoClasse1 = champsTier2Arr[chosen].classe;
+                    setOrigem1(novoOrigem1);
+                    setClasse1(novoClasse1);
+                    setCorBorder1(novoCorBorder1);
+                    setCor1(novoCor1);
+                    setChampImg1(novoImg1);
+                    setChampionNome1(novoChampBox1);
+                    setStarNumber1(novoStar1);
+
+                } else if (sorteioOdds1 >= 36 && sorteioOdds1 <= 70) {
+                    let chosen = Math.floor(Math.random() * (13 - 1)) + 1
+                    setchamp1(chosen);
+
+                    let novoChampBox1 = champsTier3Arr[chosen].nome;
+                    let novoImg1 = champsTier3Arr[chosen].imagem;
+                    let novoStar1 = champsTier3Arr[chosen].star;
+                    let novoCor1 = champsTier3Arr[chosen].cor;
+                    let novoCorBorder1 = champsTier3Arr[chosen].corBorda;
+                    let novoOrigem1 = champsTier3Arr[chosen].origem;
+                    let novoClasse1 = champsTier3Arr[chosen].classe;
+                    setOrigem1(novoOrigem1);
+                    setClasse1(novoClasse1);
+                    setCorBorder1(novoCorBorder1);
+                    setCor1(novoCor1);
+                    setChampImg1(novoImg1);
+                    setChampionNome1(novoChampBox1);
+                    setStarNumber1(novoStar1);
+
+                } else if (sorteioOdds1 >= 71 && sorteioOdds1 <= 95) {
+                    let chosen = Math.floor(Math.random() * (10 - 1)) + 1
+                    setchamp1(chosen);
+
+                    let novoChampBox1 = champsTier4Arr[chosen].nome;
+                    let novoImg1 = champsTier4Arr[chosen].imagem;
+                    let novoStar1 = champsTier4Arr[chosen].star;
+                    let novoCor1 = champsTier4Arr[chosen].cor;
+                    let novoCorBorder1 = champsTier4Arr[chosen].corBorda;
+                    let novoOrigem1 = champsTier4Arr[chosen].origem;
+                    let novoClasse1 = champsTier4Arr[chosen].classe;
+                    setOrigem1(novoOrigem1);
+                    setClasse1(novoClasse1);
+                    setCorBorder1(novoCorBorder1);
+                    setCor1(novoCor1);
+                    setChampImg1(novoImg1);
+                    setChampionNome1(novoChampBox1);
+                    setStarNumber1(novoStar1);
+                } else {
+                    let chosen = Math.floor(Math.random() * (8 - 1)) + 1
+                    setchamp1(chosen);
+
+                    let novoChampBox1 = champsTier5Arr[chosen].nome;
+                    let novoImg1 = champsTier5Arr[chosen].imagem;
+                    let novoStar1 = champsTier5Arr[chosen].star;
+                    let novoCor1 = champsTier5Arr[chosen].cor;
+                    let novoCorBorder1 = champsTier5Arr[chosen].corBorda;
+                    let novoOrigem1 = champsTier5Arr[chosen].origem;
+                    let novoClasse1 = champsTier5Arr[chosen].classe;
+                    setOrigem1(novoOrigem1);
+                    setClasse1(novoClasse1);
+                    setCorBorder1(novoCorBorder1);
+                    setCor1(novoCor1);
+                    setChampImg1(novoImg1);
+                    setChampionNome1(novoChampBox1);
+                    setStarNumber1(novoStar1);
+                }
+
+                // BOX2
+                if (sorteioOdds2 >= 1 && sorteioOdds2 <= 15) {
+                    let chosen = Math.floor(Math.random() * (13 - 1)) + 1
+                    setchamp2(chosen);
+
+                    let novoChampBox2 = champsTier1Arr[chosen].nome;
+                    let novoImg2 = champsTier1Arr[chosen].imagem;
+                    let novoStar2 = champsTier1Arr[chosen].star;
+                    let novoCor2 = champsTier1Arr[chosen].cor;
+                    let novoCorBorder2 = champsTier1Arr[chosen].corBorda;
+                    let novoOrigem2 = champsTier1Arr[chosen].origem;
+                    let novoClasse2 = champsTier1Arr[chosen].classe;
+                    setOrigem2(novoOrigem2);
+                    setClasse2(novoClasse2);
+                    setCorBorder2(novoCorBorder2);
+                    setCor2(novoCor2);
+                    setChampImg2(novoImg2);
+                    setChampionNome2(novoChampBox2);
+                    setStarNumber2(novoStar2);
+
+                } else if (sorteioOdds2 >= 16 && sorteioOdds2 <= 35) {
+                    let chosen = Math.floor(Math.random() * (13 - 1)) + 1
+                    setchamp2(chosen);
+
+                    let novoChampBox2 = champsTier2Arr[chosen].nome;
+                    let novoImg2 = champsTier2Arr[chosen].imagem;
+                    let novoStar2 = champsTier2Arr[chosen].star;
+                    let novoCor2 = champsTier2Arr[chosen].cor;
+                    let novoCorBorder2 = champsTier2Arr[chosen].corBorda;
+                    let novoOrigem2 = champsTier2Arr[chosen].origem;
+                    let novoClasse2 = champsTier2Arr[chosen].classe;
+                    setOrigem2(novoOrigem2);
+                    setClasse2(novoClasse2);
+                    setCorBorder2(novoCorBorder2);
+                    setCor2(novoCor2);
+                    setChampImg2(novoImg2);
+                    setChampionNome2(novoChampBox2);
+                    setStarNumber2(novoStar2);
+                }
+                else if (sorteioOdds2 >= 36 && sorteioOdds2 <= 70) {
+                    let chosen = Math.floor(Math.random() * (13 - 1)) + 1
+                    setchamp2(chosen);
+
+                    let novoChampBox2 = champsTier3Arr[chosen].nome;
+                    let novoImg2 = champsTier3Arr[chosen].imagem;
+                    let novoStar2 = champsTier3Arr[chosen].star;
+                    let novoCor2 = champsTier3Arr[chosen].cor;
+                    let novoCorBorder2 = champsTier3Arr[chosen].corBorda;
+                    let novoOrigem2 = champsTier3Arr[chosen].origem;
+                    let novoClasse2 = champsTier3Arr[chosen].classe;
+                    setOrigem2(novoOrigem2);
+                    setClasse2(novoClasse2);
+                    setCorBorder2(novoCorBorder2);
+                    setCor2(novoCor2);
+                    setChampImg2(novoImg2);
+                    setChampionNome2(novoChampBox2);
+                    setStarNumber2(novoStar2);
+                }
+                else if (sorteioOdds2 >= 71 && sorteioOdds2 <= 95) {
+                    let chosen = Math.floor(Math.random() * (10 - 1)) + 1
+                    setchamp2(chosen);
+
+                    let novoChampBox2 = champsTier4Arr[chosen].nome;
+                    let novoImg2 = champsTier4Arr[chosen].imagem;
+                    let novoStar2 = champsTier4Arr[chosen].star;
+                    let novoCor2 = champsTier4Arr[chosen].cor;
+                    let novoCorBorder2 = champsTier4Arr[chosen].corBorda;
+                    let novoOrigem2 = champsTier4Arr[chosen].origem;
+                    let novoClasse2 = champsTier4Arr[chosen].classe;
+                    setOrigem2(novoOrigem2);
+                    setClasse2(novoClasse2);
+                    setCorBorder2(novoCorBorder2);
+                    setCor2(novoCor2);
+                    setChampImg2(novoImg2);
+                    setChampionNome2(novoChampBox2);
+                    setStarNumber2(novoStar2);
+                }
+                else {
+                    let chosen = Math.floor(Math.random() * (8 - 1)) + 1
+                    setchamp2(chosen);
+
+                    let novoChampBox2 = champsTier5Arr[chosen].nome;
+                    let novoImg2 = champsTier5Arr[chosen].imagem;
+                    let novoStar2 = champsTier5Arr[chosen].star;
+                    let novoCor2 = champsTier5Arr[chosen].cor;
+                    let novoCorBorder2 = champsTier5Arr[chosen].corBorda;
+                    let novoOrigem2 = champsTier5Arr[chosen].origem;
+                    let novoClasse2 = champsTier5Arr[chosen].classe;
+                    setOrigem2(novoOrigem2);
+                    setClasse2(novoClasse2);
+                    setCorBorder2(novoCorBorder2);
+                    setCor2(novoCor2);
+                    setChampImg2(novoImg2);
+                    setChampionNome2(novoChampBox2);
+                    setStarNumber2(novoStar2);
+                }
+
+                // BOX3
+                if (sorteioOdds3 >= 1 && sorteioOdds3 <= 15) {
+                    let chosen = Math.floor(Math.random() * (13 - 1)) + 1
+                    setchamp3(chosen);
+
+                    let novoChampBox3 = champsTier1Arr[chosen].nome;
+                    let novoImg3 = champsTier1Arr[chosen].imagem;
+                    let novoStar3 = champsTier1Arr[chosen].star;
+                    let novoCor3 = champsTier1Arr[chosen].cor;
+                    let novoCorBorder3 = champsTier1Arr[chosen].corBorda;
+                    let novoOrigem3 = champsTier1Arr[chosen].origem;
+                    let novoClasse3 = champsTier1Arr[chosen].classe;
+                    setOrigem3(novoOrigem3);
+                    setClasse3(novoClasse3);
+                    setCorBorder3(novoCorBorder3);
+                    setCor3(novoCor3);
+                    setChampImg3(novoImg3);
+                    setChampionNome3(novoChampBox3);
+                    setStarNumber3(novoStar3);
+
+                } else if (sorteioOdds3 >= 16 && sorteioOdds3 <= 35) {
+                    let chosen = Math.floor(Math.random() * (13 - 1)) + 1
+                    setchamp3(chosen);
+
+                    let novoChampBox3 = champsTier2Arr[chosen].nome;
+                    let novoImg3 = champsTier2Arr[chosen].imagem;
+                    let novoStar3 = champsTier2Arr[chosen].star;
+                    let novoCor3 = champsTier2Arr[chosen].cor;
+                    let novoCorBorder3 = champsTier2Arr[chosen].corBorda;
+                    let novoOrigem3 = champsTier2Arr[chosen].origem;
+                    let novoClasse3 = champsTier2Arr[chosen].classe;
+                    setOrigem3(novoOrigem3);
+                    setClasse3(novoClasse3);
+                    setCorBorder3(novoCorBorder3);
+                    setCor3(novoCor3);
+                    setChampImg3(novoImg3);
+                    setChampionNome3(novoChampBox3);
+                    setStarNumber3(novoStar3);
+
+                } else if (sorteioOdds3 >= 36 && sorteioOdds3 <= 70) {
+                    let chosen = Math.floor(Math.random() * (13 - 1)) + 1
+                    setchamp3(chosen);
+
+                    let novoChampBox3 = champsTier3Arr[chosen].nome;
+                    let novoImg3 = champsTier3Arr[chosen].imagem;
+                    let novoStar3 = champsTier3Arr[chosen].star;
+                    let novoCor3 = champsTier3Arr[chosen].cor;
+                    let novoCorBorder3 = champsTier3Arr[chosen].corBorda;
+                    let novoOrigem3 = champsTier3Arr[chosen].origem;
+                    let novoClasse3 = champsTier3Arr[chosen].classe;
+                    setOrigem3(novoOrigem3);
+                    setClasse3(novoClasse3);
+                    setCorBorder3(novoCorBorder3);
+                    setCor3(novoCor3);
+                    setChampImg3(novoImg3);
+                    setChampionNome3(novoChampBox3);
+                    setStarNumber3(novoStar3);
+                }
+                else if (sorteioOdds3 >= 71 && sorteioOdds3 <= 95) {
+                    let chosen = Math.floor(Math.random() * (10 - 1)) + 1
+                    setchamp3(chosen);
+
+                    let novoChampBox3 = champsTier4Arr[chosen].nome;
+                    let novoImg3 = champsTier4Arr[chosen].imagem;
+                    let novoStar3 = champsTier4Arr[chosen].star;
+                    let novoCor3 = champsTier4Arr[chosen].cor;
+                    let novoCorBorder3 = champsTier4Arr[chosen].corBorda;
+                    let novoOrigem3 = champsTier4Arr[chosen].origem;
+                    let novoClasse3 = champsTier4Arr[chosen].classe;
+                    setOrigem3(novoOrigem3);
+                    setClasse3(novoClasse3);
+                    setCorBorder3(novoCorBorder3);
+                    setCor3(novoCor3);
+                    setChampImg3(novoImg3);
+                    setChampionNome3(novoChampBox3);
+                    setStarNumber3(novoStar3);
+                }
+                else {
+                    let chosen = Math.floor(Math.random() * (8 - 1)) + 1
+                    setchamp3(chosen);
+
+                    let novoChampBox3 = champsTier5Arr[chosen].nome;
+                    let novoImg3 = champsTier5Arr[chosen].imagem;
+                    let novoStar3 = champsTier5Arr[chosen].star;
+                    let novoCor3 = champsTier5Arr[chosen].cor;
+                    let novoCorBorder3 = champsTier5Arr[chosen].corBorda;
+                    let novoOrigem3 = champsTier5Arr[chosen].origem;
+                    let novoClasse3 = champsTier5Arr[chosen].classe;
+                    setOrigem3(novoOrigem3);
+                    setClasse3(novoClasse3);
+                    setCorBorder3(novoCorBorder3);
+                    setCor3(novoCor3);
+                    setChampImg3(novoImg3);
+                    setChampionNome3(novoChampBox3);
+                    setStarNumber3(novoStar3);
+
+                }
+
+                // BOX4
+                if (sorteioOdds4 >= 1 && sorteioOdds4 <= 15) {
+                    let chosen = Math.floor(Math.random() * (13 - 1)) + 1
+                    setchamp4(chosen);
+
+                    let novoChampBox4 = champsTier1Arr[chosen].nome;
+                    let novoImg4 = champsTier1Arr[chosen].imagem;
+                    let novoStar4 = champsTier1Arr[chosen].star;
+                    let novoCor4 = champsTier1Arr[chosen].cor;
+                    let novoCorBorder4 = champsTier1Arr[chosen].corBorda;
+                    let novoOrigem4 = champsTier1Arr[chosen].origem;
+                    let novoClasse4 = champsTier1Arr[chosen].classe;
+                    setOrigem4(novoOrigem4);
+                    setClasse4(novoClasse4);
+                    setCorBorder4(novoCorBorder4);
+                    setCor4(novoCor4);
+                    setChampImg4(novoImg4);
+                    setChampionNome4(novoChampBox4);
+                    setStarNumber4(novoStar4);
+
+                } else if (sorteioOdds4 >= 16 && sorteioOdds4 <= 35) {
+                    let chosen = Math.floor(Math.random() * (13 - 1)) + 1
+                    setchamp4(chosen);
+
+                    let novoChampBox4 = champsTier2Arr[chosen].nome;
+                    let novoImg4 = champsTier2Arr[chosen].imagem;
+                    let novoStar4 = champsTier2Arr[chosen].star;
+                    let novoCor4 = champsTier2Arr[chosen].cor;
+                    let novoCorBorder4 = champsTier2Arr[chosen].corBorda;
+                    let novoOrigem4 = champsTier2Arr[chosen].origem;
+                    let novoClasse4 = champsTier2Arr[chosen].classe;
+                    setOrigem4(novoOrigem4);
+                    setClasse4(novoClasse4);
+                    setCorBorder4(novoCorBorder4);
+                    setCor4(novoCor4);
+                    setChampImg4(novoImg4);
+                    setChampionNome4(novoChampBox4);
+                    setStarNumber4(novoStar4);
+                }
+                else if (sorteioOdds4 >= 36 && sorteioOdds4 <= 70) {
+                    let chosen = Math.floor(Math.random() * (13 - 1)) + 1
+                    setchamp4(chosen);
+
+                    let novoChampBox4 = champsTier3Arr[chosen].nome;
+                    let novoImg4 = champsTier3Arr[chosen].imagem;
+                    let novoStar4 = champsTier3Arr[chosen].star;
+                    let novoCor4 = champsTier3Arr[chosen].cor;
+                    let novoCorBorder4 = champsTier3Arr[chosen].corBorda;
+                    let novoOrigem4 = champsTier3Arr[chosen].origem;
+                    let novoClasse4 = champsTier3Arr[chosen].classe;
+                    setOrigem4(novoOrigem4);
+                    setClasse4(novoClasse4);
+                    setCorBorder4(novoCorBorder4);
+                    setCor4(novoCor4);
+                    setChampImg4(novoImg4);
+                    setChampionNome4(novoChampBox4);
+                    setStarNumber4(novoStar4);
+                }
+                else if (sorteioOdds4 >= 71 && sorteioOdds4 <= 95) {
+                    let chosen = Math.floor(Math.random() * (10 - 1)) + 1
+                    setchamp4(chosen);
+
+                    let novoChampBox4 = champsTier4Arr[chosen].nome;
+                    let novoImg4 = champsTier4Arr[chosen].imagem;
+                    let novoStar4 = champsTier4Arr[chosen].star;
+                    let novoCor4 = champsTier4Arr[chosen].cor;
+                    let novoCorBorder4 = champsTier4Arr[chosen].corBorda;
+                    let novoOrigem4 = champsTier4Arr[chosen].origem;
+                    let novoClasse4 = champsTier4Arr[chosen].classe;
+                    setOrigem4(novoOrigem4);
+                    setClasse4(novoClasse4);
+                    setCorBorder4(novoCorBorder4);
+                    setCor4(novoCor4);
+                    setChampImg4(novoImg4);
+                    setChampionNome4(novoChampBox4);
+                    setStarNumber4(novoStar4);
+                }
+                else {
+                    let chosen = Math.floor(Math.random() * (8 - 1)) + 1
+                    setchamp4(chosen);
+
+                    let novoChampBox4 = champsTier5Arr[chosen].nome;
+                    let novoImg4 = champsTier5Arr[chosen].imagem;
+                    let novoStar4 = champsTier5Arr[chosen].star;
+                    let novoCor4 = champsTier5Arr[chosen].cor;
+                    let novoCorBorder4 = champsTier5Arr[chosen].corBorda;
+                    let novoOrigem4 = champsTier5Arr[chosen].origem;
+                    let novoClasse4 = champsTier5Arr[chosen].classe;
+                    setOrigem4(novoOrigem4);
+                    setClasse4(novoClasse4);
+                    setCorBorder4(novoCorBorder4);
+                    setCor4(novoCor4);
+                    setChampImg4(novoImg4);
+                    setChampionNome4(novoChampBox4);
+                    setStarNumber4(novoStar4);
+
+                }
+
+                // BOX5
+                if (sorteioOdds5 >= 1 && sorteioOdds5 <= 15) {
+                    let chosen = Math.floor(Math.random() * (13 - 1)) + 1
+                    setchamp5(chosen);
+
+                    let novoChampBox5 = champsTier1Arr[chosen].nome;
+                    let novoImg5 = champsTier1Arr[chosen].imagem;
+                    let novoStar5 = champsTier1Arr[chosen].star;
+                    let novoCor5 = champsTier1Arr[chosen].cor;
+                    let novoCorBorder5 = champsTier1Arr[chosen].corBorda;
+                    let novoOrigem5 = champsTier1Arr[chosen].origem;
+                    let novoClasse5 = champsTier1Arr[chosen].classe;
+                    setOrigem5(novoOrigem5);
+                    setClasse5(novoClasse5);
+                    setCorBorder5(novoCorBorder5);
+                    setCor5(novoCor5);
+                    setChampImg5(novoImg5);
+                    setChampionNome5(novoChampBox5);
+                    setStarNumber5(novoStar5);
+
+                } else if (sorteioOdds5 >= 16 && sorteioOdds5 <= 35) {
+                    let chosen = Math.floor(Math.random() * (13 - 1)) + 1
+                    setchamp5(chosen);
+
+                    let novoChampBox5 = champsTier2Arr[chosen].nome;
+                    let novoImg5 = champsTier2Arr[chosen].imagem;
+                    let novoStar5 = champsTier2Arr[chosen].star;
+                    let novoCor5 = champsTier2Arr[chosen].cor;
+                    let novoCorBorder5 = champsTier2Arr[chosen].corBorda;
+                    let novoOrigem5 = champsTier2Arr[chosen].origem;
+                    let novoClasse5 = champsTier2Arr[chosen].classe;
+                    setOrigem5(novoOrigem5);
+                    setClasse5(novoClasse5);
+                    setCorBorder5(novoCorBorder5);
+                    setCor5(novoCor5);
+                    setChampImg5(novoImg5);
+                    setChampionNome5(novoChampBox5);
+                    setStarNumber5(novoStar5);
+
+                } else if (sorteioOdds5 >= 36 && sorteioOdds5 <= 70) {
+                    let chosen = Math.floor(Math.random() * (13 - 1)) + 1
+                    setchamp5(chosen);
+
+                    let novoChampBox5 = champsTier3Arr[chosen].nome;
+                    let novoImg5 = champsTier3Arr[chosen].imagem;
+                    let novoStar5 = champsTier3Arr[chosen].star;
+                    let novoCor5 = champsTier3Arr[chosen].cor;
+                    let novoCorBorder5 = champsTier3Arr[chosen].corBorda;
+                    let novoOrigem5 = champsTier3Arr[chosen].origem;
+                    let novoClasse5 = champsTier3Arr[chosen].classe;
+                    setOrigem5(novoOrigem5);
+                    setClasse5(novoClasse5);
+                    setCorBorder5(novoCorBorder5);
+                    setCor5(novoCor5);
+                    setChampImg5(novoImg5);
+                    setChampionNome5(novoChampBox5);
+                    setStarNumber5(novoStar5);
+                }
+                else if (sorteioOdds5 >= 71 && sorteioOdds5 <= 95) {
+                    let chosen = Math.floor(Math.random() * (10 - 1)) + 1
+                    setchamp5(chosen);
+
+                    let novoChampBox5 = champsTier4Arr[chosen].nome;
+                    let novoImg5 = champsTier4Arr[chosen].imagem;
+                    let novoStar5 = champsTier4Arr[chosen].star;
+                    let novoCor5 = champsTier4Arr[chosen].cor;
+                    let novoCorBorder5 = champsTier4Arr[chosen].corBorda;
+                    let novoOrigem5 = champsTier4Arr[chosen].origem;
+                    let novoClasse5 = champsTier4Arr[chosen].classe;
+                    setOrigem5(novoOrigem5);
+                    setClasse5(novoClasse5);
+                    setCorBorder5(novoCorBorder5);
+                    setCor5(novoCor5);
+                    setChampImg5(novoImg5);
+                    setChampionNome5(novoChampBox5);
+                    setStarNumber5(novoStar5);
+                }
+                else {
+                    let chosen = Math.floor(Math.random() * (8 - 1)) + 1
+                    setchamp5(chosen);
+
+                    let novoChampBox5 = champsTier5Arr[chosen].nome;
+                    let novoImg5 = champsTier5Arr[chosen].imagem;
+                    let novoStar5 = champsTier5Arr[chosen].star;
+                    let novoCor5 = champsTier5Arr[chosen].cor;
+                    let novoCorBorder5 = champsTier5Arr[chosen].corBorda;
+                    let novoOrigem5 = champsTier5Arr[chosen].origem;
+                    let novoClasse5 = champsTier5Arr[chosen].classe;
+                    setOrigem5(novoOrigem5);
+                    setClasse5(novoClasse5);
+                    setCorBorder5(novoCorBorder5);
+                    setCor5(novoCor5);
+                    setChampImg5(novoImg5);
+                    setChampionNome5(novoChampBox5);
+                    setStarNumber5(novoStar5);
+                }
+            }
+
+            // LEVEL 9
+            else if (level === 9 && gold > 1) {
+
+                // BOX1
+                if (sorteioOdds1 >= 1 && sorteioOdds1 <= 10) {
+                    let chosen = Math.floor(Math.random() * (13 - 1)) + 1
+                    setchamp1(chosen);
+
+                    let novoChampBox1 = champsTier1Arr[chosen].nome;
+                    let novoImg1 = champsTier1Arr[chosen].imagem;
+                    let novoStar1 = champsTier1Arr[chosen].star;
+                    let novoCor1 = champsTier1Arr[chosen].cor;
+                    let novoCorBorder1 = champsTier1Arr[chosen].corBorda;
+                    let novoOrigem1 = champsTier1Arr[chosen].origem;
+                    let novoClasse1 = champsTier1Arr[chosen].classe;
+                    setOrigem1(novoOrigem1);
+                    setClasse1(novoClasse1);
+                    setCorBorder1(novoCorBorder1);
+                    setCor1(novoCor1);
+                    setChampImg1(novoImg1);
+                    setChampionNome1(novoChampBox1);
+                    setStarNumber1(novoStar1);
+
+                } else if (sorteioOdds1 >= 11 && sorteioOdds1 <= 25) {
+                    let chosen = Math.floor(Math.random() * (13 - 1)) + 1
+                    setchamp1(chosen);
+
+                    let novoChampBox1 = champsTier2Arr[chosen].nome;
+                    let novoImg1 = champsTier2Arr[chosen].imagem;
+                    let novoStar1 = champsTier2Arr[chosen].star;
+                    let novoCor1 = champsTier2Arr[chosen].cor;
+                    let novoCorBorder1 = champsTier2Arr[chosen].corBorda;
+                    let novoOrigem1 = champsTier2Arr[chosen].origem;
+                    let novoClasse1 = champsTier2Arr[chosen].classe;
+                    setOrigem1(novoOrigem1);
+                    setClasse1(novoClasse1);
+                    setCorBorder1(novoCorBorder1);
+                    setCor1(novoCor1);
+                    setChampImg1(novoImg1);
+                    setChampionNome1(novoChampBox1);
+                    setStarNumber1(novoStar1);
+
+                } else if (sorteioOdds1 >= 26 && sorteioOdds1 <= 55) {
+                    let chosen = Math.floor(Math.random() * (13 - 1)) + 1
+                    setchamp1(chosen);
+
+                    let novoChampBox1 = champsTier3Arr[chosen].nome;
+                    let novoImg1 = champsTier3Arr[chosen].imagem;
+                    let novoStar1 = champsTier3Arr[chosen].star;
+                    let novoCor1 = champsTier3Arr[chosen].cor;
+                    let novoCorBorder1 = champsTier3Arr[chosen].corBorda;
+                    let novoOrigem1 = champsTier3Arr[chosen].origem;
+                    let novoClasse1 = champsTier3Arr[chosen].classe;
+                    setOrigem1(novoOrigem1);
+                    setClasse1(novoClasse1);
+                    setCorBorder1(novoCorBorder1);
+                    setCor1(novoCor1);
+                    setChampImg1(novoImg1);
+                    setChampionNome1(novoChampBox1);
+                    setStarNumber1(novoStar1);
+
+                } else if (sorteioOdds1 >= 56 && sorteioOdds1 <= 85) {
+                    let chosen = Math.floor(Math.random() * (10 - 1)) + 1
+                    setchamp1(chosen);
+
+                    let novoChampBox1 = champsTier4Arr[chosen].nome;
+                    let novoImg1 = champsTier4Arr[chosen].imagem;
+                    let novoStar1 = champsTier4Arr[chosen].star;
+                    let novoCor1 = champsTier4Arr[chosen].cor;
+                    let novoCorBorder1 = champsTier4Arr[chosen].corBorda;
+                    let novoOrigem1 = champsTier4Arr[chosen].origem;
+                    let novoClasse1 = champsTier4Arr[chosen].classe;
+                    setOrigem1(novoOrigem1);
+                    setClasse1(novoClasse1);
+                    setCorBorder1(novoCorBorder1);
+                    setCor1(novoCor1);
+                    setChampImg1(novoImg1);
+                    setChampionNome1(novoChampBox1);
+                    setStarNumber1(novoStar1);
+                } else {
+                    let chosen = Math.floor(Math.random() * (8 - 1)) + 1
+                    setchamp1(chosen);
+
+                    let novoChampBox1 = champsTier5Arr[chosen].nome;
+                    let novoImg1 = champsTier5Arr[chosen].imagem;
+                    let novoStar1 = champsTier5Arr[chosen].star;
+                    let novoCor1 = champsTier5Arr[chosen].cor;
+                    let novoCorBorder1 = champsTier5Arr[chosen].corBorda;
+                    let novoOrigem1 = champsTier5Arr[chosen].origem;
+                    let novoClasse1 = champsTier5Arr[chosen].classe;
+                    setOrigem1(novoOrigem1);
+                    setClasse1(novoClasse1);
+                    setCorBorder1(novoCorBorder1);
+                    setCor1(novoCor1);
+                    setChampImg1(novoImg1);
+                    setChampionNome1(novoChampBox1);
+                    setStarNumber1(novoStar1);
+                }
+
+                // BOX2
+                if (sorteioOdds2 >= 1 && sorteioOdds2 <= 10) {
+                    let chosen = Math.floor(Math.random() * (13 - 1)) + 1
+                    setchamp2(chosen);
+
+                    let novoChampBox2 = champsTier1Arr[chosen].nome;
+                    let novoImg2 = champsTier1Arr[chosen].imagem;
+                    let novoStar2 = champsTier1Arr[chosen].star;
+                    let novoCor2 = champsTier1Arr[chosen].cor;
+                    let novoCorBorder2 = champsTier1Arr[chosen].corBorda;
+                    let novoOrigem2 = champsTier1Arr[chosen].origem;
+                    let novoClasse2 = champsTier1Arr[chosen].classe;
+                    setOrigem2(novoOrigem2);
+                    setClasse2(novoClasse2);
+                    setCorBorder2(novoCorBorder2);
+                    setCor2(novoCor2);
+                    setChampImg2(novoImg2);
+                    setChampionNome2(novoChampBox2);
+                    setStarNumber2(novoStar2);
+
+                } else if (sorteioOdds2 >= 11 && sorteioOdds2 <= 25) {
+                    let chosen = Math.floor(Math.random() * (13 - 1)) + 1
+                    setchamp2(chosen);
+
+                    let novoChampBox2 = champsTier2Arr[chosen].nome;
+                    let novoImg2 = champsTier2Arr[chosen].imagem;
+                    let novoStar2 = champsTier2Arr[chosen].star;
+                    let novoCor2 = champsTier2Arr[chosen].cor;
+                    let novoCorBorder2 = champsTier2Arr[chosen].corBorda;
+                    let novoOrigem2 = champsTier2Arr[chosen].origem;
+                    let novoClasse2 = champsTier2Arr[chosen].classe;
+                    setOrigem2(novoOrigem2);
+                    setClasse2(novoClasse2);
+                    setCorBorder2(novoCorBorder2);
+                    setCor2(novoCor2);
+                    setChampImg2(novoImg2);
+                    setChampionNome2(novoChampBox2);
+                    setStarNumber2(novoStar2);
+                }
+                else if (sorteioOdds2 >= 26 && sorteioOdds2 <= 55) {
+                    let chosen = Math.floor(Math.random() * (13 - 1)) + 1
+                    setchamp2(chosen);
+
+                    let novoChampBox2 = champsTier3Arr[chosen].nome;
+                    let novoImg2 = champsTier3Arr[chosen].imagem;
+                    let novoStar2 = champsTier3Arr[chosen].star;
+                    let novoCor2 = champsTier3Arr[chosen].cor;
+                    let novoCorBorder2 = champsTier3Arr[chosen].corBorda;
+                    let novoOrigem2 = champsTier3Arr[chosen].origem;
+                    let novoClasse2 = champsTier3Arr[chosen].classe;
+                    setOrigem2(novoOrigem2);
+                    setClasse2(novoClasse2);
+                    setCorBorder2(novoCorBorder2);
+                    setCor2(novoCor2);
+                    setChampImg2(novoImg2);
+                    setChampionNome2(novoChampBox2);
+                    setStarNumber2(novoStar2);
+                }
+                else if (sorteioOdds2 >= 56 && sorteioOdds2 <= 85) {
+                    let chosen = Math.floor(Math.random() * (10 - 1)) + 1
+                    setchamp2(chosen);
+
+                    let novoChampBox2 = champsTier4Arr[chosen].nome;
+                    let novoImg2 = champsTier4Arr[chosen].imagem;
+                    let novoStar2 = champsTier4Arr[chosen].star;
+                    let novoCor2 = champsTier4Arr[chosen].cor;
+                    let novoCorBorder2 = champsTier4Arr[chosen].corBorda;
+                    let novoOrigem2 = champsTier4Arr[chosen].origem;
+                    let novoClasse2 = champsTier4Arr[chosen].classe;
+                    setOrigem2(novoOrigem2);
+                    setClasse2(novoClasse2);
+                    setCorBorder2(novoCorBorder2);
+                    setCor2(novoCor2);
+                    setChampImg2(novoImg2);
+                    setChampionNome2(novoChampBox2);
+                    setStarNumber2(novoStar2);
+                }
+                else {
+                    let chosen = Math.floor(Math.random() * (8 - 1)) + 1
+                    setchamp2(chosen);
+
+                    let novoChampBox2 = champsTier5Arr[chosen].nome;
+                    let novoImg2 = champsTier5Arr[chosen].imagem;
+                    let novoStar2 = champsTier5Arr[chosen].star;
+                    let novoCor2 = champsTier5Arr[chosen].cor;
+                    let novoCorBorder2 = champsTier5Arr[chosen].corBorda;
+                    let novoOrigem2 = champsTier5Arr[chosen].origem;
+                    let novoClasse2 = champsTier5Arr[chosen].classe;
+                    setOrigem2(novoOrigem2);
+                    setClasse2(novoClasse2);
+                    setCorBorder2(novoCorBorder2);
+                    setCor2(novoCor2);
+                    setChampImg2(novoImg2);
+                    setChampionNome2(novoChampBox2);
+                    setStarNumber2(novoStar2);
+                }
+
+                // BOX3
+                if (sorteioOdds3 >= 1 && sorteioOdds3 <= 10) {
+                    let chosen = Math.floor(Math.random() * (13 - 1)) + 1
+                    setchamp3(chosen);
+
+                    let novoChampBox3 = champsTier1Arr[chosen].nome;
+                    let novoImg3 = champsTier1Arr[chosen].imagem;
+                    let novoStar3 = champsTier1Arr[chosen].star;
+                    let novoCor3 = champsTier1Arr[chosen].cor;
+                    let novoCorBorder3 = champsTier1Arr[chosen].corBorda;
+                    let novoOrigem3 = champsTier1Arr[chosen].origem;
+                    let novoClasse3 = champsTier1Arr[chosen].classe;
+                    setOrigem3(novoOrigem3);
+                    setClasse3(novoClasse3);
+                    setCorBorder3(novoCorBorder3);
+                    setCor3(novoCor3);
+                    setChampImg3(novoImg3);
+                    setChampionNome3(novoChampBox3);
+                    setStarNumber3(novoStar3);
+
+                } else if (sorteioOdds3 >= 11 && sorteioOdds3 <= 25) {
+                    let chosen = Math.floor(Math.random() * (13 - 1)) + 1
+                    setchamp3(chosen);
+
+                    let novoChampBox3 = champsTier2Arr[chosen].nome;
+                    let novoImg3 = champsTier2Arr[chosen].imagem;
+                    let novoStar3 = champsTier2Arr[chosen].star;
+                    let novoCor3 = champsTier2Arr[chosen].cor;
+                    let novoCorBorder3 = champsTier2Arr[chosen].corBorda;
+                    let novoOrigem3 = champsTier2Arr[chosen].origem;
+                    let novoClasse3 = champsTier2Arr[chosen].classe;
+                    setOrigem3(novoOrigem3);
+                    setClasse3(novoClasse3);
+                    setCorBorder3(novoCorBorder3);
+                    setCor3(novoCor3);
+                    setChampImg3(novoImg3);
+                    setChampionNome3(novoChampBox3);
+                    setStarNumber3(novoStar3);
+
+                } else if (sorteioOdds3 >= 26 && sorteioOdds3 <= 55) {
+                    let chosen = Math.floor(Math.random() * (13 - 1)) + 1
+                    setchamp3(chosen);
+
+                    let novoChampBox3 = champsTier3Arr[chosen].nome;
+                    let novoImg3 = champsTier3Arr[chosen].imagem;
+                    let novoStar3 = champsTier3Arr[chosen].star;
+                    let novoCor3 = champsTier3Arr[chosen].cor;
+                    let novoCorBorder3 = champsTier3Arr[chosen].corBorda;
+                    let novoOrigem3 = champsTier3Arr[chosen].origem;
+                    let novoClasse3 = champsTier3Arr[chosen].classe;
+                    setOrigem3(novoOrigem3);
+                    setClasse3(novoClasse3);
+                    setCorBorder3(novoCorBorder3);
+                    setCor3(novoCor3);
+                    setChampImg3(novoImg3);
+                    setChampionNome3(novoChampBox3);
+                    setStarNumber3(novoStar3);
+                }
+                else if (sorteioOdds3 >= 56 && sorteioOdds3 <= 85) {
+                    let chosen = Math.floor(Math.random() * (10 - 1)) + 1
+                    setchamp3(chosen);
+
+                    let novoChampBox3 = champsTier4Arr[chosen].nome;
+                    let novoImg3 = champsTier4Arr[chosen].imagem;
+                    let novoStar3 = champsTier4Arr[chosen].star;
+                    let novoCor3 = champsTier4Arr[chosen].cor;
+                    let novoCorBorder3 = champsTier4Arr[chosen].corBorda;
+                    let novoOrigem3 = champsTier4Arr[chosen].origem;
+                    let novoClasse3 = champsTier4Arr[chosen].classe;
+                    setOrigem3(novoOrigem3);
+                    setClasse3(novoClasse3);
+                    setCorBorder3(novoCorBorder3);
+                    setCor3(novoCor3);
+                    setChampImg3(novoImg3);
+                    setChampionNome3(novoChampBox3);
+                    setStarNumber3(novoStar3);
+                }
+                else {
+                    let chosen = Math.floor(Math.random() * (8 - 1)) + 1
+                    setchamp3(chosen);
+
+                    let novoChampBox3 = champsTier5Arr[chosen].nome;
+                    let novoImg3 = champsTier5Arr[chosen].imagem;
+                    let novoStar3 = champsTier5Arr[chosen].star;
+                    let novoCor3 = champsTier5Arr[chosen].cor;
+                    let novoCorBorder3 = champsTier5Arr[chosen].corBorda;
+                    let novoOrigem3 = champsTier5Arr[chosen].origem;
+                    let novoClasse3 = champsTier5Arr[chosen].classe;
+                    setOrigem3(novoOrigem3);
+                    setClasse3(novoClasse3);
+                    setCorBorder3(novoCorBorder3);
+                    setCor3(novoCor3);
+                    setChampImg3(novoImg3);
+                    setChampionNome3(novoChampBox3);
+                    setStarNumber3(novoStar3);
+
+                }
+
+                // BOX4
+                if (sorteioOdds4 >= 1 && sorteioOdds4 <= 10) {
+                    let chosen = Math.floor(Math.random() * (13 - 1)) + 1
+                    setchamp4(chosen);
+
+                    let novoChampBox4 = champsTier1Arr[chosen].nome;
+                    let novoImg4 = champsTier1Arr[chosen].imagem;
+                    let novoStar4 = champsTier1Arr[chosen].star;
+                    let novoCor4 = champsTier1Arr[chosen].cor;
+                    let novoCorBorder4 = champsTier1Arr[chosen].corBorda;
+                    let novoOrigem4 = champsTier1Arr[chosen].origem;
+                    let novoClasse4 = champsTier1Arr[chosen].classe;
+                    setOrigem4(novoOrigem4);
+                    setClasse4(novoClasse4);
+                    setCorBorder4(novoCorBorder4);
+                    setCor4(novoCor4);
+                    setChampImg4(novoImg4);
+                    setChampionNome4(novoChampBox4);
+                    setStarNumber4(novoStar4);
+
+                } else if (sorteioOdds4 >= 11 && sorteioOdds4 <= 25) {
+                    let chosen = Math.floor(Math.random() * (13 - 1)) + 1
+                    setchamp4(chosen);
+
+                    let novoChampBox4 = champsTier2Arr[chosen].nome;
+                    let novoImg4 = champsTier2Arr[chosen].imagem;
+                    let novoStar4 = champsTier2Arr[chosen].star;
+                    let novoCor4 = champsTier2Arr[chosen].cor;
+                    let novoCorBorder4 = champsTier2Arr[chosen].corBorda;
+                    let novoOrigem4 = champsTier2Arr[chosen].origem;
+                    let novoClasse4 = champsTier2Arr[chosen].classe;
+                    setOrigem4(novoOrigem4);
+                    setClasse4(novoClasse4);
+                    setCorBorder4(novoCorBorder4);
+                    setCor4(novoCor4);
+                    setChampImg4(novoImg4);
+                    setChampionNome4(novoChampBox4);
+                    setStarNumber4(novoStar4);
+                }
+                else if (sorteioOdds4 >= 26 && sorteioOdds4 <= 55) {
+                    let chosen = Math.floor(Math.random() * (13 - 1)) + 1
+                    setchamp4(chosen);
+
+                    let novoChampBox4 = champsTier3Arr[chosen].nome;
+                    let novoImg4 = champsTier3Arr[chosen].imagem;
+                    let novoStar4 = champsTier3Arr[chosen].star;
+                    let novoCor4 = champsTier3Arr[chosen].cor;
+                    let novoCorBorder4 = champsTier3Arr[chosen].corBorda;
+                    let novoOrigem4 = champsTier3Arr[chosen].origem;
+                    let novoClasse4 = champsTier3Arr[chosen].classe;
+                    setOrigem4(novoOrigem4);
+                    setClasse4(novoClasse4);
+                    setCorBorder4(novoCorBorder4);
+                    setCor4(novoCor4);
+                    setChampImg4(novoImg4);
+                    setChampionNome4(novoChampBox4);
+                    setStarNumber4(novoStar4);
+                }
+                else if (sorteioOdds4 >= 56 && sorteioOdds4 <= 85) {
+                    let chosen = Math.floor(Math.random() * (10 - 1)) + 1
+                    setchamp4(chosen);
+
+                    let novoChampBox4 = champsTier4Arr[chosen].nome;
+                    let novoImg4 = champsTier4Arr[chosen].imagem;
+                    let novoStar4 = champsTier4Arr[chosen].star;
+                    let novoCor4 = champsTier4Arr[chosen].cor;
+                    let novoCorBorder4 = champsTier4Arr[chosen].corBorda;
+                    let novoOrigem4 = champsTier4Arr[chosen].origem;
+                    let novoClasse4 = champsTier4Arr[chosen].classe;
+                    setOrigem4(novoOrigem4);
+                    setClasse4(novoClasse4);
+                    setCorBorder4(novoCorBorder4);
+                    setCor4(novoCor4);
+                    setChampImg4(novoImg4);
+                    setChampionNome4(novoChampBox4);
+                    setStarNumber4(novoStar4);
+                }
+                else {
+                    let chosen = Math.floor(Math.random() * (8 - 1)) + 1
+                    setchamp4(chosen);
+
+                    let novoChampBox4 = champsTier5Arr[chosen].nome;
+                    let novoImg4 = champsTier5Arr[chosen].imagem;
+                    let novoStar4 = champsTier5Arr[chosen].star;
+                    let novoCor4 = champsTier5Arr[chosen].cor;
+                    let novoCorBorder4 = champsTier5Arr[chosen].corBorda;
+                    let novoOrigem4 = champsTier5Arr[chosen].origem;
+                    let novoClasse4 = champsTier5Arr[chosen].classe;
+                    setOrigem4(novoOrigem4);
+                    setClasse4(novoClasse4);
+                    setCorBorder4(novoCorBorder4);
+                    setCor4(novoCor4);
+                    setChampImg4(novoImg4);
+                    setChampionNome4(novoChampBox4);
+                    setStarNumber4(novoStar4);
+
+                }
+
+                // BOX5
+                if (sorteioOdds5 >= 1 && sorteioOdds5 <= 10) {
+                    let chosen = Math.floor(Math.random() * (13 - 1)) + 1
+                    setchamp5(chosen);
+
+                    let novoChampBox5 = champsTier1Arr[chosen].nome;
+                    let novoImg5 = champsTier1Arr[chosen].imagem;
+                    let novoStar5 = champsTier1Arr[chosen].star;
+                    let novoCor5 = champsTier1Arr[chosen].cor;
+                    let novoCorBorder5 = champsTier1Arr[chosen].corBorda;
+                    let novoOrigem5 = champsTier1Arr[chosen].origem;
+                    let novoClasse5 = champsTier1Arr[chosen].classe;
+                    setOrigem5(novoOrigem5);
+                    setClasse5(novoClasse5);
+                    setCorBorder5(novoCorBorder5);
+                    setCor5(novoCor5);
+                    setChampImg5(novoImg5);
+                    setChampionNome5(novoChampBox5);
+                    setStarNumber5(novoStar5);
+
+                } else if (sorteioOdds5 >= 11 && sorteioOdds5 <= 25) {
+                    let chosen = Math.floor(Math.random() * (13 - 1)) + 1
+                    setchamp5(chosen);
+
+                    let novoChampBox5 = champsTier2Arr[chosen].nome;
+                    let novoImg5 = champsTier2Arr[chosen].imagem;
+                    let novoStar5 = champsTier2Arr[chosen].star;
+                    let novoCor5 = champsTier2Arr[chosen].cor;
+                    let novoCorBorder5 = champsTier2Arr[chosen].corBorda;
+                    let novoOrigem5 = champsTier2Arr[chosen].origem;
+                    let novoClasse5 = champsTier2Arr[chosen].classe;
+                    setOrigem5(novoOrigem5);
+                    setClasse5(novoClasse5);
+                    setCorBorder5(novoCorBorder5);
+                    setCor5(novoCor5);
+                    setChampImg5(novoImg5);
+                    setChampionNome5(novoChampBox5);
+                    setStarNumber5(novoStar5);
+
+                } else if (sorteioOdds5 >= 26 && sorteioOdds5 <= 55) {
+                    let chosen = Math.floor(Math.random() * (13 - 1)) + 1
+                    setchamp5(chosen);
+
+                    let novoChampBox5 = champsTier3Arr[chosen].nome;
+                    let novoImg5 = champsTier3Arr[chosen].imagem;
+                    let novoStar5 = champsTier3Arr[chosen].star;
+                    let novoCor5 = champsTier3Arr[chosen].cor;
+                    let novoCorBorder5 = champsTier3Arr[chosen].corBorda;
+                    let novoOrigem5 = champsTier3Arr[chosen].origem;
+                    let novoClasse5 = champsTier3Arr[chosen].classe;
+                    setOrigem5(novoOrigem5);
+                    setClasse5(novoClasse5);
+                    setCorBorder5(novoCorBorder5);
+                    setCor5(novoCor5);
+                    setChampImg5(novoImg5);
+                    setChampionNome5(novoChampBox5);
+                    setStarNumber5(novoStar5);
+                }
+                else if (sorteioOdds5 >= 56 && sorteioOdds5 <= 85) {
+                    let chosen = Math.floor(Math.random() * (10 - 1)) + 1
+                    setchamp5(chosen);
+
+                    let novoChampBox5 = champsTier4Arr[chosen].nome;
+                    let novoImg5 = champsTier4Arr[chosen].imagem;
+                    let novoStar5 = champsTier4Arr[chosen].star;
+                    let novoCor5 = champsTier4Arr[chosen].cor;
+                    let novoCorBorder5 = champsTier4Arr[chosen].corBorda;
+                    let novoOrigem5 = champsTier4Arr[chosen].origem;
+                    let novoClasse5 = champsTier4Arr[chosen].classe;
+                    setOrigem5(novoOrigem5);
+                    setClasse5(novoClasse5);
+                    setCorBorder5(novoCorBorder5);
+                    setCor5(novoCor5);
+                    setChampImg5(novoImg5);
+                    setChampionNome5(novoChampBox5);
+                    setStarNumber5(novoStar5);
+                }
+                else {
+                    let chosen = Math.floor(Math.random() * (8 - 1)) + 1
+                    setchamp5(chosen);
+
+                    let novoChampBox5 = champsTier5Arr[chosen].nome;
+                    let novoImg5 = champsTier5Arr[chosen].imagem;
+                    let novoStar5 = champsTier5Arr[chosen].star;
+                    let novoCor5 = champsTier5Arr[chosen].cor;
+                    let novoCorBorder5 = champsTier5Arr[chosen].corBorda;
+                    let novoOrigem5 = champsTier5Arr[chosen].origem;
+                    let novoClasse5 = champsTier5Arr[chosen].classe;
+                    setOrigem5(novoOrigem5);
+                    setClasse5(novoClasse5);
+                    setCorBorder5(novoCorBorder5);
+                    setCor5(novoCor5);
+                    setChampImg5(novoImg5);
+                    setChampionNome5(novoChampBox5);
+                    setStarNumber5(novoStar5);
+                }
+            }
+
+
         }
     }
 
@@ -1213,8 +3518,8 @@ export default function Store() {
                         onClick={BuyChamp1} onMouseDown={startPaper}>
                         <img src={champImg1} className="champImg"></img>
                         <div className="origemEClasse">
-                            {/* <p>{sorteio1}</p>
-                            <p>{champ1}</p> */}
+                            <p>{sorteio1}</p>
+                            <p>{champ1}</p>
                             <p>{origem1}</p>
                             <p>{classe1}</p>
                         </div>
@@ -1230,8 +3535,8 @@ export default function Store() {
                         onClick={BuyChamp2} onMouseDown={startPaper}>
                         <img src={champImg2} className="champImg"></img>
                         <div className="origemEClasse">
-                            {/* <p>{sorteio2}</p>
-                            <p>{champ2}</p> */}
+                            <p>{sorteio2}</p>
+                            <p>{champ2}</p>
                             <p>{origem2}</p>
                             <p>{classe2}</p>
                         </div>
@@ -1247,8 +3552,8 @@ export default function Store() {
                         onClick={BuyChamp3} onMouseDown={startPaper}>
                         <img src={champImg3} className="champImg"></img>
                         <div className="origemEClasse">
-                            {/* <p>{sorteio3}</p>
-                            <p>{champ3}</p> */}
+                            <p>{sorteio3}</p>
+                            <p>{champ3}</p>
                             <p>{origem3}</p>
                             <p>{classe3}</p>
                         </div>
@@ -1264,8 +3569,8 @@ export default function Store() {
                         onClick={BuyChamp4} onMouseDown={startPaper}>
                         <img src={champImg4} className="champImg"></img>
                         <div className="origemEClasse">
-                            {/* <p>{sorteio4}</p>
-                            <p>{champ4}</p> */}
+                            <p>{sorteio4}</p>
+                            <p>{champ4}</p>
                             <p>{origem4}</p>
                             <p>{classe4}</p>
                         </div>
@@ -1281,8 +3586,8 @@ export default function Store() {
                         onClick={BuyChamp5} onMouseDown={startPaper}>
                         <img src={champImg5} className="champImg"></img>
                         <div className="origemEClasse">
-                            {/* <p>{sorteio5}</p>
-                            <p>{champ5}</p> */}
+                            <p>{sorteio5}</p>
+                            <p>{champ5}</p>
                             <p>{origem5}</p>
                             <p>{classe5}</p>
                         </div>

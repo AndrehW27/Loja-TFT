@@ -17,7 +17,7 @@ export default function App() {
   return (
     <div className="App">
 
-      {/* {loadState === true &&
+      {loadState === true &&
         <div className="loadingContainer">
           <div className="loadingImg">
           </div>
@@ -26,7 +26,7 @@ export default function App() {
             <p>Loading ...</p>         
           </div>
         </div>
-      } */}
+      }
 
       <Store />
     </div>
